@@ -1,0 +1,31 @@
+/* SmartBuild Color Palette - Theo tài liệu thiết kế */
+
+:root {
+  /* Màu chính (Primary) */
+  --color-primary: #5A3E2B; /* Nâu đậm - Header, footer, tiêu đề chính */
+  
+  /* Màu phụ (Secondary) */
+  --color-secondary: #D4A373; /* Vàng đất - Nút hành động chính (CTA), giá, báo giá, highlight */
+  
+  /* Màu nền (Background) - Beige/Off-white */
+  --color-bg-primary: #F5F1EB; /* Beige nhạt - Nền chính toàn site */
+  --color-bg-secondary: #F5F1EB; /* Beige nhạt - Nền section, card phụ */
+  
+  /* Màu nhấn (Accent) */
+  --color-accent: #C18F59; /* Vàng cát đậm - Icon nhấn, trạng thái hover */
+  
+  /* Màu chữ (Text) */
+  --color-text-primary: #3A2A1E; /* Nâu sẫm - Text chính */
+  --color-text-secondary: #6B5E53; /* Xám nâu - Text phụ, mô tả */
+  
+  /* Màu trạng thái */
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-error: #dc3545;
+  --color-info: #17a2b8;
+  
+  /* Màu border */
+  --color-border: #E0D5C4;
+  --color-border-light: #F5F0E8;
+}
+

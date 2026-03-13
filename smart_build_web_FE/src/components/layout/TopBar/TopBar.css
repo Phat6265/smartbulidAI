@@ -1,0 +1,76 @@
+/* TopBar Styles */
+.topbar {
+  background-color: #2c2c2c;
+  color: var(--color-bg-primary);
+  padding: 0.5rem 0;
+  font-size: var(--font-size-sm);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.topbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.topbar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-bg-primary);
+  text-decoration: none;
+  transition: color 200ms ease-out;
+  white-space: nowrap;
+}
+
+.topbar-item:hover {
+  color: var(--color-secondary);
+}
+
+.topbar-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.topbar-website-name {
+  color: var(--color-bg-primary);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .topbar-content {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .topbar-left {
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .topbar-item {
+    font-size: 0.8125rem;
+  }
+
+  .topbar-website-name {
+    font-size: 0.8125rem;
+    width: 100%;
+    text-align: left;
+  }
+}

@@ -1,0 +1,374 @@
+/* Phone Camera Component - Locket Style */
+.phone-camera {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Phone Frame */
+.phone-frame {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  background: linear-gradient(135deg, #2c1810 0%, #3d2415 100%);
+  border-radius: 40px;
+  padding: 12px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 0 4px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Phone Notch (Top) */
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 25px;
+  background: linear-gradient(135deg, #2c1810 0%, #3d2415 100%);
+  border-radius: 0 0 20px 20px;
+  z-index: 10;
+}
+
+/* Phone Screen */
+.phone-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background: #000;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Viewfinder (Camera View) */
+.phone-viewfinder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phone-video--flip {
+  transform: scaleX(-1);
+}
+
+/* Preview Image */
+.phone-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.phone-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Loading State */
+.phone-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-bg-primary);
+  z-index: 5;
+}
+
+.phone-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: var(--color-bg-primary);
+  border-radius: 50%;
+  animation: phone-spin 1s linear infinite;
+}
+
+@keyframes phone-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.phone-loading p {
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+/* Error State */
+.phone-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--color-bg-primary);
+  z-index: 5;
+  padding: 1rem;
+}
+
+.phone-error p {
+  margin: 0 0 1rem;
+  font-size: var(--font-size-sm);
+}
+
+.phone-btn-retry {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-bg-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--font-size-sm);
+  transition: all 200ms ease-out;
+}
+
+.phone-btn-retry:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Control Buttons */
+.phone-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 2rem;
+  z-index: 10;
+}
+
+/* Switch Camera Button */
+.phone-btn-switch {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+  font-size: 1.2rem;
+}
+
+.phone-btn-switch:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.phone-btn-switch:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Capture Button */
+.phone-btn-capture {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: transparent;
+  border: 4px solid var(--color-bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+  position: relative;
+}
+
+.phone-btn-capture-inner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-bg-primary);
+  transition: all 150ms ease-out;
+}
+
+.phone-btn-capture:active:not(:disabled) .phone-btn-capture-inner {
+  transform: scale(0.85);
+}
+
+.phone-btn-capture:hover:not(:disabled) {
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.phone-btn-capture:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Upload Button */
+.phone-btn-upload {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+  font-size: 1.2rem;
+}
+
+.phone-btn-upload:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.phone-btn-upload:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Remove Button */
+.phone-btn-remove {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+  font-size: 1.2rem;
+  z-index: 10;
+}
+
+.phone-btn-remove:hover {
+  background: rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+/* Phone Bottom Bezel */
+.phone-bezel {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+
+/* Hidden Input */
+.phone-input {
+  display: none;
+}
+
+/* Instructions */
+.phone-instructions {
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.phone-instructions p {
+  margin: 0.25rem 0;
+  font-size: var(--font-size-sm);
+}
+
+.phone-instructions-hint {
+  font-size: var(--font-size-xs) !important;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .phone-frame {
+    max-width: 100%;
+    border-radius: 30px;
+    padding: 10px;
+  }
+
+  .phone-screen {
+    border-radius: 24px;
+  }
+
+  .phone-controls {
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .phone-btn-capture {
+    width: 64px;
+    height: 64px;
+  }
+
+  .phone-btn-capture-inner {
+    width: 48px;
+    height: 48px;
+  }
+
+  .phone-btn-switch,
+  .phone-btn-upload {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .phone-loading-spinner {
+    animation: none;
+  }
+
+  .phone-btn-capture:active:not(:disabled) .phone-btn-capture-inner {
+    transform: none;
+  }
+
+  .phone-btn-switch:hover:not(:disabled),
+  .phone-btn-upload:hover:not(:disabled),
+  .phone-btn-capture:hover:not(:disabled),
+  .phone-btn-remove:hover {
+    transform: none;
+  }
+}
+

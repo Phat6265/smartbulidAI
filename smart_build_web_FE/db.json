@@ -1,0 +1,4014 @@
+{
+  "materials": [
+    {
+      "id": "1",
+      "name": "Gạch ống 8x8x19",
+      "category": "brick",
+      "subcategory": "gach-dat-nung",
+      "technicalSpecs": {
+        "size": "8x8x19 cm",
+        "material": "Đất sét nung",
+        "standard": "TCVN 1451:1998"
+      },
+      "priceReference": 1200,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Ong+8x8x19"
+      ],
+      "status": "active",
+      "_id": "1",
+      "unit": "viên",
+      "description": "Gạch ống tiêu chuẩn cho xây dựng tường nhà.",
+      "imagePath": ""
+    },
+    {
+      "id": "90",
+      "name": "Sắt tròn trơn D10",
+      "category": "iron",
+      "subcategory": "sat-tron-tron",
+      "technicalSpecs": {
+        "size": "Đường kính 10mm",
+        "material": "Sắt tròn trơn",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 17000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Tron+Tron+D10"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt tròn trơn dùng cho gia công, trang trí."
+    },
+    {
+      "id": "91",
+      "name": "Sắt gân D12",
+      "category": "iron",
+      "subcategory": "sat-gan",
+      "technicalSpecs": {
+        "size": "Đường kính 12mm",
+        "material": "Sắt gân",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 18500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Gan+D12"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt gân dùng cho gia công, kết cấu nhỏ."
+    },
+    {
+      "id": "92",
+      "name": "Sắt chữ V 50x50",
+      "category": "iron",
+      "subcategory": "sat-chu-v",
+      "technicalSpecs": {
+        "size": "V50x50",
+        "material": "Sắt hình chữ V",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 19000000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Chu+V+50x50"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Sắt hình chữ V dùng cho gia công, trang trí."
+    },
+    {
+      "id": "93",
+      "name": "Sắt chữ U 80",
+      "category": "iron",
+      "subcategory": "sat-chu-u",
+      "technicalSpecs": {
+        "size": "U80",
+        "material": "Sắt hình chữ U",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 19500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Chu+U+80"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Sắt hình chữ U dùng cho gia công, trang trí."
+    },
+    {
+      "id": "94",
+      "name": "Sắt chữ I 100",
+      "category": "iron",
+      "subcategory": "sat-chu-i",
+      "technicalSpecs": {
+        "size": "I100",
+        "material": "Sắt hình chữ I",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 21000000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Chu+I+100"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Sắt hình chữ I dùng cho gia công, kết cấu nhẹ."
+    },
+    {
+      "id": "95",
+      "name": "Sắt chữ H 150",
+      "category": "iron",
+      "subcategory": "sat-chu-h",
+      "technicalSpecs": {
+        "size": "H150",
+        "material": "Sắt hình chữ H",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 23000000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Chu+H+150"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Sắt hình chữ H dùng cho gia công, trang trí."
+    },
+    {
+      "id": "96",
+      "name": "Thép chữ I 200",
+      "category": "steel",
+      "subcategory": "thep-chu-i",
+      "technicalSpecs": {
+        "size": "I200",
+        "material": "Thép hình chữ I",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 26000000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Chu+I+200"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Thép hình chữ I dùng cho kết cấu thép."
+    },
+    {
+      "id": "97",
+      "name": "Thép chữ H 200",
+      "category": "steel",
+      "subcategory": "thep-chu-h",
+      "technicalSpecs": {
+        "size": "H200",
+        "material": "Thép hình chữ H",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 27500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Chu+H+200"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Thép hình chữ H dùng cho kết cấu khung."
+    },
+    {
+      "id": "98",
+      "name": "Thép chữ U 160",
+      "category": "steel",
+      "subcategory": "thep-chu-u",
+      "technicalSpecs": {
+        "size": "U160",
+        "material": "Thép hình chữ U",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 24500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Chu+U+160"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Thép hình chữ U dùng cho kết cấu thép."
+    },
+    {
+      "id": "99",
+      "name": "Thép chữ V 80x80",
+      "category": "steel",
+      "subcategory": "thep-chu-v",
+      "technicalSpecs": {
+        "size": "V80x80",
+        "material": "Thép hình chữ V",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 23500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Chu+V+80x80"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Thép hình chữ V dùng cho kết cấu thép."
+    },
+    {
+      "id": "100",
+      "name": "Thép tiêu chuẩn CB240",
+      "category": "steel",
+      "subcategory": "cb240",
+      "technicalSpecs": {
+        "size": "CB240",
+        "material": "Thép cốt bê tông",
+        "standard": "TCVN 1651-1:2018"
+      },
+      "priceReference": 18000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+CB240"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép tiêu chuẩn CB240 dùng cho kết cấu bê tông cốt thép."
+    },
+    {
+      "id": "101",
+      "name": "Thép tiêu chuẩn CB300",
+      "category": "steel",
+      "subcategory": "cb300",
+      "technicalSpecs": {
+        "size": "CB300",
+        "material": "Thép cốt bê tông",
+        "standard": "TCVN 1651-1:2018"
+      },
+      "priceReference": 19000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+CB300"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép tiêu chuẩn CB300 dùng cho kết cấu bê tông cốt thép."
+    },
+    {
+      "id": "102",
+      "name": "Thép tiêu chuẩn CB400",
+      "category": "steel",
+      "subcategory": "cb400",
+      "technicalSpecs": {
+        "size": "CB400",
+        "material": "Thép cốt bê tông",
+        "standard": "TCVN 1651-1:2018"
+      },
+      "priceReference": 20000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+CB400"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép tiêu chuẩn CB400 dùng cho kết cấu bê tông cốt thép."
+    },
+    {
+      "id": "103",
+      "name": "Thép tiêu chuẩn CB500",
+      "category": "steel",
+      "subcategory": "cb500",
+      "technicalSpecs": {
+        "size": "CB500",
+        "material": "Thép cốt bê tông",
+        "standard": "TCVN 1651-1:2018"
+      },
+      "priceReference": 21500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+CB500"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép tiêu chuẩn CB500 dùng cho kết cấu bê tông cốt thép."
+    },
+    {
+      "id": "104",
+      "name": "Xi măng bao 50kg PCB30",
+      "category": "cement",
+      "subcategory": "bao-50kg",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "PCB30",
+        "standard": "TCVN 6260:2009"
+      },
+      "priceReference": 90000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+Bao+50kg"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB30 đóng bao 50kg dùng cho xây tô."
+    },
+    {
+      "id": "105",
+      "name": "Xi măng Hà Tiên PCB40",
+      "category": "cement",
+      "subcategory": "ha-tien",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "PCB40",
+        "standard": "TCVN 6260:2009"
+      },
+      "priceReference": 105000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+Ha+Tien"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB40 thương hiệu Hà Tiên."
+    },
+    {
+      "id": "106",
+      "name": "Xi măng Nghi Sơn PCB40",
+      "category": "cement",
+      "subcategory": "nghi-son",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "PCB40",
+        "standard": "TCVN 6260:2009"
+      },
+      "priceReference": 102000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+Nghi+Son"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB40 thương hiệu Nghi Sơn."
+    },
+    {
+      "id": "107",
+      "name": "Xi măng Chinfon PCB40",
+      "category": "cement",
+      "subcategory": "chinfon",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "PCB40",
+        "standard": "TCVN 6260:2009"
+      },
+      "priceReference": 101000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+Chinfon"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB40 thương hiệu Chinfon."
+    },
+    {
+      "id": "108",
+      "name": "Xi măng Bỉm Sơn PCB40",
+      "category": "cement",
+      "subcategory": "bim-son",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "PCB40",
+        "standard": "TCVN 6260:2009"
+      },
+      "priceReference": 100000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+Bim+Son"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB40 thương hiệu Bỉm Sơn."
+    },
+    {
+      "id": "109",
+      "name": "Xi măng INSEE PCB40",
+      "category": "cement",
+      "subcategory": "insee",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "PCB40",
+        "standard": "TCVN 6260:2009"
+      },
+      "priceReference": 110000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+INSEE"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB40 thương hiệu INSEE."
+    },
+    {
+      "id": "110",
+      "name": "Ống cấp nước PVC D21",
+      "category": "pipe",
+      "subcategory": "ong-cap-nuoc-pvc",
+      "technicalSpecs": {
+        "size": "DN21",
+        "material": "PVC",
+        "standard": "TCVN 6151:1996"
+      },
+      "priceReference": 18000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Cap+Nuoc+PVC+DN21"
+      ],
+      "status": "active",
+      "unit": "m",
+      "description": "Ống cấp nước PVC DN21 dùng cho hệ thống cấp nước sinh hoạt."
+    },
+    {
+      "id": "111",
+      "name": "Ống cấp nước PPR D25",
+      "category": "pipe",
+      "subcategory": "ong-cap-nuoc-ppr",
+      "technicalSpecs": {
+        "size": "DN25",
+        "material": "PPR",
+        "standard": "DIN 8077/8078"
+      },
+      "priceReference": 32000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Cap+Nuoc+PPR+DN25"
+      ],
+      "status": "active",
+      "unit": "m",
+      "description": "Ống cấp nước PPR DN25 dùng cho nước nóng và lạnh."
+    },
+    {
+      "id": "112",
+      "name": "Ống cấp nước PEX D20",
+      "category": "pipe",
+      "subcategory": "ong-cap-nuoc-pex",
+      "technicalSpecs": {
+        "size": "DN20",
+        "material": "PEX",
+        "standard": "ASTM F876"
+      },
+      "priceReference": 28000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Cap+Nuoc+PEX+DN20"
+      ],
+      "status": "active",
+      "unit": "m",
+      "description": "Ống cấp nước PEX DN20 dùng cho hệ thống cấp nước linh hoạt."
+    },
+    {
+      "id": "113",
+      "name": "Ống cấp nước HDPE D32",
+      "category": "pipe",
+      "subcategory": "ong-cap-nuoc-hdpe",
+      "technicalSpecs": {
+        "size": "DN32",
+        "material": "HDPE",
+        "standard": "TCVN 7305-2:2003"
+      },
+      "priceReference": 35000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Cap+Nuoc+HDPE+DN32"
+      ],
+      "status": "active",
+      "unit": "m",
+      "description": "Ống cấp nước HDPE DN32 dùng cho hệ thống cấp nước ngầm."
+    },
+    {
+      "id": "114",
+      "name": "Gạch lát ceramic 30x30",
+      "category": "brick",
+      "subcategory": "gach-30x30",
+      "technicalSpecs": {
+        "size": "30x30 cm",
+        "material": "Ceramic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 135000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+30x30"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch lát nền ceramic kích thước 30x30 cm."
+    },
+    {
+      "id": "115",
+      "name": "Gạch lát granite 40x40",
+      "category": "brick",
+      "subcategory": "gach-40x40",
+      "technicalSpecs": {
+        "size": "40x40 cm",
+        "material": "Granite",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 185000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+40x40"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch lát nền granite kích thước 40x40 cm."
+    },
+    {
+      "id": "116",
+      "name": "Gạch lát porcelain 60x60",
+      "category": "brick",
+      "subcategory": "gach-60x60",
+      "technicalSpecs": {
+        "size": "60x60 cm",
+        "material": "Porcelain",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 245000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+60x60"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch lát nền porcelain kích thước 60x60 cm."
+    },
+    {
+      "id": "117",
+      "name": "Gạch lát ceramic 30x60",
+      "category": "brick",
+      "subcategory": "gach-30x60",
+      "technicalSpecs": {
+        "size": "30x60 cm",
+        "material": "Ceramic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 195000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+30x60"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch lát / ốp tường ceramic kích thước 30x60 cm."
+    },
+    {
+      "id": "2",
+      "name": "Gạch ống 10x10x20",
+      "category": "brick",
+      "subcategory": "gach-dat-nung",
+      "technicalSpecs": {
+        "size": "10x10x20 cm",
+        "material": "Đất sét nung",
+        "standard": "TCVN 1451:1998"
+      },
+      "priceReference": 1350,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Ong+10x10x20"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": ""
+    },
+    {
+      "id": "3",
+      "name": "Gạch block 10x20x40",
+      "category": "brick",
+      "subcategory": "gach-block",
+      "technicalSpecs": {
+        "size": "10x20x40 cm",
+        "material": "Bê tông",
+        "standard": "TCVN 6477:2016"
+      },
+      "priceReference": 3500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Block+10x20x40"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": ""
+    },
+    {
+      "id": "4",
+      "name": "Gạch block 15x20x40",
+      "category": "brick",
+      "subcategory": "gach-block",
+      "technicalSpecs": {
+        "size": "15x20x40 cm",
+        "material": "Bê tông",
+        "standard": "TCVN 6477:2016"
+      },
+      "priceReference": 4200,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Block+15x20x40"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": ""
+    },
+    {
+      "id": "5",
+      "name": "Gạch tuynel 8x8x19",
+      "category": "brick",
+      "subcategory": "gach-dat-nung",
+      "technicalSpecs": {
+        "size": "8x8x19 cm",
+        "material": "Đất sét nung",
+        "standard": "TCVN 1451:1998"
+      },
+      "priceReference": 1100,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Tuynel+8x8x19"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": ""
+    },
+    {
+      "id": "6",
+      "name": "Gạch tuynel 10x10x20",
+      "category": "brick",
+      "subcategory": "gach-dat-nung",
+      "technicalSpecs": {
+        "size": "10x10x20 cm",
+        "material": "Đất sét nung",
+        "standard": "TCVN 1451:1998"
+      },
+      "priceReference": 1250,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Tuynel+10x10x20"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": ""
+    },
+    {
+      "id": "7",
+      "name": "Gạch không nung 10x20x40",
+      "category": "brick",
+      "subcategory": "gach-khong-nung",
+      "technicalSpecs": {
+        "size": "10x20x40 cm",
+        "material": "Xi măng, cát, đá",
+        "standard": "TCVN 6477:2016"
+      },
+      "priceReference": 3200,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Khong+Nung"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": ""
+    },
+    {
+      "id": "8",
+      "name": "Gạch không nung 15x20x40",
+      "category": "brick",
+      "subcategory": "gach-khong-nung",
+      "technicalSpecs": {
+        "size": "15x20x40 cm",
+        "material": "Xi măng, cát, đá",
+        "standard": "TCVN 6477:2016"
+      },
+      "priceReference": 3800,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Khong+Nung+15x20x40"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": ""
+    },
+    {
+      "id": "9",
+      "name": "Gạch ceramic 30x30",
+      "category": "brick",
+      "subcategory": "gach-ceramic",
+      "technicalSpecs": {
+        "size": "30x30 cm",
+        "material": "Đất sét, men ceramic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 85000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Ceramic+30x30"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": ""
+    },
+    {
+      "id": "10",
+      "name": "Gạch ceramic 40x40",
+      "category": "brick",
+      "subcategory": "gach-ceramic",
+      "technicalSpecs": {
+        "size": "40x40 cm",
+        "material": "Đất sét, men ceramic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 120000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Ceramic+40x40"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": ""
+    },
+    {
+      "id": "11",
+      "name": "Xi măng Hà Tiên PC30",
+      "category": "cement",
+      "subcategory": "pcb30",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009"
+      },
+      "priceReference": 85000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PC30"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": ""
+    },
+    {
+      "id": "12",
+      "name": "Xi măng Nghi Sơn PC30",
+      "category": "cement",
+      "subcategory": "pcb30",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009"
+      },
+      "priceReference": 88000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+NS+PC30"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": ""
+    },
+    {
+      "id": "13",
+      "name": "Xi măng Hà Tiên PC40",
+      "category": "cement",
+      "subcategory": "pcb40",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009"
+      },
+      "priceReference": 95000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PC40"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": ""
+    },
+    {
+      "id": "14",
+      "name": "Xi măng Nghi Sơn PC40",
+      "category": "cement",
+      "subcategory": "pcb40",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009"
+      },
+      "priceReference": 98000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+NS+PC40"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": ""
+    },
+    {
+      "id": "15",
+      "name": "Xi măng Hà Tiên PC50",
+      "category": "cement",
+      "subcategory": "pcb50",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009"
+      },
+      "priceReference": 105000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PC50"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": ""
+    },
+    {
+      "id": "16",
+      "name": "Xi măng Nghi Sơn PC50",
+      "category": "cement",
+      "subcategory": "pcb50",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009"
+      },
+      "priceReference": 108000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+NS+PC50"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": ""
+    },
+    {
+      "id": "17",
+      "name": "Xi măng trắng Hà Tiên",
+      "category": "cement",
+      "subcategory": "pcb30",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng trắng",
+        "standard": "TCVN 6260:2009"
+      },
+      "priceReference": 180000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+Trang"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": ""
+    },
+    {
+      "id": "18",
+      "name": "Xi măng trắng Sông Gianh",
+      "category": "cement",
+      "subcategory": "pcb30",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng trắng",
+        "standard": "TCVN 6260:2009"
+      },
+      "priceReference": 175000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+Trang+SG"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": ""
+    },
+    {
+      "id": "19",
+      "name": "Xi măng chống thấm Sika",
+      "category": "cement",
+      "subcategory": "pcb40",
+      "technicalSpecs": {
+        "size": "Bao 25kg",
+        "material": "Xi măng chống thấm",
+        "standard": "TCVN 8826:2011"
+      },
+      "priceReference": 280000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+Chong+Tham"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": ""
+    },
+    {
+      "id": "20",
+      "name": "Xi măng chống thấm Kova",
+      "category": "cement",
+      "subcategory": "pcb40",
+      "technicalSpecs": {
+        "size": "Bao 25kg",
+        "material": "Xi măng chống thấm",
+        "standard": "TCVN 8826:2011"
+      },
+      "priceReference": 275000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+Chong+Tham+Kova"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": ""
+    },
+    {
+      "id": "21",
+      "name": "Cát xây dựng",
+      "category": "sand-stone",
+      "subcategory": "cat-xay",
+      "technicalSpecs": {
+        "size": "Hạt 0.5-2mm",
+        "material": "Cát tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 250000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+Xay+Dung"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": ""
+    },
+    {
+      "id": "22",
+      "name": "Cát xây dựng sàng",
+      "category": "sand-stone",
+      "subcategory": "cat-xay",
+      "technicalSpecs": {
+        "size": "Hạt 0.5-2mm",
+        "material": "Cát tự nhiên đã sàng",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 280000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+Xay+Sang"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": ""
+    },
+    {
+      "id": "23",
+      "name": "Cát bê tông",
+      "category": "sand-stone",
+      "subcategory": "cat-be-tong",
+      "technicalSpecs": {
+        "size": "Hạt 0.15-5mm",
+        "material": "Cát tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 320000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+Be+Tong"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": ""
+    },
+    {
+      "id": "24",
+      "name": "Cát bê tông sàng",
+      "category": "sand-stone",
+      "subcategory": "cat-be-tong",
+      "technicalSpecs": {
+        "size": "Hạt 0.15-5mm",
+        "material": "Cát tự nhiên đã sàng",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 350000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+Be+Tong+Sang"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": ""
+    },
+    {
+      "id": "25",
+      "name": "Đá 1x2",
+      "category": "sand-stone",
+      "subcategory": "da-1x2",
+      "technicalSpecs": {
+        "size": "Hạt 10-20mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 300000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+1x2"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": ""
+    },
+    {
+      "id": "26",
+      "name": "Đá 1x2 sàng",
+      "category": "sand-stone",
+      "subcategory": "da-1x2",
+      "technicalSpecs": {
+        "size": "Hạt 10-20mm",
+        "material": "Đá tự nhiên đã sàng",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 330000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+1x2+Sang"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": ""
+    },
+    {
+      "id": "27",
+      "name": "Đá 0x4",
+      "category": "sand-stone",
+      "subcategory": "da-2x4",
+      "technicalSpecs": {
+        "size": "Hạt 0-40mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 280000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+0x4"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": ""
+    },
+    {
+      "id": "28",
+      "name": "Đá 0x4 sàng",
+      "category": "sand-stone",
+      "subcategory": "da-2x4",
+      "technicalSpecs": {
+        "size": "Hạt 0-40mm",
+        "material": "Đá tự nhiên đã sàng",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 310000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+0x4+Sang"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": ""
+    },
+    {
+      "id": "29",
+      "name": "Đá mi sàng",
+      "category": "sand-stone",
+      "subcategory": "da-mi-sang",
+      "technicalSpecs": {
+        "size": "Hạt 5-10mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 270000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+Mi+Sang"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": ""
+    },
+    {
+      "id": "30",
+      "name": "Đá mi bụi",
+      "category": "sand-stone",
+      "subcategory": "da-mi-sang",
+      "technicalSpecs": {
+        "size": "Hạt 0-5mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 260000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+Mi+Bui"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": ""
+    },
+    {
+      "id": "31",
+      "name": "Thép cây D10",
+      "category": "steel",
+      "subcategory": "thep-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 10mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 18500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cay+D10"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": ""
+    },
+    {
+      "id": "32",
+      "name": "Thép cây D12",
+      "category": "steel",
+      "subcategory": "thep-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 12mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 19500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cay+D12"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": ""
+    },
+    {
+      "id": "33",
+      "name": "Thép cây D14",
+      "category": "steel",
+      "subcategory": "thep-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 14mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 21000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cay+D14"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": ""
+    },
+    {
+      "id": "34",
+      "name": "Thép cây D16",
+      "category": "steel",
+      "subcategory": "thep-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 16mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 22500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cay+D16"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": ""
+    },
+    {
+      "id": "35",
+      "name": "Thép cuộn D6",
+      "category": "steel",
+      "subcategory": "thep-cuon",
+      "technicalSpecs": {
+        "size": "Đường kính 6mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 16500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cuon+D6"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": ""
+    },
+    {
+      "id": "36",
+      "name": "Thép cuộn D8",
+      "category": "steel",
+      "subcategory": "thep-cuon",
+      "technicalSpecs": {
+        "size": "Đường kính 8mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 17500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cuon+D8"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": ""
+    },
+    {
+      "id": "37",
+      "name": "Thép hình I100",
+      "category": "steel",
+      "subcategory": "thep-hinh",
+      "technicalSpecs": {
+        "size": "I100x100x6x8",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 18500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Hinh+I100"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": ""
+    },
+    {
+      "id": "38",
+      "name": "Thép hình I150",
+      "category": "steel",
+      "subcategory": "thep-hinh",
+      "technicalSpecs": {
+        "size": "I150x150x7x10",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 22500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Hinh+I150"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": ""
+    },
+    {
+      "id": "39",
+      "name": "Thép tấm 3mm",
+      "category": "steel",
+      "subcategory": "thep-tam",
+      "technicalSpecs": {
+        "size": "Dày 3mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 18500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Tam+3mm"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": ""
+    },
+    {
+      "id": "40",
+      "name": "Thép tấm 5mm",
+      "category": "steel",
+      "subcategory": "thep-tam",
+      "technicalSpecs": {
+        "size": "Dày 5mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 19500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Tam+5mm"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": ""
+    },
+    {
+      "id": "41",
+      "name": "Thép ống D21.3",
+      "category": "steel",
+      "subcategory": "thep-ong",
+      "technicalSpecs": {
+        "size": "Đường kính 21.3mm",
+        "material": "Thép ống",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 45000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Ong+D21.3"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": ""
+    },
+    {
+      "id": "42",
+      "name": "Thép ống D27",
+      "category": "steel",
+      "subcategory": "thep-ong",
+      "technicalSpecs": {
+        "size": "Đường kính 27mm",
+        "material": "Thép ống",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 55000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Ong+D27"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": ""
+    },
+    {
+      "id": "43",
+      "name": "Ống thẳng PVC D90",
+      "category": "pipe",
+      "subcategory": "ong-thang",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 90mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 75000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Thang+PVC+D90"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Ống thẳng PVC đường kính 90mm"
+    },
+    {
+      "id": "44",
+      "name": "Ống thẳng PVC D110",
+      "category": "pipe",
+      "subcategory": "ong-thang",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 110mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 85000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Thang+PVC+D110"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Ống thẳng PVC đường kính 110mm"
+    },
+    {
+      "id": "45",
+      "name": "Ống thẳng PVC D160",
+      "category": "pipe",
+      "subcategory": "ong-thang",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 160mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 120000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Thang+PVC+D160"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Ống thẳng PVC đường kính 160mm"
+    },
+    {
+      "id": "46",
+      "name": "Ống thẳng HDPE D90",
+      "category": "pipe",
+      "subcategory": "ong-thang",
+      "materialType": "HDPE",
+      "technicalSpecs": {
+        "size": "Đường kính 90mm",
+        "material": "HDPE",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 95000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Thang+HDPE+D90"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Ống thẳng HDPE đường kính 90mm"
+    },
+    {
+      "id": "47",
+      "name": "Ống thẳng HDPE D110",
+      "category": "pipe",
+      "subcategory": "ong-thang",
+      "materialType": "HDPE",
+      "technicalSpecs": {
+        "size": "Đường kính 110mm",
+        "material": "HDPE",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 110000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Thang+HDPE+D110"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Ống thẳng HDPE đường kính 110mm"
+    },
+    {
+      "id": "48",
+      "name": "Ống điện PVC D20",
+      "category": "pipe",
+      "subcategory": "ong-thoat-nuoc-pvc",
+      "technicalSpecs": {
+        "size": "Đường kính 20mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 15000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Dien+PVC+D20"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": ""
+    },
+    {
+      "id": "49",
+      "name": "Ống điện PVC D25",
+      "category": "pipe",
+      "subcategory": "ong-thoat-nuoc-pvc",
+      "technicalSpecs": {
+        "size": "Đường kính 25mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 18000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Dien+PVC+D25"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": ""
+    },
+    {
+      "id": "50",
+      "name": "Ống điện HDPE D20",
+      "category": "pipe",
+      "subcategory": "ong-thoat-nuoc-pvc",
+      "technicalSpecs": {
+        "size": "Đường kính 20mm",
+        "material": "HDPE",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 22000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Dien+HDPE+D20"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": ""
+    },
+    {
+      "id": "51",
+      "name": "Ống điện HDPE D25",
+      "category": "pipe",
+      "subcategory": "ong-thoat-nuoc-pvc",
+      "technicalSpecs": {
+        "size": "Đường kính 25mm",
+        "material": "HDPE",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 25000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Dien+HDPE+D25"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": ""
+    },
+    {
+      "id": "52",
+      "name": "Ống thẳng PPR D20",
+      "category": "pipe",
+      "subcategory": "ong-thang",
+      "materialType": "PPR",
+      "technicalSpecs": {
+        "size": "Đường kính 20mm",
+        "material": "PPR",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 35000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Thang+PPR+D20"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Ống thẳng PPR đường kính 20mm"
+    },
+    {
+      "id": "53",
+      "name": "Ống thẳng PPR D25",
+      "category": "pipe",
+      "subcategory": "ong-thang",
+      "materialType": "PPR",
+      "technicalSpecs": {
+        "size": "Đường kính 25mm",
+        "material": "PPR",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 42000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Thang+PPR+D25"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Ống thẳng PPR đường kính 25mm"
+    },
+    {
+      "id": "54",
+      "name": "Đá Granite Kim Sa Trung",
+      "category": "brick",
+      "subcategory": "gach-granite",
+      "technicalSpecs": {
+        "size": "Khổ 60cm",
+        "material": "Đá Granite tự nhiên",
+        "standard": "Nhập khẩu Ấn Độ"
+      },
+      "priceReference": 1200000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Granite+Kim+Sa"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Đá ốp lát cao cấp cho bàn bếp, cầu thang."
+    },
+    {
+      "id": "55",
+      "name": "Sàn gỗ công nghiệp Inovar",
+      "category": "wood",
+      "subcategory": "san-go",
+      "technicalSpecs": {
+        "size": "12mm",
+        "material": "HDF công nghiệp",
+        "standard": "E1 tiêu chuẩn Châu Âu"
+      },
+      "priceReference": 450000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=San+Go+Inovar"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Sàn gỗ chịu nước cao cấp."
+    },
+    {
+      "id": "56",
+      "name": "Sắt cây D10",
+      "category": "iron",
+      "subcategory": "sat-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 10mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 16500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Cay+D10"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt cây xây dựng đường kính 10mm"
+    },
+    {
+      "id": "57",
+      "name": "Sắt cây D12",
+      "category": "iron",
+      "subcategory": "sat-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 12mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 17500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Cay+D12"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt cây xây dựng đường kính 12mm"
+    },
+    {
+      "id": "58",
+      "name": "Sắt cuộn D6",
+      "category": "iron",
+      "subcategory": "sat-cuon",
+      "technicalSpecs": {
+        "size": "Đường kính 6mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 15500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Cuon+D6"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt cuộn đường kính 6mm"
+    },
+    {
+      "id": "59",
+      "name": "Sắt cuộn D8",
+      "category": "iron",
+      "subcategory": "sat-cuon",
+      "technicalSpecs": {
+        "size": "Đường kính 8mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 16000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Cuon+D8"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt cuộn đường kính 8mm"
+    },
+    {
+      "id": "60",
+      "name": "Sắt tấm 3mm",
+      "category": "iron",
+      "subcategory": "sat-tam",
+      "technicalSpecs": {
+        "size": "Dày 3mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 17500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Tam+3mm"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Sắt tấm dày 3mm"
+    },
+    {
+      "id": "61",
+      "name": "Sắt ống D21.3",
+      "category": "iron",
+      "subcategory": "sat-ong",
+      "technicalSpecs": {
+        "size": "Đường kính 21.3mm",
+        "material": "Sắt ống",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 42000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Ong+D21.3"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Sắt ống đường kính 21.3mm"
+    },
+    {
+      "id": "62",
+      "name": "Sắt hộp 20x40",
+      "category": "iron",
+      "subcategory": "sat-hop",
+      "technicalSpecs": {
+        "size": "20x40mm",
+        "material": "Sắt hộp",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 48000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Hop+20x40"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Sắt hộp vuông 20x40mm"
+    },
+    {
+      "id": "63",
+      "name": "Cát tô",
+      "category": "sand-stone",
+      "subcategory": "cat-to",
+      "technicalSpecs": {
+        "size": "Hạt 0.1-0.5mm",
+        "material": "Cát tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 270000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+To"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Cát tô mịn cho công trình"
+    },
+    {
+      "id": "64",
+      "name": "Cát san lấp",
+      "category": "sand-stone",
+      "subcategory": "cat-san-lap",
+      "technicalSpecs": {
+        "size": "Hạt 0.5-5mm",
+        "material": "Cát tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 200000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+San+Lap"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Cát san lấp nền móng"
+    },
+    {
+      "id": "65",
+      "name": "Đá 2x4",
+      "category": "sand-stone",
+      "subcategory": "da-2x4",
+      "technicalSpecs": {
+        "size": "Hạt 20-40mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 320000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+2x4"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Đá 2x4 cho bê tông"
+    },
+    {
+      "id": "66",
+      "name": "Đá 4x6",
+      "category": "sand-stone",
+      "subcategory": "da-4x6",
+      "technicalSpecs": {
+        "size": "Hạt 40-60mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 340000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+4x6"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Đá 4x6 cho bê tông"
+    },
+    {
+      "id": "67",
+      "name": "Đá mi bụi",
+      "category": "sand-stone",
+      "subcategory": "da-mi-bui",
+      "technicalSpecs": {
+        "size": "Hạt 0-5mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 260000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+Mi+Bui"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Đá mi bụi cho bê tông"
+    },
+    {
+      "id": "68",
+      "name": "Ống thẳng PEX D20",
+      "category": "pipe",
+      "subcategory": "ong-thang",
+      "materialType": "PEX",
+      "technicalSpecs": {
+        "size": "Đường kính 20mm",
+        "material": "PEX",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 45000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Cap+Nuoc+PEX+D20"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Ống cấp nước PEX đường kính 20mm"
+    },
+    {
+      "id": "69",
+      "name": "Ống thông hơi PVC D110",
+      "category": "pipe",
+      "subcategory": "ong-thong-hoi",
+      "technicalSpecs": {
+        "size": "Đường kính 110mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 95000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Thong+Hoi+PVC+D110"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Ống thông hơi PVC đường kính 110mm"
+    },
+    {
+      "id": "70",
+      "name": "Gạch bê tông khí 10x20x40",
+      "category": "brick",
+      "subcategory": "gach-be-tong-khi",
+      "technicalSpecs": {
+        "size": "10x20x40 cm",
+        "material": "Bê tông khí",
+        "standard": "TCVN 7959:2017"
+      },
+      "priceReference": 4500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Be+Tong+Khi+10x20x40"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": "Gạch bê tông khí nhẹ, cách nhiệt tốt"
+    },
+    {
+      "id": "71",
+      "name": "Gạch porcelain 60x60",
+      "category": "brick",
+      "subcategory": "gach-porcelain",
+      "technicalSpecs": {
+        "size": "60x60 cm",
+        "material": "Porcelain",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 180000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Porcelain+60x60"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch porcelain cao cấp kích thước 60x60"
+    },
+    {
+      "id": "72",
+      "name": "Gạch mosaic 30x30",
+      "category": "brick",
+      "subcategory": "gach-mosaic",
+      "technicalSpecs": {
+        "size": "30x30 cm",
+        "material": "Mosaic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 150000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Mosaic+30x30"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch mosaic trang trí 30x30"
+    },
+    {
+      "id": "73",
+      "name": "Co 90° PVC D90",
+      "category": "pipe",
+      "subcategory": "co-90",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 90mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 45000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Co+90+PVC+D90"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Co 90° PVC đường kính 90mm"
+    },
+    {
+      "id": "74",
+      "name": "Co 90° PVC D110",
+      "category": "pipe",
+      "subcategory": "co-90",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 110mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 55000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Co+90+PVC+D110"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Co 90° PVC đường kính 110mm"
+    },
+    {
+      "id": "75",
+      "name": "Co 90° PPR D20",
+      "category": "pipe",
+      "subcategory": "co-90",
+      "materialType": "PPR",
+      "technicalSpecs": {
+        "size": "Đường kính 20mm",
+        "material": "PPR",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 25000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Co+90+PPR+D20"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Co 90° PPR đường kính 20mm"
+    },
+    {
+      "id": "76",
+      "name": "Co 90° HDPE D90",
+      "category": "pipe",
+      "subcategory": "co-90",
+      "materialType": "HDPE",
+      "technicalSpecs": {
+        "size": "Đường kính 90mm",
+        "material": "HDPE",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 65000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Co+90+HDPE+D90"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Co 90° HDPE đường kính 90mm"
+    },
+    {
+      "id": "77",
+      "name": "Co 45° PVC D90",
+      "category": "pipe",
+      "subcategory": "co-45",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 90mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 40000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Co+45+PVC+D90"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Co 45° PVC đường kính 90mm"
+    },
+    {
+      "id": "78",
+      "name": "Tê PVC D90",
+      "category": "pipe",
+      "subcategory": "te",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 90mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 50000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Te+PVC+D90"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Tê PVC đường kính 90mm"
+    },
+    {
+      "id": "79",
+      "name": "Tê PPR D20",
+      "category": "pipe",
+      "subcategory": "te",
+      "materialType": "PPR",
+      "technicalSpecs": {
+        "size": "Đường kính 20mm",
+        "material": "PPR",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 30000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Te+PPR+D20"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Tê PPR đường kính 20mm"
+    },
+    {
+      "id": "80",
+      "name": "Ống thẳng PEX D20",
+      "category": "pipe",
+      "subcategory": "ong-thang",
+      "materialType": "PEX",
+      "technicalSpecs": {
+        "size": "Đường kính 20mm",
+        "material": "PEX",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 45000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Ong+Thang+PEX+D20"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Ống thẳng PEX đường kính 20mm"
+    },
+    {
+      "id": "81",
+      "name": "Nối thẳng PVC D90",
+      "category": "pipe",
+      "subcategory": "noi-thang",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 90mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 35000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Noi+Thang+PVC+D90"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Nối thẳng PVC đường kính 90mm"
+    },
+    {
+      "id": "82",
+      "name": "Nối thẳng PPR D20",
+      "category": "pipe",
+      "subcategory": "noi-thang",
+      "materialType": "PPR",
+      "technicalSpecs": {
+        "size": "Đường kính 20mm",
+        "material": "PPR",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 20000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Noi+Thang+PPR+D20"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Nối thẳng PPR đường kính 20mm"
+    },
+    {
+      "id": "83",
+      "name": "Giảm PVC D110/D90",
+      "category": "pipe",
+      "subcategory": "giam",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "D110/D90mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 50000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Giam+PVC+D110-D90"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Giảm PVC từ D110 xuống D90"
+    },
+    {
+      "id": "84",
+      "name": "Đầu bịt PVC D90",
+      "category": "pipe",
+      "subcategory": "dau-bit",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 90mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 25000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Dau+Bit+PVC+D90"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Đầu bịt PVC đường kính 90mm"
+    },
+    {
+      "id": "85",
+      "name": "Đầu ren PVC D20",
+      "category": "pipe",
+      "subcategory": "dau-ren",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 20mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 30000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Dau+Ren+PVC+D20"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Đầu ren PVC đường kính 20mm"
+    },
+    {
+      "id": "86",
+      "name": "Van PVC D90",
+      "category": "pipe",
+      "subcategory": "van",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 90mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 120000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Van+PVC+D90"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Van PVC đường kính 90mm"
+    },
+    {
+      "id": "87",
+      "name": "Khoen đai treo PVC D90",
+      "category": "pipe",
+      "subcategory": "khoen-dai-treo",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 90mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 15000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Khoen+Dai+Treo+PVC+D90"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Khoen đai treo PVC đường kính 90mm"
+    },
+    {
+      "id": "88",
+      "name": "Sắt cây D10",
+      "category": "iron",
+      "subcategory": "sat-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 10mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 16500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Cay+D10"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt cây xây dựng đường kính 10mm"
+    },
+    {
+      "id": "89",
+      "name": "Sắt cây D12",
+      "category": "iron",
+      "subcategory": "sat-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 12mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 17500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Cay+D12"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt cây xây dựng đường kính 12mm"
+    },
+    {
+      "id": "90",
+      "name": "Sắt cây D14",
+      "category": "iron",
+      "subcategory": "sat-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 14mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 18500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Cay+D14"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt cây xây dựng đường kính 14mm"
+    },
+    {
+      "id": "91",
+      "name": "Sắt cuộn D6",
+      "category": "iron",
+      "subcategory": "sat-cuon",
+      "technicalSpecs": {
+        "size": "Đường kính 6mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 15500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Cuon+D6"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt cuộn đường kính 6mm"
+    },
+    {
+      "id": "92",
+      "name": "Sắt cuộn D8",
+      "category": "iron",
+      "subcategory": "sat-cuon",
+      "technicalSpecs": {
+        "size": "Đường kính 8mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 16000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Cuon+D8"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt cuộn đường kính 8mm"
+    },
+    {
+      "id": "93",
+      "name": "Sắt tấm 3mm",
+      "category": "iron",
+      "subcategory": "sat-tam",
+      "technicalSpecs": {
+        "size": "Dày 3mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 17500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Tam+3mm"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Sắt tấm dày 3mm"
+    },
+    {
+      "id": "94",
+      "name": "Sắt tấm 5mm",
+      "category": "iron",
+      "subcategory": "sat-tam",
+      "technicalSpecs": {
+        "size": "Dày 5mm",
+        "material": "Sắt cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 18500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Tam+5mm"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Sắt tấm dày 5mm"
+    },
+    {
+      "id": "95",
+      "name": "Sắt ống D21.3",
+      "category": "iron",
+      "subcategory": "sat-ong",
+      "technicalSpecs": {
+        "size": "Đường kính 21.3mm",
+        "material": "Sắt ống",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 42000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Ong+D21.3"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Sắt ống đường kính 21.3mm"
+    },
+    {
+      "id": "96",
+      "name": "Sắt ống D27",
+      "category": "iron",
+      "subcategory": "sat-ong",
+      "technicalSpecs": {
+        "size": "Đường kính 27mm",
+        "material": "Sắt ống",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 50000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Ong+D27"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Sắt ống đường kính 27mm"
+    },
+    {
+      "id": "97",
+      "name": "Sắt hộp 20x40",
+      "category": "iron",
+      "subcategory": "sat-hop",
+      "technicalSpecs": {
+        "size": "20x40mm",
+        "material": "Sắt hộp",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 48000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Hop+20x40"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Sắt hộp vuông 20x40mm"
+    },
+    {
+      "id": "98",
+      "name": "Sắt hộp 30x60",
+      "category": "iron",
+      "subcategory": "sat-hop",
+      "technicalSpecs": {
+        "size": "30x60mm",
+        "material": "Sắt hộp",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 65000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Hop+30x60"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Sắt hộp vuông 30x60mm"
+    },
+    {
+      "id": "99",
+      "name": "Sắt tròn trơn D10",
+      "category": "iron",
+      "subcategory": "sat-tron-tron",
+      "technicalSpecs": {
+        "size": "Đường kính 10mm",
+        "material": "Sắt tròn trơn",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 17000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Tron+Tron+D10"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt tròn trơn đường kính 10mm"
+    },
+    {
+      "id": "100",
+      "name": "Sắt gân D10",
+      "category": "iron",
+      "subcategory": "sat-gan",
+      "technicalSpecs": {
+        "size": "Đường kính 10mm",
+        "material": "Sắt gân",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 18000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Gan+D10"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt gân đường kính 10mm"
+    },
+    {
+      "id": "101",
+      "name": "Sắt chữ V 50x50",
+      "category": "iron",
+      "subcategory": "sat-chu-v",
+      "technicalSpecs": {
+        "size": "50x50mm",
+        "material": "Sắt chữ V",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 25000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Chu+V+50x50"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt chữ V kích thước 50x50mm"
+    },
+    {
+      "id": "102",
+      "name": "Sắt chữ U 50x50",
+      "category": "iron",
+      "subcategory": "sat-chu-u",
+      "technicalSpecs": {
+        "size": "50x50mm",
+        "material": "Sắt chữ U",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 26000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Chu+U+50x50"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Sắt chữ U kích thước 50x50mm"
+    },
+    {
+      "id": "103",
+      "name": "Sắt chữ I 100",
+      "category": "iron",
+      "subcategory": "sat-chu-i",
+      "technicalSpecs": {
+        "size": "I100x100x6x8",
+        "material": "Sắt chữ I",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 20000000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Chu+I+100"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Sắt chữ I kích thước I100"
+    },
+    {
+      "id": "104",
+      "name": "Sắt chữ H 100",
+      "category": "iron",
+      "subcategory": "sat-chu-h",
+      "technicalSpecs": {
+        "size": "H100x100x6x8",
+        "material": "Sắt chữ H",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 21000000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Sat+Chu+H+100"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Sắt chữ H kích thước H100"
+    },
+    {
+      "id": "105",
+      "name": "Thép cây D10",
+      "category": "steel",
+      "subcategory": "thep-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 10mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 18500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cay+D10"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép cây xây dựng đường kính 10mm"
+    },
+    {
+      "id": "106",
+      "name": "Thép cây D12",
+      "category": "steel",
+      "subcategory": "thep-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 12mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 19500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cay+D12"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép cây xây dựng đường kính 12mm"
+    },
+    {
+      "id": "107",
+      "name": "Thép cây D14",
+      "category": "steel",
+      "subcategory": "thep-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 14mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 21000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cay+D14"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép cây xây dựng đường kính 14mm"
+    },
+    {
+      "id": "108",
+      "name": "Thép cây D16",
+      "category": "steel",
+      "subcategory": "thep-cay",
+      "technicalSpecs": {
+        "size": "Đường kính 16mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 22500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cay+D16"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép cây xây dựng đường kính 16mm"
+    },
+    {
+      "id": "109",
+      "name": "Thép cuộn D6",
+      "category": "steel",
+      "subcategory": "thep-cuon",
+      "technicalSpecs": {
+        "size": "Đường kính 6mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 16500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cuon+D6"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép cuộn đường kính 6mm"
+    },
+    {
+      "id": "110",
+      "name": "Thép cuộn D8",
+      "category": "steel",
+      "subcategory": "thep-cuon",
+      "technicalSpecs": {
+        "size": "Đường kính 8mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 17500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Cuon+D8"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép cuộn đường kính 8mm"
+    },
+    {
+      "id": "111",
+      "name": "Thép tấm 3mm",
+      "category": "steel",
+      "subcategory": "thep-tam",
+      "technicalSpecs": {
+        "size": "Dày 3mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 18500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Tam+3mm"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Thép tấm dày 3mm"
+    },
+    {
+      "id": "112",
+      "name": "Thép tấm 5mm",
+      "category": "steel",
+      "subcategory": "thep-tam",
+      "technicalSpecs": {
+        "size": "Dày 5mm",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 19500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Tam+5mm"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Thép tấm dày 5mm"
+    },
+    {
+      "id": "113",
+      "name": "Thép hình I100",
+      "category": "steel",
+      "subcategory": "thep-hinh",
+      "technicalSpecs": {
+        "size": "I100x100x6x8",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 18500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Hinh+I100"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Thép hình I100"
+    },
+    {
+      "id": "114",
+      "name": "Thép hình I150",
+      "category": "steel",
+      "subcategory": "thep-hinh",
+      "technicalSpecs": {
+        "size": "I150x150x7x10",
+        "material": "Thép cán nóng",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 22500000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Hinh+I150"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Thép hình I150"
+    },
+    {
+      "id": "115",
+      "name": "Thép ống D21.3",
+      "category": "steel",
+      "subcategory": "thep-ong",
+      "technicalSpecs": {
+        "size": "Đường kính 21.3mm",
+        "material": "Thép ống",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 45000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Ong+D21.3"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Thép ống đường kính 21.3mm"
+    },
+    {
+      "id": "116",
+      "name": "Thép ống D27",
+      "category": "steel",
+      "subcategory": "thep-ong",
+      "technicalSpecs": {
+        "size": "Đường kính 27mm",
+        "material": "Thép ống",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 55000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Ong+D27"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Thép ống đường kính 27mm"
+    },
+    {
+      "id": "117",
+      "name": "Thép tròn trơn D10",
+      "category": "steel",
+      "subcategory": "thep-tron-tron",
+      "technicalSpecs": {
+        "size": "Đường kính 10mm",
+        "material": "Thép tròn trơn",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 19000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Tron+Tron+D10"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép tròn trơn đường kính 10mm"
+    },
+    {
+      "id": "118",
+      "name": "Thép gân D10",
+      "category": "steel",
+      "subcategory": "thep-gan",
+      "technicalSpecs": {
+        "size": "Đường kính 10mm",
+        "material": "Thép gân",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 20000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Gan+D10"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép gân đường kính 10mm"
+    },
+    {
+      "id": "119",
+      "name": "Thép hộp vuông 20x20",
+      "category": "steel",
+      "subcategory": "thep-hop-vuong",
+      "technicalSpecs": {
+        "size": "20x20mm",
+        "material": "Thép hộp vuông",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 50000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Hop+Vuong+20x20"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Thép hộp vuông 20x20mm"
+    },
+    {
+      "id": "120",
+      "name": "Thép hộp chữ nhật 20x40",
+      "category": "steel",
+      "subcategory": "thep-hop-chu-nhat",
+      "technicalSpecs": {
+        "size": "20x40mm",
+        "material": "Thép hộp chữ nhật",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 55000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Hop+Chu+Nhat+20x40"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Thép hộp chữ nhật 20x40mm"
+    },
+    {
+      "id": "121",
+      "name": "Thép ống tròn D21.3",
+      "category": "steel",
+      "subcategory": "thep-ong-tron",
+      "technicalSpecs": {
+        "size": "Đường kính 21.3mm",
+        "material": "Thép ống tròn",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 48000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Ong+Tron+D21.3"
+      ],
+      "status": "active",
+      "unit": "mét",
+      "description": "Thép ống tròn đường kính 21.3mm"
+    },
+    {
+      "id": "122",
+      "name": "Thép chữ I 100",
+      "category": "steel",
+      "subcategory": "thep-chu-i",
+      "technicalSpecs": {
+        "size": "I100x100x6x8",
+        "material": "Thép chữ I",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 19000000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Chu+I+100"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Thép chữ I kích thước I100"
+    },
+    {
+      "id": "123",
+      "name": "Thép chữ H 100",
+      "category": "steel",
+      "subcategory": "thep-chu-h",
+      "technicalSpecs": {
+        "size": "H100x100x6x8",
+        "material": "Thép chữ H",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 20000000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Chu+H+100"
+      ],
+      "status": "active",
+      "unit": "tấn",
+      "description": "Thép chữ H kích thước H100"
+    },
+    {
+      "id": "124",
+      "name": "Thép chữ U 50x50",
+      "category": "steel",
+      "subcategory": "thep-chu-u",
+      "technicalSpecs": {
+        "size": "50x50mm",
+        "material": "Thép chữ U",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 28000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Chu+U+50x50"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép chữ U kích thước 50x50mm"
+    },
+    {
+      "id": "125",
+      "name": "Thép chữ V 50x50",
+      "category": "steel",
+      "subcategory": "thep-chu-v",
+      "technicalSpecs": {
+        "size": "50x50mm",
+        "material": "Thép chữ V",
+        "standard": "TCVN 1651-2:2018"
+      },
+      "priceReference": 27000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Thep+Chu+V+50x50"
+      ],
+      "status": "active",
+      "unit": "kg",
+      "description": "Thép chữ V kích thước 50x50mm"
+    },
+    {
+      "id": "126",
+      "name": "Cát xây",
+      "category": "sand-stone",
+      "subcategory": "cat-xay",
+      "technicalSpecs": {
+        "size": "Hạt 0.5-2mm",
+        "material": "Cát tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 250000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+Xay"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Cát xây dựng hạt 0.5-2mm"
+    },
+    {
+      "id": "127",
+      "name": "Cát tô",
+      "category": "sand-stone",
+      "subcategory": "cat-to",
+      "technicalSpecs": {
+        "size": "Hạt 0.1-0.5mm",
+        "material": "Cát tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 270000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+To"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Cát tô mịn cho công trình"
+    },
+    {
+      "id": "128",
+      "name": "Cát bê tông",
+      "category": "sand-stone",
+      "subcategory": "cat-be-tong",
+      "technicalSpecs": {
+        "size": "Hạt 0.15-5mm",
+        "material": "Cát tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 320000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+Be+Tong"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Cát bê tông hạt 0.15-5mm"
+    },
+    {
+      "id": "129",
+      "name": "Cát san lấp",
+      "category": "sand-stone",
+      "subcategory": "cat-san-lap",
+      "technicalSpecs": {
+        "size": "Hạt 0.5-5mm",
+        "material": "Cát tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 200000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+San+Lap"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Cát san lấp nền móng"
+    },
+    {
+      "id": "130",
+      "name": "Cát mịn",
+      "category": "sand-stone",
+      "subcategory": "cat-min",
+      "technicalSpecs": {
+        "size": "Hạt < 0.5mm",
+        "material": "Cát tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 280000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+Min"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Cát mịn hạt nhỏ < 0.5mm"
+    },
+    {
+      "id": "131",
+      "name": "Cát trung",
+      "category": "sand-stone",
+      "subcategory": "cat-trung",
+      "technicalSpecs": {
+        "size": "Hạt 0.5-1mm",
+        "material": "Cát tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 260000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+Trung"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Cát trung hạt 0.5-1mm"
+    },
+    {
+      "id": "132",
+      "name": "Cát thô",
+      "category": "sand-stone",
+      "subcategory": "cat-tho",
+      "technicalSpecs": {
+        "size": "Hạt 1-5mm",
+        "material": "Cát tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 300000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cat+Tho"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Cát thô hạt 1-5mm"
+    },
+    {
+      "id": "133",
+      "name": "Đá 1x2",
+      "category": "sand-stone",
+      "subcategory": "da-1x2",
+      "technicalSpecs": {
+        "size": "Hạt 10-20mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 300000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+1x2"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Đá 1x2 hạt 10-20mm"
+    },
+    {
+      "id": "134",
+      "name": "Đá 2x4",
+      "category": "sand-stone",
+      "subcategory": "da-2x4",
+      "technicalSpecs": {
+        "size": "Hạt 20-40mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 320000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+2x4"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Đá 2x4 hạt 20-40mm"
+    },
+    {
+      "id": "135",
+      "name": "Đá 4x6",
+      "category": "sand-stone",
+      "subcategory": "da-4x6",
+      "technicalSpecs": {
+        "size": "Hạt 40-60mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 340000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+4x6"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Đá 4x6 hạt 40-60mm"
+    },
+    {
+      "id": "136",
+      "name": "Đá mi sàng",
+      "category": "sand-stone",
+      "subcategory": "da-mi-sang",
+      "technicalSpecs": {
+        "size": "Hạt 5-10mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 270000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+Mi+Sang"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Đá mi sàng hạt 5-10mm"
+    },
+    {
+      "id": "137",
+      "name": "Đá mi bụi",
+      "category": "sand-stone",
+      "subcategory": "da-mi-bui",
+      "technicalSpecs": {
+        "size": "Hạt 0-5mm",
+        "material": "Đá tự nhiên",
+        "standard": "TCVN 7570:2006"
+      },
+      "priceReference": 260000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Da+Mi+Bui"
+      ],
+      "status": "active",
+      "unit": "m³",
+      "description": "Đá mi bụi hạt 0-5mm"
+    },
+    {
+      "id": "138",
+      "name": "Xi măng PCB30 Hà Tiên",
+      "category": "cement",
+      "subcategory": "pcb30",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009",
+        "brand": "Hà Tiên"
+      },
+      "priceReference": 85000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PCB30+Ha+Tien"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB30 thương hiệu Hà Tiên"
+    },
+    {
+      "id": "139",
+      "name": "Xi măng PCB30 Nghi Sơn",
+      "category": "cement",
+      "subcategory": "pcb30",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009",
+        "brand": "Nghi Sơn"
+      },
+      "priceReference": 88000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PCB30+Nghi+Son"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB30 thương hiệu Nghi Sơn"
+    },
+    {
+      "id": "140",
+      "name": "Xi măng PCB40 Hà Tiên",
+      "category": "cement",
+      "subcategory": "pcb40",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009",
+        "brand": "Hà Tiên"
+      },
+      "priceReference": 95000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PCB40+Ha+Tien"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB40 thương hiệu Hà Tiên"
+    },
+    {
+      "id": "141",
+      "name": "Xi măng PCB40 Nghi Sơn",
+      "category": "cement",
+      "subcategory": "pcb40",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009",
+        "brand": "Nghi Sơn"
+      },
+      "priceReference": 98000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PCB40+Nghi+Son"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB40 thương hiệu Nghi Sơn"
+    },
+    {
+      "id": "142",
+      "name": "Xi măng PCB50 Hà Tiên",
+      "category": "cement",
+      "subcategory": "pcb50",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009",
+        "brand": "Hà Tiên"
+      },
+      "priceReference": 105000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PCB50+Ha+Tien"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB50 thương hiệu Hà Tiên"
+    },
+    {
+      "id": "143",
+      "name": "Xi măng PCB50 Nghi Sơn",
+      "category": "cement",
+      "subcategory": "pcb50",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009",
+        "brand": "Nghi Sơn"
+      },
+      "priceReference": 108000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PCB50+Nghi+Son"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB50 thương hiệu Nghi Sơn"
+    },
+    {
+      "id": "144",
+      "name": "Xi măng PCB30 Chinfon",
+      "category": "cement",
+      "subcategory": "pcb30",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009",
+        "brand": "Chinfon"
+      },
+      "priceReference": 87000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PCB30+Chinfon"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB30 thương hiệu Chinfon"
+    },
+    {
+      "id": "145",
+      "name": "Xi măng PCB30 Bỉm Sơn",
+      "category": "cement",
+      "subcategory": "pcb30",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009",
+        "brand": "Bỉm Sơn"
+      },
+      "priceReference": 86000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PCB30+Bim+Son"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB30 thương hiệu Bỉm Sơn"
+    },
+    {
+      "id": "146",
+      "name": "Xi măng PCB30 INSEE",
+      "category": "cement",
+      "subcategory": "pcb30",
+      "technicalSpecs": {
+        "size": "Bao 50kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009",
+        "brand": "INSEE"
+      },
+      "priceReference": 90000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+PCB30+INSEE"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng PCB30 thương hiệu INSEE"
+    },
+    {
+      "id": "147",
+      "name": "Xi măng PCB30 Hà Tiên bao 25kg",
+      "category": "cement",
+      "subcategory": "bao-25kg",
+      "technicalSpecs": {
+        "size": "Bao 25kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009",
+        "brand": "Hà Tiên"
+      },
+      "priceReference": 45000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+Ha+Tien+25kg"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng Hà Tiên bao 25kg"
+    },
+    {
+      "id": "148",
+      "name": "Xi măng PCB30 Hà Tiên bao 40kg",
+      "category": "cement",
+      "subcategory": "bao-40kg",
+      "technicalSpecs": {
+        "size": "Bao 40kg",
+        "material": "Xi măng Portland",
+        "standard": "TCVN 2682:2009",
+        "brand": "Hà Tiên"
+      },
+      "priceReference": 70000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Xi+Mang+Ha+Tien+40kg"
+      ],
+      "status": "active",
+      "unit": "bao",
+      "description": "Xi măng Hà Tiên bao 40kg"
+    },
+    {
+      "id": "149",
+      "name": "Gạch đất nung 8x8x19",
+      "category": "brick",
+      "subcategory": "gach-dat-nung",
+      "technicalSpecs": {
+        "size": "8x8x19 cm",
+        "material": "Đất sét nung",
+        "standard": "TCVN 1451:1998"
+      },
+      "priceReference": 1200,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Dat+Nung+8x8x19"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": "Gạch đất nung tiêu chuẩn 8x8x19cm"
+    },
+    {
+      "id": "150",
+      "name": "Gạch đất nung 10x10x20",
+      "category": "brick",
+      "subcategory": "gach-dat-nung",
+      "technicalSpecs": {
+        "size": "10x10x20 cm",
+        "material": "Đất sét nung",
+        "standard": "TCVN 1451:1998"
+      },
+      "priceReference": 1350,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Dat+Nung+10x10x20"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": "Gạch đất nung tiêu chuẩn 10x10x20cm"
+    },
+    {
+      "id": "151",
+      "name": "Gạch block 10x20x40",
+      "category": "brick",
+      "subcategory": "gach-block",
+      "technicalSpecs": {
+        "size": "10x20x40 cm",
+        "material": "Bê tông",
+        "standard": "TCVN 6477:2016"
+      },
+      "priceReference": 3500,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Block+10x20x40"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": "Gạch block bê tông 10x20x40cm"
+    },
+    {
+      "id": "152",
+      "name": "Gạch block 15x20x40",
+      "category": "brick",
+      "subcategory": "gach-block",
+      "technicalSpecs": {
+        "size": "15x20x40 cm",
+        "material": "Bê tông",
+        "standard": "TCVN 6477:2016"
+      },
+      "priceReference": 4200,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Block+15x20x40"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": "Gạch block bê tông 15x20x40cm"
+    },
+    {
+      "id": "153",
+      "name": "Gạch không nung 10x20x40",
+      "category": "brick",
+      "subcategory": "gach-khong-nung",
+      "technicalSpecs": {
+        "size": "10x20x40 cm",
+        "material": "Xi măng, cát, đá",
+        "standard": "TCVN 6477:2016"
+      },
+      "priceReference": 3200,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Khong+Nung+10x20x40"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": "Gạch không nung 10x20x40cm"
+    },
+    {
+      "id": "154",
+      "name": "Gạch không nung 15x20x40",
+      "category": "brick",
+      "subcategory": "gach-khong-nung",
+      "technicalSpecs": {
+        "size": "15x20x40 cm",
+        "material": "Xi măng, cát, đá",
+        "standard": "TCVN 6477:2016"
+      },
+      "priceReference": 3800,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Khong+Nung+15x20x40"
+      ],
+      "status": "active",
+      "unit": "viên",
+      "description": "Gạch không nung 15x20x40cm"
+    },
+    {
+      "id": "155",
+      "name": "Gạch ceramic 30x30",
+      "category": "brick",
+      "subcategory": "gach-ceramic",
+      "technicalSpecs": {
+        "size": "30x30 cm",
+        "material": "Đất sét, men ceramic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 85000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Ceramic+30x30"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch ceramic kích thước 30x30cm"
+    },
+    {
+      "id": "156",
+      "name": "Gạch ceramic 40x40",
+      "category": "brick",
+      "subcategory": "gach-ceramic",
+      "technicalSpecs": {
+        "size": "40x40 cm",
+        "material": "Đất sét, men ceramic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 120000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Ceramic+40x40"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch ceramic kích thước 40x40cm"
+    },
+    {
+      "id": "157",
+      "name": "Gạch ceramic 60x60",
+      "category": "brick",
+      "subcategory": "gach-ceramic",
+      "technicalSpecs": {
+        "size": "60x60 cm",
+        "material": "Đất sét, men ceramic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 180000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Ceramic+60x60"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch ceramic kích thước 60x60cm"
+    },
+    {
+      "id": "158",
+      "name": "Gạch ceramic 30x60",
+      "category": "brick",
+      "subcategory": "gach-ceramic",
+      "technicalSpecs": {
+        "size": "30x60 cm",
+        "material": "Đất sét, men ceramic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 150000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Ceramic+30x60"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch ceramic kích thước 30x60cm"
+    },
+    {
+      "id": "159",
+      "name": "Gạch granite 30x30",
+      "category": "brick",
+      "subcategory": "gach-granite",
+      "technicalSpecs": {
+        "size": "30x30 cm",
+        "material": "Đá Granite tự nhiên",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 350000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Granite+30x30"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch granite kích thước 30x30cm"
+    },
+    {
+      "id": "160",
+      "name": "Gạch granite 40x40",
+      "category": "brick",
+      "subcategory": "gach-granite",
+      "technicalSpecs": {
+        "size": "40x40 cm",
+        "material": "Đá Granite tự nhiên",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 450000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Granite+40x40"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch granite kích thước 40x40cm"
+    },
+    {
+      "id": "161",
+      "name": "Gạch granite 60x60",
+      "category": "brick",
+      "subcategory": "gach-granite",
+      "technicalSpecs": {
+        "size": "60x60 cm",
+        "material": "Đá Granite tự nhiên",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 600000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Granite+60x60"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch granite kích thước 60x60cm"
+    },
+    {
+      "id": "162",
+      "name": "Gạch porcelain 30x30",
+      "category": "brick",
+      "subcategory": "gach-porcelain",
+      "technicalSpecs": {
+        "size": "30x30 cm",
+        "material": "Porcelain",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 150000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Porcelain+30x30"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch porcelain kích thước 30x30cm"
+    },
+    {
+      "id": "163",
+      "name": "Gạch porcelain 40x40",
+      "category": "brick",
+      "subcategory": "gach-porcelain",
+      "technicalSpecs": {
+        "size": "40x40 cm",
+        "material": "Porcelain",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 200000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Porcelain+40x40"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch porcelain kích thước 40x40cm"
+    },
+    {
+      "id": "164",
+      "name": "Gạch porcelain 60x60",
+      "category": "brick",
+      "subcategory": "gach-porcelain",
+      "technicalSpecs": {
+        "size": "60x60 cm",
+        "material": "Porcelain",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 280000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Porcelain+60x60"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch porcelain kích thước 60x60cm"
+    },
+    {
+      "id": "165",
+      "name": "Gạch porcelain 30x60",
+      "category": "brick",
+      "subcategory": "gach-porcelain",
+      "technicalSpecs": {
+        "size": "30x60 cm",
+        "material": "Porcelain",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 220000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Porcelain+30x60"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch porcelain kích thước 30x60cm"
+    },
+    {
+      "id": "166",
+      "name": "Gạch mosaic 30x30",
+      "category": "brick",
+      "subcategory": "gach-mosaic",
+      "technicalSpecs": {
+        "size": "30x30 cm",
+        "material": "Mosaic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 150000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Mosaic+30x30"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch mosaic trang trí 30x30cm"
+    },
+    {
+      "id": "167",
+      "name": "Gạch mosaic 40x40",
+      "category": "brick",
+      "subcategory": "gach-mosaic",
+      "technicalSpecs": {
+        "size": "40x40 cm",
+        "material": "Mosaic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 200000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Mosaic+40x40"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch mosaic trang trí 40x40cm"
+    },
+    {
+      "id": "168",
+      "name": "Gạch mosaic 60x60",
+      "category": "brick",
+      "subcategory": "gach-mosaic",
+      "technicalSpecs": {
+        "size": "60x60 cm",
+        "material": "Mosaic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 280000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Mosaic+60x60"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch mosaic trang trí 60x60cm"
+    },
+    {
+      "id": "169",
+      "name": "Gạch mosaic 30x60",
+      "category": "brick",
+      "subcategory": "gach-mosaic",
+      "technicalSpecs": {
+        "size": "30x60 cm",
+        "material": "Mosaic",
+        "standard": "TCVN 7745:2013"
+      },
+      "priceReference": 220000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Gach+Mosaic+30x60"
+      ],
+      "status": "active",
+      "unit": "m²",
+      "description": "Gạch mosaic trang trí 30x60cm"
+    },
+    {
+      "id": "170",
+      "name": "Chữ Y PVC D110",
+      "category": "pipe",
+      "subcategory": "chu-y",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 110mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 60000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Chu+Y+PVC+D110"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Chữ Y PVC đường kính 110mm"
+    },
+    {
+      "id": "171",
+      "name": "Cửa thăm PVC D110",
+      "category": "pipe",
+      "subcategory": "cua-tham",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 110mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 80000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Cua+Tham+PVC+D110"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Cửa thăm PVC đường kính 110mm"
+    },
+    {
+      "id": "172",
+      "name": "Phễu thoát sàn PVC D110",
+      "category": "pipe",
+      "subcategory": "pheu-thoat-san",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 110mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 70000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Pheu+Thoat+San+PVC+D110"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Phễu thoát sàn PVC đường kính 110mm"
+    },
+    {
+      "id": "173",
+      "name": "Nắp thông hơi PVC D110",
+      "category": "pipe",
+      "subcategory": "nap-thong-hoi",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 110mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 50000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Nap+Thong+Hoi+PVC+D110"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Nắp thông hơi PVC đường kính 110mm"
+    },
+    {
+      "id": "174",
+      "name": "Co thông hơi PVC D110",
+      "category": "pipe",
+      "subcategory": "co",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 110mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 45000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Co+Thong+Hoi+PVC+D110"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Co thông hơi PVC đường kính 110mm"
+    },
+    {
+      "id": "175",
+      "name": "Chụp thông hơi PVC D110",
+      "category": "pipe",
+      "subcategory": "chup-thong-hoi",
+      "materialType": "PVC",
+      "technicalSpecs": {
+        "size": "Đường kính 110mm",
+        "material": "PVC",
+        "standard": "TCVN 6157-1:2003"
+      },
+      "priceReference": 55000,
+      "images": [
+        "https://via.placeholder.com/400x300?text=Chup+Thong+Hoi+PVC+D110"
+      ],
+      "status": "active",
+      "unit": "cái",
+      "description": "Chụp thông hơi PVC đường kính 110mm"
+    }
+  ],
+  "users": [
+    {
+      "id": "user1",
+      "name": "Nguyễn Văn A",
+      "email": "user@example.com",
+      "password": "123456",
+      "role": "customer",
+      "createdAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "admin1",
+      "name": "Admin Tổng",
+      "email": "admin@smartbuild.vn",
+      "password": "123456",
+      "role": "admin",
+      "createdAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "user2",
+      "name": "Lê Thị B",
+      "email": "lethib@gmail.com",
+      "password": "123456",
+      "role": "customer",
+      "createdAt": "2024-01-10T09:00:00Z"
+    },
+    {
+      "id": "user3",
+      "name": "Trần Văn C",
+      "email": "tranvanc@gmail.com",
+      "password": "123456",
+      "role": "customer",
+      "createdAt": "2024-01-15T14:30:00Z"
+    },
+    {
+      "id": "admin2",
+      "name": "Quản trị viên 2",
+      "email": "admin2@smartbuild.vn",
+      "password": "123456",
+      "role": "admin",
+      "createdAt": "2024-01-20T10:00:00Z"
+    }
+  ],
+  "projectQuotations": {
+    "nha-cap-4": {
+      "baseArea": 80,
+      "materials": [
+        {
+          "name": "Xi măng",
+          "quantityPerM2": 1.5,
+          "unit": "bao",
+          "price": 95000
+        },
+        {
+          "name": "Cát xây",
+          "quantityPerM2": 0.225,
+          "unit": "m³",
+          "price": 250000
+        },
+        {
+          "name": "Đá 1x2",
+          "quantityPerM2": 0.15,
+          "unit": "m³",
+          "price": 300000
+        },
+        {
+          "name": "Thép",
+          "quantityPerM2": 0.015,
+          "unit": "tấn",
+          "price": 18500000
+        },
+        {
+          "name": "Gạch xây",
+          "quantityPerM2": 112.5,
+          "unit": "viên",
+          "price": 1200
+        }
+      ]
+    },
+    "nha-1-tang": {
+      "baseArea": 100,
+      "materials": [
+        {
+          "name": "Xi măng",
+          "quantityPerM2": 2,
+          "unit": "bao",
+          "price": 95000
+        },
+        {
+          "name": "Cát xây",
+          "quantityPerM2": 0.3,
+          "unit": "m³",
+          "price": 250000
+        },
+        {
+          "name": "Đá 1x2",
+          "quantityPerM2": 0.2,
+          "unit": "m³",
+          "price": 300000
+        },
+        {
+          "name": "Thép",
+          "quantityPerM2": 0.02,
+          "unit": "tấn",
+          "price": 18500000
+        },
+        {
+          "name": "Gạch xây",
+          "quantityPerM2": 150,
+          "unit": "viên",
+          "price": 1200
+        }
+      ]
+    },
+    "nha-2-tang": {
+      "baseArea": 120,
+      "materials": [
+        {
+          "name": "Xi măng",
+          "quantityPerM2": 2.5,
+          "unit": "bao",
+          "price": 95000
+        },
+        {
+          "name": "Cát xây",
+          "quantityPerM2": 0.375,
+          "unit": "m³",
+          "price": 250000
+        },
+        {
+          "name": "Đá 1x2",
+          "quantityPerM2": 0.25,
+          "unit": "m³",
+          "price": 300000
+        },
+        {
+          "name": "Thép",
+          "quantityPerM2": 0.025,
+          "unit": "tấn",
+          "price": 18500000
+        },
+        {
+          "name": "Gạch xây",
+          "quantityPerM2": 187.5,
+          "unit": "viên",
+          "price": 1200
+        }
+      ]
+    }
+  },
+  "quotations": [
+    {
+      "id": "q1",
+      "customerId": "user1",
+      "items": [
+        {
+          "materialId": "1",
+          "name": "Gạch ống 8x8x19",
+          "quantity": 1000,
+          "unit": "viên"
+        },
+        {
+          "materialId": "13",
+          "name": "Xi măng Hà Tiên PC40",
+          "quantity": 50,
+          "unit": "bao"
+        }
+      ],
+      "location": "Hà Nội",
+      "totalPrice": 157500000,
+      "status": "approved",
+      "createdAt": "2024-01-15T10:00:00Z",
+      "_id": "q1"
+    },
+    {
+      "id": "q2",
+      "customerId": "user1",
+      "items": [
+        {
+          "materialId": "21",
+          "name": "Cát xây dựng",
+          "quantity": 20,
+          "unit": "m³"
+        },
+        {
+          "materialId": "31",
+          "name": "Thép cây D10",
+          "quantity": 2,
+          "unit": "tấn"
+        }
+      ],
+      "location": "Hồ Chí Minh",
+      "totalPrice": 41000000,
+      "status": "pending",
+      "createdAt": "2024-01-10T08:00:00Z",
+      "_id": "q2"
+    },
+    {
+      "id": "q3",
+      "customerId": "user2",
+      "items": [
+        {
+          "materialId": "54",
+          "name": "Đá Granite Kim Sa Trung",
+          "quantity": 30,
+          "unit": "m³"
+        }
+      ],
+      "location": "Đà Nẵng",
+      "totalPrice": 36000000,
+      "status": "accepted",
+      "createdAt": "2024-01-20T11:00:00Z",
+      "_id": "q3"
+    }
+  ],
+  "orders": [
+    {
+      "id": "o1",
+      "customerId": "user1",
+      "items": [
+        {
+          "materialId": "1",
+          "name": "Gạch ống 8x8x19",
+          "quantity": 5000,
+          "price": 1200
+        }
+      ],
+      "shippingAddress": "123 Lê Lợi, Hà Nội",
+      "phone": "0901234567",
+      "note": "Giao giờ hành chính",
+      "totalAmount": 6000000,
+      "status": "shipped",
+      "createdAt": "2024-01-21T09:00:00Z",
+      "_id": "o1"
+    },
+    {
+      "id": "o2",
+      "customerId": "user2",
+      "items": [
+        {
+          "materialId": "55",
+          "name": "Sàn gỗ công nghiệp Inovar",
+          "quantity": 100,
+          "price": 450000
+        }
+      ],
+      "shippingAddress": "456 Trần Phú, Đà Nẵng",
+      "phone": "0912345678",
+      "note": "",
+      "totalAmount": 45000000,
+      "status": "shipped",
+      "createdAt": "2024-01-21T10:30:00Z",
+      "_id": "o2"
+    },
+    {
+      "id": "o3",
+      "customerId": "user3",
+      "items": [
+        {
+          "materialId": "11",
+          "name": "Xi măng Hà Tiên PC30",
+          "quantity": 200,
+          "price": 85000
+        }
+      ],
+      "shippingAddress": "789 Nguyễn Huệ, TP.HCM",
+      "phone": "0987654321",
+      "status": "shipped",
+      "createdAt": "2024-01-20T15:00:00Z",
+      "_id": "o3"
+    },
+    {
+      "id": "1260",
+      "customerId": "user1",
+      "items": [
+        {
+          "materialId": "24",
+          "name": "Cát bê tông sàng",
+          "price": 350000,
+          "quantity": 1
+        },
+        {
+          "materialId": "13",
+          "name": "Xi măng Hà Tiên PC40",
+          "price": 95000,
+          "quantity": 1
+        }
+      ],
+      "shippingAddress": "fpt",
+      "phone": "0939446265",
+      "note": "12134",
+      "totalPrice": 445000,
+      "depositAmount": 44500,
+      "remainingAmount": 400500,
+      "status": "shipped",
+      "createdAt": "2026-01-22T10:36:54.751Z",
+      "_id": "1260"
+    }
+  ],
+  "carousel": [
+    {
+      "id": "c1",
+      "title": "SmartBuild – Nền tảng vật liệu xây dựng thông minh",
+      "description": "Tìm kiếm, so sánh và đặt mua vật liệu nhanh chóng.",
+      "imageUrl": "https://via.placeholder.com/1200x400?text=SmartBuild+Slide+1",
+      "link": "/materials"
+    },
+    {
+      "id": "c2",
+      "title": "Tiết kiệm thời gian cho chủ thầu & kiến trúc sư",
+      "description": "Báo giá công trình và quản lý vật tư tập trung.",
+      "imageUrl": "https://via.placeholder.com/1200x400?text=SmartBuild+Slide+2",
+      "link": "/project-quotation"
+    }
+  ]
+}

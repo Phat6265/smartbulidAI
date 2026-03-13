@@ -1,0 +1,194 @@
+/* Quotation Page Styles */
+.quotation-page {
+  padding: 2rem 0;
+  min-height: calc(100vh - 200px);
+}
+
+.quotation-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: 2rem;
+  color: var(--color-text-primary);
+}
+
+.quotation-loading,
+.quotation-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--color-text-secondary);
+}
+
+.quotation-empty p {
+  font-size: var(--font-size-lg);
+  margin-bottom: 2rem;
+}
+
+.quotation-error {
+  padding: 2rem;
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid var(--color-error);
+  border-radius: 8px;
+  color: var(--color-error);
+  text-align: center;
+}
+
+.quotation-error code {
+  background-color: var(--color-bg-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.quotation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.quotation-card {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: box-shadow 200ms ease-out, border-color 200ms ease-out;
+}
+
+.quotation-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-secondary);
+}
+
+.quotation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.quotation-id {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.quotation-location {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.quotation-status {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.quotation-status--pending {
+  background-color: rgba(255, 193, 7, 0.2);
+  color: var(--color-warning);
+}
+
+.quotation-status--quoted {
+  background-color: rgba(0, 123, 255, 0.2);
+  color: #007bff;
+}
+
+.quotation-status--accepted {
+  background-color: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+}
+
+.quotation-status--rejected {
+  background-color: rgba(220, 53, 69, 0.2);
+  color: var(--color-error);
+}
+
+.quotation-items {
+  margin-bottom: 1.5rem;
+}
+
+.quotation-items h4 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 0.75rem;
+  color: var(--color-text-primary);
+}
+
+.quotation-items ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quotation-items li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.quotation-items li:last-child {
+  border-bottom: none;
+}
+
+.quotation-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.quotation-total {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+}
+
+.quotation-total-amount {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary);
+}
+
+.quotation-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.quotation-date {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .quotation-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .quotation-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .quotation-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .quotation-actions .btn {
+    width: 100%;
+  }
+}

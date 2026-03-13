@@ -1,0 +1,22 @@
+
+/* Match user footer colors and layout */
+.admin-footer {
+  background-color: var(--color-primary);
+  color: var(--color-bg-primary);
+  padding: 3rem 0 1rem;
+  margin-top: auto;
+}
+
+.admin-footer .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.admin-footer .admin-footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  text-align: center;
+  color: rgba(255,255,255,0.6);
+  font-size: var(--font-size-sm);
+}

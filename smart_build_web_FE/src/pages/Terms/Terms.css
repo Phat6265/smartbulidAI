@@ -1,0 +1,82 @@
+/* Terms Page Styles */
+.terms {
+  min-height: calc(100vh - 200px);
+}
+
+.terms-hero {
+  background: linear-gradient(135deg, #8B5A2B 0%, #704a21 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.terms-hero-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1rem;
+}
+
+.terms-hero-subtitle {
+  font-size: var(--font-size-xl);
+  opacity: 0.9;
+}
+
+.terms-section {
+  padding: 4rem 0;
+}
+
+.terms-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.terms-article {
+  margin-bottom: 3rem;
+}
+
+.terms-article h2 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: 1rem;
+  color: #8B5A2B;
+}
+
+.terms-article p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.terms-article ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.terms-article li {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.terms-article li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #8B5A2B;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .terms-hero-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .terms-article h2 {
+    font-size: var(--font-size-xl);
+  }
+}

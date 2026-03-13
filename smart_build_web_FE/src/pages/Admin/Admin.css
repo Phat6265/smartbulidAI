@@ -1,0 +1,169 @@
+/* Admin Page Styles */
+.admin-page {
+  padding: 2rem 0;
+  min-height: calc(100vh - 200px);
+}
+
+.admin-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: 2rem;
+  color: var(--color-text-primary);
+}
+
+.admin-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.admin-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 2rem;
+}
+
+.admin-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.admin-sidebar nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.admin-sidebar nav a:hover {
+  background-color: #8D6E63; /* Màu nâu primary */
+  color: white;
+  border-color: #8D6E63;
+  transform: translateX(5px);
+}
+
+.admin-content {
+  flex-grow: 1;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  min-width: 0;
+}
+
+.admin-page-section {
+  padding: 1rem 0;
+}
+
+.admin-dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.admin-card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.admin-card-title {
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.admin-card-value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Simple bar chart for dashboard revenue */
+.admin-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  height: 180px;
+  padding: 8px 0;
+}
+
+.admin-bar-chart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 48px;
+}
+
+.admin-bar-chart-bar {
+  width: 32px;
+  background: #8D6E63;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.3s ease;
+}
+
+.admin-bar-chart-label {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.admin-bar-chart-value {
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+/* Materials admin table */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.admin-table thead th {
+  background: var(--color-bg-secondary);
+}
+
+.admin-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.4);
+  z-index: 9999;
+}
+
+.admin-modal-content {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  padding: 1.25rem;
+  width: 720px;
+  max-width: calc(100% - 32px);
+  border-radius: 8px;
+}
+

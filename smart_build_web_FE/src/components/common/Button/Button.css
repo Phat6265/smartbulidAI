@@ -1,0 +1,141 @@
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  border-radius: 4px;
+  transition: transform 200ms ease-out,
+              box-shadow 200ms ease-out,
+              opacity 200ms ease-out,
+              background-color 200ms ease-out,
+              border-color 200ms ease-out,
+              color 200ms ease-out;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+  opacity: 0.95;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.btn--primary {
+  background-color: #8B5A2B;
+  color: #FFFFFF;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background-color: #704a21;
+}
+
+.btn--secondary {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--color-border-light);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+
+.btn--outline:hover:not(:disabled) {
+  background-color: #8B5A2B;
+  color: #FFFFFF;
+}
+
+.btn--outline-brown {
+  background-color: transparent;
+  color: #8B5A2B;
+  border: 1px solid #8B5A2B;
+}
+
+.btn--outline-brown:hover:not(:disabled) {
+  background-color: #8B5A2B;
+  color: #FFFFFF;
+}
+
+.btn--text {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  padding: 0.5rem;
+}
+
+.btn--text:hover:not(:disabled) {
+  background-color: var(--color-bg-secondary);
+}
+
+/* Sizes */
+.btn--small {
+  padding: 0.5rem 1rem;
+  font-size: var(--font-size-sm);
+  min-height: 32px;
+}
+
+.btn--medium {
+  padding: 0.75rem 1.5rem;
+  font-size: var(--font-size-base);
+  min-height: 40px;
+}
+
+.btn--large {
+  padding: 1rem 2rem;
+  font-size: var(--font-size-lg);
+  min-height: 48px;
+}
+
+/* Full width */
+.btn--full-width {
+  width: 100%;
+}
+
+/* Loading state */
+.btn--loading {
+  position: relative;
+}
+
+.btn__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.btn--loading {
+  opacity: 0.7;
+}
+
+.btn__text {
+  opacity: 0.7;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

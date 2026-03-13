@@ -1,0 +1,139 @@
+/* About Page Styles */
+.about {
+  min-height: calc(100vh - 200px);
+}
+
+.about-hero {
+  background: linear-gradient(135deg, #8B5A2B 0%, #704a21 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.about-hero-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1rem;
+}
+
+.about-hero-subtitle {
+  font-size: var(--font-size-xl);
+  opacity: 0.9;
+}
+
+.about-section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-section--alt {
+  background-color: var(--color-bg-secondary);
+}
+
+.about-section-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.about-section-text {
+  font-size: var(--font-size-lg);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.about-text p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.about-image {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.about-value-card {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 300ms ease-out;
+}
+
+.about-value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.about-value-icon {
+  font-size: 2rem;
+  color: #8B5A2B;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.about-value-card h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.about-value-card p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-hero-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+}

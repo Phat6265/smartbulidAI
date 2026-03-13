@@ -1,0 +1,94 @@
+/* AI Recognition Page Styles */
+.ai-recognition {
+  padding: 2rem 0;
+  min-height: calc(100vh - 200px);
+}
+
+.ai-recognition-title {
+  font-size: var(--font-size-3xl);
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.ai-recognition-subtitle {
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin-bottom: 3rem;
+}
+
+.ai-recognition-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ai-recognition-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ai-recognition-button {
+  margin-top: 1rem;
+}
+
+.ai-recognition-error {
+  padding: 1rem;
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid var(--color-error);
+  border-radius: 8px;
+  color: var(--color-error);
+  text-align: center;
+}
+
+.ai-recognition-result {
+  padding: 2rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.ai-recognition-result-title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.ai-recognition-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ai-recognition-material {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ai-recognition-material-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.ai-recognition-material-type {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.ai-recognition-warning {
+  padding: 1rem;
+  background-color: rgba(255, 193, 7, 0.1);
+  border: 1px solid var(--color-warning);
+  border-radius: 4px;
+  color: var(--color-text-primary);
+  text-align: center;
+  margin: 0;
+}
+

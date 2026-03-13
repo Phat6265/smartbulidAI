@@ -1,0 +1,57 @@
+
+/* Match user header layout and colors */
+.admin-topbar {
+  background-color: var(--color-primary);
+  color: var(--color-bg-primary);
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-bg-primary);
+  transition: transform 200ms ease-out;
+}
+
+.admin-logo:hover {
+  transform: scale(1.03);
+}
+
+.admin-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-user {
+  color: var(--color-bg-primary);
+  font-size: var(--font-size-sm);
+}
+
+.admin-logout {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  color: var(--color-bg-primary);
+  cursor: pointer;
+  transition: background-color 200ms ease-out, border-color 200ms ease-out;
+}
+
+.admin-logout:hover {
+  background-color: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.3);
+}
