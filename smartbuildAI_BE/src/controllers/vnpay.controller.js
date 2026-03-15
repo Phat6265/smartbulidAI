@@ -196,8 +196,10 @@ exports.vnpayIpn = asyncHandler(async (req, res) => {
   const signed = hmac.update(Buffer.from(signData, 'utf-8')).digest('hex');
   
   // Find order
-  const order = await Order.findOne({ vnp_TxnRef: orderId }) || 
-                await Order.findById(orderId);
+  let order = await Order.findOne({ vnp_TxnRef: orderId });
+  if (!order) {
+    order = await Order.findById(orderId);
+  }
   
   if (!order) {
     return res.status(200).json({ RspCode: '01', Message: 'Order not found' });

@@ -33,8 +33,17 @@ const requireRole = (role) => (req, res, next) => {
   next();
 };
 
+// Cho phép nhiều roles (vd: ['staff', 'admin'])
+const requireRoles = (roles) => (req, res, next) => {
+  if (!req.user || !roles.includes(req.user.role)) {
+    return res.status(403).json({ message: 'Forbidden' });
+  }
+  next();
+};
+
 module.exports = {
   authMiddleware,
-  requireRole
+  requireRole,
+  requireRoles
 };
 

@@ -6,7 +6,7 @@ import useCartStore from '../../store/cart.store';
 import { formatCurrency } from '../../utils/formatCurrency';
 import Button from '../../components/common/Button';
 import { MATERIAL_CATEGORIES, SUBCATEGORY_NAMES } from '../../utils/constants';
-import { getMaterialImage } from '../../utils/materialImages';
+import { getMaterialImage } from '../../utils/materialImages.js';
 import './MaterialDetail.css';
 
 const MaterialDetail = () => {

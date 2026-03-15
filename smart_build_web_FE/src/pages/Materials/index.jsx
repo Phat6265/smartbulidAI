@@ -7,7 +7,7 @@ import { useAuth } from '../../hooks/useAuth';
 import useMaterialStore from '../../store/material.store';
 import { MATERIAL_CATEGORIES, SUBCATEGORY_NAMES, MATERIAL_TYPE_BADGES } from '../../utils/constants';
 import { formatCurrency } from '../../utils/formatCurrency';
-import { getMaterialImage } from '../../utils/materialImages';
+import { getMaterialImage } from '../../utils/materialImages.js';
 import Input from '../../components/common/Input';
 import Button from '../../components/common/Button';
 import LazyImage from '../../components/common/LazyImage';

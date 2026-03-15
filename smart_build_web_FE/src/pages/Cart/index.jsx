@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FiTrash2, FiMinus, FiPlus } from 'react-icons/fi';
 import useCartStore from '../../store/cart.store';
 import { formatCurrency } from '../../utils/formatCurrency';
-import { getMaterialImage } from '../../utils/materialImages';
+import { getMaterialImage } from '../../utils/materialImages.js';
 import { useAuth } from '../../hooks/useAuth';
 import Button from '../../components/common/Button';
 import LazyImage from '../../components/common/LazyImage';
