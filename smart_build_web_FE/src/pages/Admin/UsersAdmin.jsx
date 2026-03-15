@@ -1,41 +1,28 @@
+// ===== MODIFIED START (ADMIN USER CRUD FEATURE) =====
 import React, { useEffect, useState } from 'react';
-import { getAllUsers, updateUser, deleteUser } from '../../services/admin.user.service';
+import { Link } from 'react-router-dom';
+import useUserStore from '../../store/user.store';
 import Button from '../../components/common/Button';
-import Input from '../../components/common/Input/Input.jsx';
+import Input from '../../components/common/Input';
 import './Admin.css';
 import { useNotification } from '../../components/common/NotificationCenter';
-import { FiTrash2 } from 'react-icons/fi';
+import { FiTrash2, FiEdit2, FiEye } from 'react-icons/fi';
 
-const UsersAdmin = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+const AdminUserListPage = () => {
   const [filter, setFilter] = useState('');
-  const { notifyError, notifySuccess, confirm } = useNotification();
-
-  const fetchUsers = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await getAllUsers();
-      setUsers(res.data || []);
-    } catch (err) {
-      setError(err.message || 'Lỗi khi tải người dùng');
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { users, loading, error, fetchUsers, updateUser, deleteUser } = useUserStore();
+  const { notifyError, confirm } = useNotification();
 
   useEffect(() => {
-    fetchUsers();
-  }, []);
+    fetchUsers().catch(() => {});
+  }, [fetchUsers]);
 
   const handleRoleChange = async (user, newRole) => {
     try {
       await updateUser(user._id || user.id, { ...user, role: newRole });
       fetchUsers();
     } catch (err) {
-      notifyError(err.message || 'Cập nhật thất bại');
+      notifyError(err?.message || 'Cập nhật thất bại');
     }
   };
 
@@ -49,13 +36,14 @@ const UsersAdmin = () => {
       await deleteUser(user._id || user.id);
       fetchUsers();
     } catch (err) {
-      notifyError(err.message || 'Xóa thất bại');
+      notifyError(err?.message || 'Xóa thất bại');
     }
   };
 
-  const filtered = users.filter(u =>
-    u.name?.toLowerCase().includes(filter.toLowerCase()) ||
-    u.email?.toLowerCase().includes(filter.toLowerCase())
+  const filtered = users.filter(
+    (u) =>
+      u.name?.toLowerCase().includes(filter.toLowerCase()) ||
+      u.email?.toLowerCase().includes(filter.toLowerCase())
   );
 
   return (
@@ -64,11 +52,18 @@ const UsersAdmin = () => {
         <h2>Quản lý Người dùng</h2>
         <div style={{ display: 'flex', gap: 8 }}>
           <Input placeholder="Tìm tên hoặc email" value={filter} onChange={(e) => setFilter(e.target.value)} fullWidth={false} />
-          <Button variant="outline-brown" onClick={fetchUsers}>Tải lại</Button>
+          <Link to="/admin/users/new">
+            <Button variant="primary">Tạo người dùng</Button>
+          </Link>
+          <Button variant="outline" onClick={() => fetchUsers()}>Tải lại</Button>
         </div>
       </div>
 
-      {loading ? <p>Đang tải...</p> : error ? <p style={{ color: 'var(--color-error)' }}>{error}</p> : (
+      {loading ? (
+        <p>Đang tải...</p>
+      ) : error ? (
+        <p style={{ color: 'var(--color-error)' }}>{error}</p>
+      ) : (
         <div style={{ overflowX: 'auto' }}>
           <table className="admin-table">
             <thead>
@@ -80,15 +75,23 @@ const UsersAdmin = () => {
               </tr>
             </thead>
             <tbody>
-              {filtered.map(u => (
+              {filtered.map((u) => (
                 <tr key={u._id || u.id}>
                   <td>{u.name}</td>
                   <td>{u.email}</td>
-                  <td>{u.role}</td>
+                  <td>{u.role === 'admin' ? 'Quản trị viên' : 'Khách hàng'}</td>
                   <td>
-                    <div style={{ display: 'flex', gap: 8 }}>
-                      <Button variant="outline-brown" onClick={() => handleRoleChange(u, u.role === 'admin' ? 'customer' : 'admin')}>{u.role === 'admin' ? 'Revoke Admin' : 'Make Admin'}</Button>
-                      <Button variant="outline-danger" onClick={() => handleDelete(u)}>
+                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                      <Link to={`/admin/users/${u._id || u.id}`}>
+                        <Button variant="outline" size="small"><FiEye style={{ marginRight: 4 }} /> Xem</Button>
+                      </Link>
+                      <Link to={`/admin/users/${u._id || u.id}/edit`}>
+                        <Button variant="outline" size="small"><FiEdit2 style={{ marginRight: 4 }} /> Sửa</Button>
+                      </Link>
+                      <Button variant="outline" size="small" onClick={() => handleRoleChange(u, u.role === 'admin' ? 'customer' : 'admin')}>
+                        {u.role === 'admin' ? 'Bỏ Admin' : 'Thêm Admin'}
+                      </Button>
+                      <Button variant="outline" size="small" onClick={() => handleDelete(u)}>
                         <FiTrash2 style={{ marginRight: 4 }} /> Xóa
                       </Button>
                     </div>
@@ -103,4 +106,5 @@ const UsersAdmin = () => {
   );
 };
 
-export default UsersAdmin;
+export default AdminUserListPage;
+// ===== MODIFIED END (ADMIN USER CRUD FEATURE) =====

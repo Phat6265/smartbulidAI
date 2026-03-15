@@ -1,0 +1,26 @@
+/* ===== NEW FILE CREATED FOR SYSTEM SETTINGS FEATURE ===== */
+.admin-system-settings-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 560px;
+}
+
+.admin-settings-section {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.admin-settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-settings-form h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+}

@@ -4,7 +4,7 @@ const User = require('../models/User');
 const BlacklistedToken = require('../models/BlacklistedToken');
 const asyncHandler = require('../middlewares/asyncHandler');
 const { generateOTP, hashOTP, verifyOTP, getOTPExpireDate } = require('../utils/otpGenerator');
-const { sendOTPEmail } = require('../utils/emailService');
+const { sendOTPEmail, sendResetPasswordOTPEmail } = require('../utils/emailService');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'dev_smartbuild_secret';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d';
@@ -206,3 +206,84 @@ exports.getMe = asyncHandler(async (req, res) => {
   }
   res.json(user);
 });
+
+// ===== MODIFIED START (FORGOT PASSWORD FEATURE) =====
+// POST /api/auth/forgot-password - Gửi OTP đặt lại mật khẩu
+exports.forgotPassword = asyncHandler(async (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    return res.status(400).json({ message: 'Email là bắt buộc' });
+  }
+  const user = await User.findOne({ email });
+  if (!user) {
+    return res.status(404).json({ message: 'Không tìm thấy tài khoản với email này' });
+  }
+  const otpPlain = generateOTP();
+  const otpHash = hashOTP(otpPlain);
+  const otpExpire = getOTPExpireDate();
+  await User.findByIdAndUpdate(user._id, {
+    otpHash,
+    otpExpire,
+    otpAttempts: 0,
+    otpLastSentAt: new Date()
+  });
+  await sendResetPasswordOTPEmail(user.email, otpPlain);
+  res.json({ message: 'OTP đã được gửi tới email của bạn' });
+});
+
+// POST /api/auth/reset-password - Đặt lại mật khẩu bằng OTP
+exports.resetPassword = asyncHandler(async (req, res) => {
+  const { email, otp, newPassword } = req.body;
+  if (!email || !otp || !newPassword) {
+    return res.status(400).json({ message: 'Email, mã OTP và mật khẩu mới là bắt buộc' });
+  }
+  const user = await User.findOne({ email });
+  if (!user) {
+    return res.status(404).json({ message: 'Không tìm thấy tài khoản' });
+  }
+  if (!user.otpHash || !user.otpExpire) {
+    return res.status(400).json({ message: 'Mã OTP không còn hiệu lực. Vui lòng yêu cầu gửi lại.' });
+  }
+  if (new Date() > user.otpExpire) {
+    return res.status(400).json({ message: 'Mã OTP đã hết hạn. Vui lòng yêu cầu gửi lại.' });
+  }
+  const valid = verifyOTP(otp, user.otpHash);
+  if (!valid) {
+    return res.status(400).json({ message: 'Mã OTP không đúng' });
+  }
+  if (newPassword.length < 6) {
+    return res.status(400).json({ message: 'Mật khẩu mới phải có ít nhất 6 ký tự' });
+  }
+  const passwordHash = await bcrypt.hash(newPassword, 10);
+  await User.findByIdAndUpdate(user._id, {
+    passwordHash,
+    otpHash: null,
+    otpExpire: null,
+    otpAttempts: 0,
+    otpLastSentAt: null
+  });
+  res.json({ message: 'Password reset successful' });
+});
+
+// POST /api/auth/change-password - Đổi mật khẩu khi đã đăng nhập (JWT required)
+exports.changePassword = asyncHandler(async (req, res) => {
+  const { currentPassword, newPassword } = req.body;
+  if (!currentPassword || !newPassword) {
+    return res.status(400).json({ message: 'Mật khẩu hiện tại và mật khẩu mới là bắt buộc' });
+  }
+  if (newPassword.length < 6) {
+    return res.status(400).json({ message: 'Mật khẩu mới phải có ít nhất 6 ký tự' });
+  }
+  const user = await User.findById(req.user.id);
+  if (!user) {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+  const valid = await bcrypt.compare(currentPassword, user.passwordHash);
+  if (!valid) {
+    return res.status(401).json({ message: 'Mật khẩu hiện tại không đúng' });
+  }
+  const passwordHash = await bcrypt.hash(newPassword, 10);
+  await User.findByIdAndUpdate(user._id, { passwordHash });
+  res.json({ message: 'Password changed successfully' });
+});
+// ===== MODIFIED END (FORGOT PASSWORD FEATURE) =====

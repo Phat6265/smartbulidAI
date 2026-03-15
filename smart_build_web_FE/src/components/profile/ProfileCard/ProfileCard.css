@@ -1,0 +1,102 @@
+/* ===== NEW FILE CREATED FOR CUSTOMER PROFILE FEATURE ===== */
+.profile-card {
+  max-width: 560px;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.profile-card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile-card-avatar {
+  margin-bottom: 1rem;
+}
+
+.profile-card-avatar img,
+.profile-card-avatar-placeholder {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-card-avatar-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-secondary);
+  color: var(--color-bg-primary);
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.profile-card-name {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.profile-card-role {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.profile-card-details {
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.profile-card-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.profile-card-row dt {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.profile-card-row dd {
+  margin: 0;
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  word-break: break-word;
+}
+
+.profile-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.profile-card-actions a {
+  text-decoration: none;
+}
+
+.profile-card-delete-btn {
+  color: var(--color-error, #dc3545) !important;
+  border-color: var(--color-error, #dc3545) !important;
+}
+
+.profile-card-delete-btn:hover {
+  background-color: rgba(220, 53, 69, 0.08);
+}
+
+.profile-change-password-link {
+  display: inline-block;
+}

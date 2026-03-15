@@ -1,0 +1,33 @@
+/* ===== NEW FILE CREATED FOR CUSTOMER PROFILE FEATURE ===== */
+.edit-profile-page {
+  padding: 2rem 0;
+  min-height: calc(100vh - 200px);
+}
+
+.edit-profile-title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.edit-profile-error {
+  color: #dc3545;
+  font-size: var(--font-size-sm);
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-radius: 4px;
+}
+
+.edit-profile-loading {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-text-secondary);
+}
+
+/* ===== MODIFIED START (AVATAR UPLOAD FEATURE) ===== */
+.edit-profile-avatar-section {
+  margin-bottom: 2rem;
+}
+/* ===== MODIFIED END (AVATAR UPLOAD FEATURE) ===== */

@@ -1,6 +1,9 @@
 // Auth Store - Zustand
 import { create } from 'zustand';
-import { getStoredUserInfo, isAuthenticated } from '../services/auth.service';
+import * as authService from '../services/auth.service';
+
+const getStoredUserInfo = authService.getStoredUserInfo;
+const isAuthenticated = authService.isAuthenticated;
 
 const useAuthStore = create((set) => ({
   user: getStoredUserInfo(),
@@ -36,7 +39,12 @@ const useAuthStore = create((set) => ({
       localStorage.setItem('smartbuild_user_info', JSON.stringify(updatedUser));
       return { user: updatedUser };
     });
-  }
+  },
+  // ===== MODIFIED START (FORGOT PASSWORD FEATURE) =====
+  forgotPassword: async (email) => authService.forgotPassword(email),
+  resetPassword: async (payload) => authService.resetPassword(payload),
+  changePassword: async (payload) => authService.changePassword(payload)
+  // ===== MODIFIED END (FORGOT PASSWORD FEATURE) =====
 }));
 
 export default useAuthStore;

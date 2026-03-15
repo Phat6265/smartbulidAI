@@ -17,19 +17,35 @@ const Admin = lazy(() => import('../pages/Admin'));
 const AdminDashboard = lazy(() => import('../pages/Admin/Dashboard'));
 const AdminMaterials = lazy(() => import('../pages/Admin/MaterialsAdmin'));
 const AdminUsers = lazy(() => import('../pages/Admin/UsersAdmin'));
+// ===== MODIFIED START (ADMIN USER CRUD FEATURE) =====
+const AdminUserDetailPage = lazy(() => import('../pages/Admin/AdminUserDetail'));
+const AdminCreateUserPage = lazy(() => import('../pages/Admin/AdminCreateUser'));
+const AdminEditUserPage = lazy(() => import('../pages/Admin/AdminEditUser'));
+// ===== MODIFIED END (ADMIN USER CRUD FEATURE) =====
 const AdminOrders = lazy(() => import('../pages/Admin/OrdersAdmin'));
 const AdminQuotations = lazy(() => import('../pages/Admin/QuotationsAdmin'));
 const AdminSettings = lazy(() => import('../pages/Admin/Settings'));
+// ===== MODIFIED START (SYSTEM SETTINGS FEATURE) =====
+const AdminSystemSettingsPage = lazy(() => import('../pages/Admin/SystemSettings'));
+// ===== MODIFIED END (SYSTEM SETTINGS FEATURE) =====
 const AdminRevenueReport = lazy(() => import('../pages/Admin/RevenueReport'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
 // ===== MODIFIED START (OTP AUTH FEATURE) =====
 const VerifyOtp = lazy(() => import('../pages/VerifyOtp'));
 // ===== MODIFIED END (OTP AUTH FEATURE) =====
+// ===== MODIFIED START (FORGOT PASSWORD FEATURE) =====
+const ForgotPassword = lazy(() => import('../pages/ForgotPassword'));
+const ResetPassword = lazy(() => import('../pages/ResetPassword'));
+const ChangePassword = lazy(() => import('../pages/ChangePassword'));
+// ===== MODIFIED END (FORGOT PASSWORD FEATURE) =====
 const Cart = lazy(() => import('../pages/Cart'));
 const Checkout = lazy(() => import('../pages/Checkout'));
 const PaymentSuccess = lazy(() => import('../pages/PaymentSuccess'));
 const Profile = lazy(() => import('../pages/Profile'));
+// ===== MODIFIED START (CUSTOMER PROFILE FEATURE) =====
+const EditProfilePage = lazy(() => import('../pages/EditProfile'));
+// ===== MODIFIED END (CUSTOMER PROFILE FEATURE) =====
 const OrderDetail = lazy(() => import('../pages/OrderDetail'));
 const About = lazy(() => import('../pages/About'));
 const Contact = lazy(() => import('../pages/Contact'));
@@ -86,6 +102,11 @@ const AppRoutes = () => {
         {/* ===== MODIFIED START (OTP AUTH FEATURE) ===== */}
         <Route path="/verify-otp" element={<VerifyOtp />} />
         {/* ===== MODIFIED END (OTP AUTH FEATURE) ===== */}
+        {/* ===== MODIFIED START (FORGOT PASSWORD FEATURE) ===== */}
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/change-password" element={<ProtectedRoute requireAuth><ChangePassword /></ProtectedRoute>} />
+        {/* ===== MODIFIED END (FORGOT PASSWORD FEATURE) ===== */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
@@ -146,6 +167,16 @@ const AppRoutes = () => {
             </ProtectedRoute>
           }
         />
+        {/* ===== MODIFIED START (CUSTOMER PROFILE FEATURE) ===== */}
+        <Route
+          path="/profile/edit"
+          element={
+            <ProtectedRoute requireAuth>
+              <EditProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        {/* ===== MODIFIED END (CUSTOMER PROFILE FEATURE) ===== */}
         <Route
           path="/orders/:id"
           element={
@@ -170,8 +201,15 @@ const AppRoutes = () => {
           <Route path="orders" element={<AdminOrders />} />
           <Route path="quotations" element={<AdminQuotations />} />
           <Route path="revenue-report" element={<AdminRevenueReport />} />
+          {/* ===== MODIFIED START (ADMIN USER CRUD FEATURE) ===== */}
+          <Route path="users/new" element={<AdminCreateUserPage />} />
+          <Route path="users/:id/edit" element={<AdminEditUserPage />} />
+          <Route path="users/:id" element={<AdminUserDetailPage />} />
           <Route path="users" element={<AdminUsers />} />
-          <Route path="settings" element={<AdminSettings />} />
+          {/* ===== MODIFIED END (ADMIN USER CRUD FEATURE) ===== */}
+          {/* ===== MODIFIED START (SYSTEM SETTINGS FEATURE) ===== */}
+          <Route path="settings" element={<AdminSystemSettingsPage />} />
+          {/* ===== MODIFIED END (SYSTEM SETTINGS FEATURE) ===== */}
         </Route>
 
         {/* Default redirect */}

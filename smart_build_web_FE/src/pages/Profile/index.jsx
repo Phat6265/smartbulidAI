@@ -3,68 +3,53 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import useOrderStore from '../../store/order.store';
+import useUserStore from '../../store/user.store';
+import { useNotification } from '../../components/common/NotificationCenter';
 import { formatCurrency } from '../../utils/formatCurrency';
-import Input from '../../components/common/Input';
+import { ROUTES } from '../../utils/constants';
 import Button from '../../components/common/Button';
+import ProfileCard from '../../components/profile/ProfileCard';
 import './Profile.css';
 
+// ===== MODIFIED START (CUSTOMER PROFILE FEATURE) =====
 const Profile = () => {
   const navigate = useNavigate();
-  const { user, isAuthenticated, refreshUser } = useAuth();
-  const { 
-    orders, 
-    loading, 
-    fetchUserOrders,
-    ordersPage,
-    ordersTotal,
-    ordersTotalPages
-  } = useOrderStore();
+  const { confirm } = useNotification();
+  const { user, isAuthenticated, logout } = useAuth();
+  const { orders, loading, fetchUserOrders } = useOrderStore();
+  const { profile, loading: profileLoading, fetchProfile, deleteAccount, updateAvatar, loading: userStoreLoading } = useUserStore();
   const [activeTab, setActiveTab] = useState('info');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [statusFilter, setStatusFilter] = useState('all'); // Filter theo trạng thái
-  const [profileData, setProfileData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: ''
-  });
 
   useEffect(() => {
     if (!isAuthenticated) {
       navigate('/login?redirect=/profile');
       return;
     }
-
-    if (user) {
-      setProfileData({
-        name: user.name || '',
-        email: user.email || '',
-        phone: user.phone || '',
-        address: user.address || ''
-      });
+    if (activeTab === 'info') {
+      fetchProfile().catch(console.error);
     }
-
-    if (activeTab === 'orders' && user) {
-      const userId = user._id || user.id;
-      if (userId) {
-        console.log('Fetching orders for user:', userId, 'page:', currentPage, 'status:', statusFilter);
-        fetchUserOrders(userId, currentPage, 10, statusFilter).catch((error) => {
-          console.error('Error fetching orders:', error);
-        });
-      }
+    if (activeTab === 'orders' && user?._id) {
+      fetchUserOrders(user._id).catch(console.error);
     }
-  }, [isAuthenticated, user, activeTab, currentPage, statusFilter, navigate, fetchUserOrders]);
+  }, [isAuthenticated, activeTab, user?._id, navigate, fetchProfile, fetchUserOrders]);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setProfileData(prev => ({ ...prev, [name]: value }));
+  const handleDeleteAccount = async () => {
+    const ok = await confirm({
+      title: 'Xóa tài khoản',
+      message: 'Bạn có chắc muốn xóa tài khoản? Hành động này không thể hoàn tác.',
+      confirmText: 'Xóa tài khoản',
+      cancelText: 'Hủy'
+    });
+    if (!ok) return;
+    try {
+      await deleteAccount();
+      logout();
+      navigate(ROUTES.HOME);
+    } catch (err) {
+      console.error(err);
+    }
   };
-
-  const handleSaveProfile = async () => {
-    // In real app, this would update user profile via API
-    alert('Thông tin đã được cập nhật!');
-    await refreshUser();
-  };
+// ===== MODIFIED END (CUSTOMER PROFILE FEATURE) =====
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -115,42 +100,19 @@ const Profile = () => {
         <div className="profile-content">
           {activeTab === 'info' && (
             <div className="profile-info">
-              <h2>Cập nhật thông tin</h2>
-              <div className="profile-form">
-                <Input
-                  label="Họ và tên"
-                  name="name"
-                  value={profileData.name}
-                  onChange={handleInputChange}
-                  fullWidth
+              {/* ===== MODIFIED START (CUSTOMER PROFILE FEATURE) ===== */}
+              <h2>Thông tin cá nhân</h2>
+              {profileLoading ? (
+                <div className="profile-loading">Đang tải...</div>
+              ) : (
+                <ProfileCard
+                  profile={profile}
+                  onDeleteAccount={handleDeleteAccount}
+                  onAvatarUpload={updateAvatar}
+                  avatarUploadLoading={userStoreLoading}
                 />
-                <Input
-                  label="Email"
-                  name="email"
-                  type="email"
-                  value={profileData.email}
-                  onChange={handleInputChange}
-                  fullWidth
-                  disabled
-                />
-                <Input
-                  label="Số điện thoại"
-                  name="phone"
-                  value={profileData.phone}
-                  onChange={handleInputChange}
-                  fullWidth
-                />
-                <Input
-                  label="Địa chỉ"
-                  name="address"
-                  value={profileData.address}
-                  onChange={handleInputChange}
-                  fullWidth
-                />
-                <Button variant="primary" size="large" onClick={handleSaveProfile}>
-                  Lưu thông tin
-                </Button>
-              </div>
+              )}
+              {/* ===== MODIFIED END (CUSTOMER PROFILE FEATURE) ===== */}
             </div>
           )}
 
@@ -186,43 +148,34 @@ const Profile = () => {
                   </small>
                 </div>
               ) : (
-                <>
-                  <div className="orders-list">
-                    {orders.map((order) => (
-                      <div key={order._id || order.id} className="order-card">
-                        <div className="order-header">
-                          <span className="order-id">Đơn hàng #{order._id || order.id}</span>
-                          <span className={`order-status order-status-${order.status}`}>
-                            {order.status === 'pending_payment' && 'Chờ thanh toán'}
-                            {order.status === 'paid_deposit' && 'Đã đặt cọc'}
-                            {order.status === 'shipped' && 'Đang giao hàng'}
-                            {order.status === 'delivered' && 'Đã giao hàng'}
-                            {order.status === 'completed' && 'Hoàn thành'}
-                            {order.status === 'cancelled' && 'Đã hủy'}
-                          </span>
-                        </div>
-                        <div className="order-body">
-                          <p className="order-date">
-                            <strong>Ngày mua:</strong> {
-                              order.createdAt 
-                                ? new Date(order.createdAt).toLocaleDateString('vi-VN', {
-                                    year: 'numeric',
-                                    month: 'long',
-                                    day: 'numeric',
-                                    hour: '2-digit',
-                                    minute: '2-digit'
-                                  })
-                                : 'N/A'
-                            }
-                          </p>
-                          <p>Số lượng sản phẩm: {order.items?.length || 0}</p>
-                          <p>Tổng tiền: {formatCurrency(order.totalAmount || order.totalPrice || 0)}</p>
-                          {order.depositAmount && (
-                            <p>Đã đặt cọc: {formatCurrency(order.depositAmount)}</p>
-                          )}
-                          <p>Địa chỉ giao hàng: {order.shippingAddress || 'Chưa có'}</p>
-                        </div>
-                        <div className="order-actions">
+                <div className="orders-list">
+                  {orders.map((order) => (
+                    <div key={order._id || order.id} className="order-card">
+                      <div className="order-header">
+                        <span className="order-id">Đơn hàng #{order._id || order.id}</span>
+                        <span className={`order-status order-status-${order.status}`}>
+                          {order.status === 'pending_payment' && 'Chờ thanh toán'}
+                          {order.status === 'paid_deposit' && 'Đã đặt cọc'}
+                          {order.status === 'shipped' && 'Đang giao hàng'}
+                          {order.status === 'delivered' && 'Đã giao hàng'}
+                          {order.status === 'completed' && 'Hoàn thành'}
+                          {order.status === 'cancelled' && 'Đã hủy'}
+                        </span>
+                      </div>
+                      <div className="order-body">
+                        <p>Số lượng sản phẩm: {order.items?.length || 0}</p>
+                        <p>Tổng tiền: {formatCurrency(order.totalPrice || order.totalAmount || 0)}</p>
+                        <p>Địa chỉ giao hàng: {order.shippingAddress || 'Chưa có'}</p>
+                      </div>
+                      <div className="order-actions">
+                        <Button
+                          variant="outline"
+                          size="small"
+                          onClick={() => navigate(`/orders/${order._id || order.id}`)}
+                        >
+                          Xem chi tiết
+                        </Button>
+                        {order.status === 'delivered' && (
                           <Button
                             className="order-detail-button"
                             variant="outline"

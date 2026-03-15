@@ -114,3 +114,35 @@ export const getStoredUserInfo = () => {
   const userInfo = localStorage.getItem(STORAGE_KEYS.USER_INFO);
   return userInfo ? JSON.parse(userInfo) : null;
 };
+
+// ===== MODIFIED START (FORGOT PASSWORD FEATURE) =====
+/**
+ * Forgot password - gửi OTP tới email
+ * @param {string} email
+ * @returns {Promise} - { message }
+ */
+export const forgotPassword = async (email) => {
+  const response = await apiClient.post('/auth/forgot-password', { email });
+  return response;
+};
+
+/**
+ * Reset password - đặt lại mật khẩu bằng OTP
+ * @param {Object} payload - { email, otp, newPassword }
+ * @returns {Promise} - { message }
+ */
+export const resetPassword = async (payload) => {
+  const response = await apiClient.post('/auth/reset-password', payload);
+  return response;
+};
+
+/**
+ * Change password - đổi mật khẩu khi đã đăng nhập (Bearer token)
+ * @param {Object} payload - { currentPassword, newPassword }
+ * @returns {Promise} - { message }
+ */
+export const changePassword = async (payload) => {
+  const response = await apiClient.post('/auth/change-password', payload);
+  return response;
+};
+// ===== MODIFIED END (FORGOT PASSWORD FEATURE) =====

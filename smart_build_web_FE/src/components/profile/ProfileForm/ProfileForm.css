@@ -1,0 +1,13 @@
+/* ===== NEW FILE CREATED FOR CUSTOMER PROFILE FEATURE ===== */
+.profile-form-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 560px;
+}
+
+.profile-form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
