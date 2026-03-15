@@ -52,8 +52,10 @@ const Login = () => {
         navigate('/home');
       }
     } catch (error) {
+      // ===== MODIFIED START (OTP AUTH FEATURE) =====
       const errorMessage = error?.message || (typeof error === 'string' ? error : 'Đăng nhập thất bại');
       setErrors({ submit: errorMessage });
+      // ===== MODIFIED END (OTP AUTH FEATURE) =====
     } finally {
       setLoading(false);
     }

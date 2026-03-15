@@ -5,15 +5,15 @@ import { useAuth } from '../hooks/useAuth';
 import { ROUTES } from '../utils/constants';
 
 const ProtectedRoute = ({ children, requireAdmin = false, requireAuth = false }) => {
-  const { isAuthenticated, isAdmin, isStaffOrAdmin } = useAuth();
+  const { isAuthenticated, isAdmin } = useAuth();
 
   // If route requires authentication and user is not authenticated
   if (requireAuth && !isAuthenticated) {
     return <Navigate to={ROUTES.LOGIN} replace />;
   }
 
-  // If route requires admin: allow both staff and admin (Staff = quản lý đơn hàng, Admin = full quyền)
-  if (requireAdmin && !isStaffOrAdmin) {
+  // If route requires admin and user is not admin
+  if (requireAdmin && !isAdmin) {
     return <Navigate to={ROUTES.HOME} replace />;
   }
 
