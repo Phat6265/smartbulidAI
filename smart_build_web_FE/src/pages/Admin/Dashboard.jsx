@@ -21,7 +21,7 @@ const Dashboard = () => {
         const usersRes = await apiClient.get('/users');
         const quotationsRes = await getAllQuotations();
 
-        const ordersArray = Array.isArray(ordersRes) ? ordersRes : (ordersRes || []);
+        const ordersArray = ordersRes?.orders || [];
         setCounts({
           materials: (materialsRes.data || []).length,
           orders: ordersArray.length,
