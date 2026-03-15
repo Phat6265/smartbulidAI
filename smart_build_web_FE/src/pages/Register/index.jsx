@@ -50,7 +50,10 @@ const Register = () => {
         email: formData.email,
         password: formData.password
       });
-      navigate('/');
+      // ===== MODIFIED START (OTP AUTH FEATURE) =====
+      sessionStorage.setItem('smartbuild_verify_email', formData.email);
+      navigate('/verify-otp', { state: { email: formData.email } });
+      // ===== MODIFIED END (OTP AUTH FEATURE) =====
     } catch (error) {
       const errorMessage = error?.message || (typeof error === 'string' ? error : 'Đăng ký thất bại');
       setErrors({ submit: errorMessage });

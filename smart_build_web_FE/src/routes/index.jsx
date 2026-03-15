@@ -23,6 +23,9 @@ const AdminSettings = lazy(() => import('../pages/Admin/Settings'));
 const AdminRevenueReport = lazy(() => import('../pages/Admin/RevenueReport'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
+// ===== MODIFIED START (OTP AUTH FEATURE) =====
+const VerifyOtp = lazy(() => import('../pages/VerifyOtp'));
+// ===== MODIFIED END (OTP AUTH FEATURE) =====
 const Cart = lazy(() => import('../pages/Cart'));
 const Checkout = lazy(() => import('../pages/Checkout'));
 const Profile = lazy(() => import('../pages/Profile'));
@@ -78,6 +81,9 @@ const AppRoutes = () => {
         <Route path="/ai-recognition" element={<AIRecognition />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        {/* ===== MODIFIED START (OTP AUTH FEATURE) ===== */}
+        <Route path="/verify-otp" element={<VerifyOtp />} />
+        {/* ===== MODIFIED END (OTP AUTH FEATURE) ===== */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />

@@ -1,0 +1,97 @@
+/* ===== NEW FILE CREATED FOR OTP AUTH FEATURE ===== */
+.verify-otp-page {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  background-color: var(--color-bg-secondary);
+}
+
+.verify-otp-container {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.verify-otp-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.verify-otp-logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.verify-otp-title {
+  font-size: var(--font-size-3xl);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.verify-otp-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.verify-otp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.verify-otp-error {
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  margin: 0;
+}
+
+.verify-otp-success {
+  color: var(--color-success);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  margin: 0;
+}
+
+.verify-otp-resend {
+  background: none;
+  border: none;
+  color: var(--color-secondary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.verify-otp-resend:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.verify-otp-resend:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.verify-otp-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--color-text-secondary);
+}
+
+.verify-otp-footer a {
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-medium);
+}

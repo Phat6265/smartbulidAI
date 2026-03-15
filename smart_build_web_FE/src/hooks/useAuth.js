@@ -7,13 +7,30 @@ import { ROUTES } from '../utils/constants';
 
 export const useAuth = () => {
   const navigate = useNavigate();
-  const { user, isAuthenticated, login, logout, setUser, updateUser } = useAuthStore();
+  const { user, isAuthenticated, login, logout, setUser, updateUser, verifyOtp } = useAuthStore();
 
-  const handleLogout = () => {
-    authService.logout();
+  // ===== MODIFIED START (OTP AUTH FEATURE) =====
+  const handleLogout = async () => {
+    await authService.logout();
     logout();
     navigate(ROUTES.HOME);
   };
+
+  const handleRegister = async (userData) => {
+    const response = await authService.register(userData);
+    return response;
+  };
+
+  const handleVerifyOtp = async (email, otp) => {
+    const response = await authService.verifyOtp({ email, otp });
+    verifyOtp(response.user, response.token);
+    return response;
+  };
+
+  const handleResendOtp = async (email) => {
+    return await authService.resendOtp(email);
+  };
+  // ===== MODIFIED END (OTP AUTH FEATURE) =====
 
   useEffect(() => {
     // Check if user is authenticated on mount
@@ -42,16 +59,6 @@ export const useAuth = () => {
     }
   };
 
-  const handleRegister = async (userData) => {
-    try {
-      const response = await authService.register(userData);
-      login(response.user, response.token);
-      return response;
-    } catch (error) {
-      throw error;
-    }
-  };
-
   const refreshUser = async () => {
     try {
       const response = await authService.getCurrentUser();
@@ -67,17 +74,14 @@ export const useAuth = () => {
     return user?.role === 'admin';
   };
 
-  const isStaffOrAdmin = () => {
-    return user?.role === 'staff' || user?.role === 'admin';
-  };
-
   return {
     user,
     isAuthenticated,
     isAdmin: isAdmin(),
-    isStaffOrAdmin: isStaffOrAdmin(),
     login: handleLogin,
     register: handleRegister,
+    verifyOtp: handleVerifyOtp,
+    resendOtp: handleResendOtp,
     logout: handleLogout,
     refreshUser
   };
