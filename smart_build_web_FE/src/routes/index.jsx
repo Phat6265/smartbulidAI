@@ -25,7 +25,9 @@ const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
 const Cart = lazy(() => import('../pages/Cart'));
 const Checkout = lazy(() => import('../pages/Checkout'));
+const PaymentSuccess = lazy(() => import('../pages/PaymentSuccess'));
 const Profile = lazy(() => import('../pages/Profile'));
+const OrderDetail = lazy(() => import('../pages/OrderDetail'));
 const About = lazy(() => import('../pages/About'));
 const Contact = lazy(() => import('../pages/Contact'));
 const FAQ = lazy(() => import('../pages/FAQ'));
@@ -127,10 +129,22 @@ const AppRoutes = () => {
           }
         />
         <Route
+          path="/payment-success"
+          element={<PaymentSuccess />}
+        />
+        <Route
           path="/profile"
           element={
             <ProtectedRoute requireAuth>
               <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/orders/:id"
+          element={
+            <ProtectedRoute requireAuth>
+              <OrderDetail />
             </ProtectedRoute>
           }
         />

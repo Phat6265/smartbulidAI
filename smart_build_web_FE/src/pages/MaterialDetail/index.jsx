@@ -6,6 +6,7 @@ import useCartStore from '../../store/cart.store';
 import { formatCurrency } from '../../utils/formatCurrency';
 import Button from '../../components/common/Button';
 import { MATERIAL_CATEGORIES, SUBCATEGORY_NAMES } from '../../utils/constants';
+import { getMaterialImage } from '../../utils/materialImages';
 import './MaterialDetail.css';
 
 const MaterialDetail = () => {
@@ -68,11 +69,17 @@ const MaterialDetail = () => {
 
         <div className="material-detail-content">
           <div className="material-detail-image">
-            {currentMaterial.images?.[0] ? (
-              <img src={currentMaterial.images[0]} alt={currentMaterial.name} />
-            ) : (
-              <div className="material-detail-placeholder">📦</div>
-            )}
+            {(() => {
+              // Ưu tiên sử dụng ảnh từ assets cho danh mục Sắt
+              const assetImage = getMaterialImage(currentMaterial);
+              const imageUrl = assetImage || currentMaterial.images?.[0];
+              
+              return imageUrl ? (
+                <img src={imageUrl} alt={currentMaterial.name} />
+              ) : (
+                <div className="material-detail-placeholder">📦</div>
+              );
+            })()}
           </div>
 
           <div className="material-detail-info">
