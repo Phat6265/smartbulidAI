@@ -7,6 +7,11 @@ const useOrderStore = create((set, get) => ({
   currentOrder: null,
   loading: false,
   error: null,
+  // Pagination info
+  ordersPage: 1,
+  ordersLimit: 10,
+  ordersTotal: 0,
+  ordersTotalPages: 1,
 
   // Create order
   createOrder: async (orderData) => {
@@ -25,13 +30,20 @@ const useOrderStore = create((set, get) => ({
     }
   },
 
-  // Fetch user orders
-  fetchUserOrders: async (userId) => {
+  // Fetch user orders with pagination and filter
+  fetchUserOrders: async (userId, page = 1, limit = 10, status = 'all') => {
     set({ loading: true, error: null });
     try {
-      const orders = await orderService.getUserOrders(userId);
-      set({ orders, loading: false });
-      return orders;
+      const result = await orderService.getUserOrders(userId, page, limit, status);
+      set({ 
+        orders: result.orders, 
+        ordersPage: result.page,
+        ordersLimit: result.limit,
+        ordersTotal: result.total,
+        ordersTotalPages: result.totalPages,
+        loading: false 
+      });
+      return result;
     } catch (error) {
       const errorMessage = error?.message || 'Không thể tải danh sách đơn hàng';
       set({ error: errorMessage, loading: false });

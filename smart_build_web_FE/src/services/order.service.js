@@ -20,23 +20,44 @@ export const createOrder = async (orderData) => {
 };
 
 /**
- * Get user orders
+ * Get user orders with pagination and filter
  * @param {string} userId
- * @returns {Promise}
+ * @param {number} page - Page number (default: 1)
+ * @param {number} limit - Items per page (default: 10)
+ * @param {string} status - Filter by status (default: 'all')
+ * @returns {Promise} - { orders, total, page, limit, totalPages }
  */
-export const getUserOrders = async (userId) => {
+export const getUserOrders = async (userId, page = 1, limit = 10, status = 'all') => {
   try {
-    const response = await apiClient.get(`/orders?customerId=${userId}`);
-    // json-server returns array directly
-    const orders = Array.isArray(response) ? response : (response.data || []);
+    // Ensure userId is a string
+    const customerId = String(userId);
+    let url = `/orders?customerId=${customerId}&page=${page}&limit=${limit}`;
+    if (status && status !== 'all') {
+      url += `&status=${status}`;
+    }
+    console.log('Fetching orders with customerId:', customerId, 'page:', page, 'limit:', limit, 'status:', status);
+    const response = await apiClient.get(url);
+    console.log('Orders API response:', response);
+    // Backend returns { orders, total, page, limit, totalPages }
+    const orders = response.orders || (Array.isArray(response) ? response : (response.data || []));
+    console.log('Parsed orders:', orders);
     // Normalize: add _id from id
-    return orders.map(order => {
+    const normalizedOrders = orders.map(order => {
       if (order.id && !order._id) {
         return { ...order, _id: order.id };
       }
       return order;
     });
+    console.log('Normalized orders:', normalizedOrders);
+    return {
+      orders: normalizedOrders,
+      total: response.total || normalizedOrders.length,
+      page: response.page || page,
+      limit: response.limit || limit,
+      totalPages: response.totalPages || Math.ceil((response.total || normalizedOrders.length) / (response.limit || limit))
+    };
   } catch (error) {
+    console.error('Error in getUserOrders:', error);
     throw error;
   }
 };
