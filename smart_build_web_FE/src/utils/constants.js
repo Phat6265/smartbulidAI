@@ -9,7 +9,6 @@ export const AI_SERVICE_URL = process.env.REACT_APP_AI_SERVICE_URL || 'http://lo
 // User Roles
 export const USER_ROLES = {
   CUSTOMER: 'customer',
-  STAFF: 'staff',
   ADMIN: 'admin'
 };
 
@@ -369,6 +368,7 @@ export const ROUTES = {
   ADMIN: '/admin',
   LOGIN: '/login',
   REGISTER: '/register',
+  VERIFY_OTP: '/verify-otp', // ===== MODIFIED (OTP AUTH FEATURE) =====
   PROFILE: '/profile',
   CART: '/cart',
   CHECKOUT: '/checkout',

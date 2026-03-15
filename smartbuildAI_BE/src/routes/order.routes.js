@@ -1,12 +1,10 @@
 const express = require('express');
 const orderController = require('../controllers/order.controller');
-const { authMiddleware, requireRoles } = require('../middlewares/auth.middleware');
+const { authMiddleware } = require('../middlewares/auth.middleware');
 
 const router = express.Router();
 
-// Nhóm chức năng: Đơn hàng
-
-// [Customer] Tạo đơn hàng mới (khách đã đăng nhập)
+// Khách hàng tạo đơn: yêu cầu đăng nhập
 router.post('/', authMiddleware, orderController.createOrder);
 
 // [Customer] Xem đơn hàng của chính mình

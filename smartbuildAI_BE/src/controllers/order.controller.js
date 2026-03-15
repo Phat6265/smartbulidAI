@@ -116,36 +116,12 @@ exports.getOrderById = asyncHandler(async (req, res) => {
   res.json(order);
 });
 
-// Trạng thái Staff được phép cập nhật (duyệt đơn + trạng thái giao hàng, không hủy đơn)
-const STAFF_ALLOWED_STATUSES = ['approved', 'paid_deposit', 'shipped', 'delivered', 'completed'];
-
 // PUT /api/orders/:id
-// Staff: chỉ được cập nhật trạng thái giao hàng (paid_deposit, shipped, delivered, completed)
-// Admin: theo dõi và xử lý đơn hàng (cập nhật mọi field, kể cả cancelled)
 exports.updateOrder = asyncHandler(async (req, res) => {
-  const orderId = req.params.id;
-  const order = await Order.findById(orderId);
-  if (!order) {
+  const updated = await Order.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  if (!updated) {
     return res.status(404).json({ message: 'Order not found' });
   }
-
-  const isStaff = req.user && req.user.role === 'staff';
-
-  if (isStaff) {
-    // Staff: chỉ được gửi { status } và status phải thuộc trạng thái giao hàng
-    const { status } = req.body;
-    if (typeof status !== 'string' || !STAFF_ALLOWED_STATUSES.includes(status)) {
-      return res.status(403).json({
-        message: 'Staff chỉ được cập nhật trạng thái giao hàng: đặt cọc, đã giao, đã giao xong. Không được hủy đơn.'
-      });
-    }
-    order.status = status;
-    await order.save();
-    return res.json(order);
-  }
-
-  // Admin: cập nhật đầy đủ (xử lý đơn hàng)
-  const updated = await Order.findByIdAndUpdate(orderId, req.body, { new: true });
   res.json(updated);
 });
 

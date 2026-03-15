@@ -18,6 +18,13 @@ const useAuthStore = create((set) => ({
     localStorage.setItem('smartbuild_user_info', JSON.stringify(user));
     set({ user, token, isAuthenticated: true });
   },
+  // ===== MODIFIED START (OTP AUTH FEATURE) =====
+  verifyOtp: (user, token) => {
+    localStorage.setItem('smartbuild_auth_token', token);
+    localStorage.setItem('smartbuild_user_info', JSON.stringify(user));
+    set({ user, token, isAuthenticated: true });
+  },
+  // ===== MODIFIED END (OTP AUTH FEATURE) =====
   logout: () => {
     localStorage.removeItem('smartbuild_auth_token');
     localStorage.removeItem('smartbuild_user_info');

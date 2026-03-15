@@ -24,7 +24,7 @@ const orderSchema = new mongoose.Schema(
     remainingAmount: { type: Number }, // Số tiền còn lại
     status: {
       type: String,
-      enum: ['pending_payment', 'approved', 'paid_deposit', 'shipped', 'delivered', 'completed', 'cancelled'],
+      enum: ['pending_payment', 'paid_deposit', 'shipped', 'delivered', 'completed', 'cancelled'],
       default: 'pending_payment'
     },
     // VNPay payment information
