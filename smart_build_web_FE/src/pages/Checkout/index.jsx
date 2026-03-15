@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import useCartStore from '../../store/cart.store';
 import useOrderStore from '../../store/order.store';
-import { createVNPayPaymentUrl } from '../../services/payment.service';
+import { createVNPayPaymentUrl } from '../../services/payment.service.js';
 import { formatCurrency } from '../../utils/formatCurrency';
 import Input from '../../components/common/Input';
 import Button from '../../components/common/Button';

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import useOrderStore from '../../store/order.store';
 import { formatCurrency } from '../../utils/formatCurrency';
-import { getMaterialImage } from '../../utils/materialImages';
+import { getMaterialImage } from '../../utils/materialImages.js';
 import Button from '../../components/common/Button';
 import LazyImage from '../../components/common/LazyImage';
 import './OrderDetail.css';

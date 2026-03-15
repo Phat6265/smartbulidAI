@@ -15,7 +15,6 @@ const quotationRoutes = require('./routes/quotation.routes');
 const userRoutes = require('./routes/user.routes');
 const projectQuotationRoutes = require('./routes/projectQuotation.routes');
 const authRoutes = require('./routes/auth.routes');
-const infoRoutes = require('./routes/info.routes');
 const paymentRoutes = require('./routes/payment.routes');
 const { notFound, errorHandler } = require('./middlewares/errorHandler.middleware');
 
@@ -35,7 +34,6 @@ app.use('/api/quotations', quotationRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/projectQuotations', projectQuotationRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/info', infoRoutes);
 app.use('/api/payment', paymentRoutes);
 
 // Health check
