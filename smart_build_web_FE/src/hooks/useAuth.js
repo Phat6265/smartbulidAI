@@ -67,10 +67,15 @@ export const useAuth = () => {
     return user?.role === 'admin';
   };
 
+  const isStaffOrAdmin = () => {
+    return user?.role === 'staff' || user?.role === 'admin';
+  };
+
   return {
     user,
     isAuthenticated,
     isAdmin: isAdmin(),
+    isStaffOrAdmin: isStaffOrAdmin(),
     login: handleLogin,
     register: handleRegister,
     logout: handleLogout,

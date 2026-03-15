@@ -9,6 +9,7 @@ export const AI_SERVICE_URL = process.env.REACT_APP_AI_SERVICE_URL || 'http://lo
 // User Roles
 export const USER_ROLES = {
   CUSTOMER: 'customer',
+  STAFF: 'staff',
   ADMIN: 'admin'
 };
 
