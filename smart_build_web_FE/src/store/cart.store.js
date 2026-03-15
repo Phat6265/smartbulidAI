@@ -45,7 +45,9 @@ const useCartStore = create((set, get) => ({
           name: material.name,
           price: material.priceReference,
           quantity: 1,
-          image: material.images?.[0] || null
+          image: material.images?.[0] || null,
+          category: material.category || null,
+          subcategory: material.subcategory || null
         }
       ];
     }

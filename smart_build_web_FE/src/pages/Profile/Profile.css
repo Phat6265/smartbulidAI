@@ -53,6 +53,49 @@
   color: var(--color-text-primary);
 }
 
+.profile-orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.profile-orders-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profile-orders-filter label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.profile-orders-filter-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all 200ms ease-out;
+  min-width: 180px;
+}
+
+.profile-orders-filter-select:hover {
+  border-color: var(--color-secondary);
+}
+
+.profile-orders-filter-select:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.1);
+}
+
 .profile-form {
   display: flex;
   flex-direction: column;
@@ -140,6 +183,14 @@
   color: var(--color-text-secondary);
 }
 
+.order-date {
+  color: var(--color-text-primary) !important;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
 .order-actions {
   display: flex;
   gap: 1rem;
@@ -151,4 +202,102 @@
   text-align: center;
   padding: 3rem;
   color: var(--color-text-secondary);
+}
+
+/* Order Detail Button - Màu nâu chữ trắng */
+.order-detail-button {
+  background-color: #8B5A2B !important;
+  color: white !important;
+  border-color: #8B5A2B !important;
+}
+
+.order-detail-button:hover {
+  background-color: #704a21 !important;
+  border-color: #704a21 !important;
+  color: white !important;
+}
+
+.order-detail-button:active {
+  background-color: #5d4037 !important;
+  border-color: #5d4037 !important;
+  color: white !important;
+}
+
+/* Pagination Styles */
+.profile-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.profile-pagination-info {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.profile-pagination-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.profile-pagination-arrow,
+.profile-pagination-page {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  transition: all 200ms ease-out;
+  min-width: 36px;
+  text-align: center;
+}
+
+.profile-pagination-arrow:hover:not(:disabled),
+.profile-pagination-page:hover {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.profile-pagination-arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.profile-pagination-page.active {
+  background-color: var(--color-secondary);
+  color: white;
+  border-color: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+  .profile-orders-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-orders-filter {
+    width: 100%;
+  }
+
+  .profile-orders-filter-select {
+    width: 100%;
+  }
+
+  .profile-pagination {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .profile-pagination-controls {
+    justify-content: center;
+  }
 }

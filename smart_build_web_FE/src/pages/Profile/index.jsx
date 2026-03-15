@@ -51,6 +51,21 @@ const Profile = () => {
   };
 // ===== MODIFIED END (CUSTOMER PROFILE FEATURE) =====
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    if (user) {
+      const userId = user._id || user.id;
+      if (userId) {
+        fetchUserOrders(userId, page, 10, statusFilter).catch(console.error);
+      }
+    }
+  };
+
+  const handleStatusFilterChange = (status) => {
+    setStatusFilter(status);
+    setCurrentPage(1); // Reset về trang 1 khi đổi filter
+  };
+
   if (!isAuthenticated) {
     return null;
   }
@@ -63,13 +78,20 @@ const Profile = () => {
         <div className="profile-tabs">
           <button
             className={`profile-tab ${activeTab === 'info' ? 'active' : ''}`}
-            onClick={() => setActiveTab('info')}
+            onClick={() => {
+              setActiveTab('info');
+              setCurrentPage(1);
+            }}
           >
             Thông tin cá nhân
           </button>
           <button
             className={`profile-tab ${activeTab === 'orders' ? 'active' : ''}`}
-            onClick={() => setActiveTab('orders')}
+            onClick={() => {
+              setActiveTab('orders');
+              setCurrentPage(1);
+              setStatusFilter('all'); // Reset filter khi chuyển tab
+            }}
           >
             Đơn hàng của tôi
           </button>
@@ -96,11 +118,35 @@ const Profile = () => {
 
           {activeTab === 'orders' && (
             <div className="profile-orders">
-              <h2>Đơn hàng của tôi</h2>
+              <div className="profile-orders-header">
+                <h2>Đơn hàng của tôi</h2>
+                <div className="profile-orders-filter">
+                  <label>Lọc theo trạng thái:</label>
+                  <select 
+                    value={statusFilter} 
+                    onChange={(e) => handleStatusFilterChange(e.target.value)}
+                    className="profile-orders-filter-select"
+                  >
+                    <option value="all">Tất cả</option>
+                    <option value="pending_payment">Chờ thanh toán</option>
+                    <option value="paid_deposit">Đã đặt cọc</option>
+                    <option value="shipped">Đang giao hàng</option>
+                    <option value="delivered">Đã giao hàng</option>
+                    <option value="completed">Hoàn thành</option>
+                    <option value="cancelled">Đã hủy</option>
+                  </select>
+                </div>
+              </div>
               {loading ? (
                 <div className="profile-loading">Đang tải...</div>
               ) : orders.length === 0 ? (
-                <div className="profile-empty">Bạn chưa có đơn hàng nào</div>
+                <div className="profile-empty">
+                  Bạn chưa có đơn hàng nào
+                  <br />
+                  <small style={{ color: '#666', fontSize: '0.875rem', marginTop: '0.5rem', display: 'block' }}>
+                    User ID: {user?._id || user?.id || 'N/A'}
+                  </small>
+                </div>
               ) : (
                 <div className="orders-list">
                   {orders.map((order) => (
@@ -131,21 +177,85 @@ const Profile = () => {
                         </Button>
                         {order.status === 'delivered' && (
                           <Button
-                            variant="primary"
+                            className="order-detail-button"
+                            variant="outline"
                             size="small"
-                            onClick={async () => {
-                              const { confirmDelivery } = useOrderStore.getState();
-                              await confirmDelivery(order._id || order.id);
-                              await fetchUserOrders(user._id);
-                            }}
+                            onClick={() => navigate(`/orders/${order._id || order.id}`)}
                           >
-                            Xác nhận đã nhận hàng
+                            Xem chi tiết
                           </Button>
-                        )}
+                          {order.status === 'delivered' && (
+                            <Button
+                              variant="primary"
+                              size="small"
+                              onClick={async () => {
+                                const { confirmDelivery } = useOrderStore.getState();
+                                await confirmDelivery(order._id || order.id);
+                                const userId = user._id || user.id;
+                                if (userId) {
+                                  await fetchUserOrders(userId, currentPage, 10, statusFilter);
+                                }
+                              }}
+                            >
+                              Xác nhận đã nhận hàng
+                            </Button>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Pagination */}
+                  {ordersTotalPages > 1 && (
+                    <div className="profile-pagination">
+                      <div className="profile-pagination-info">
+                        <span>Trang {ordersPage} / {ordersTotalPages} — Tổng {ordersTotal} đơn hàng</span>
+                      </div>
+                      <div className="profile-pagination-controls">
+                        <button
+                          type="button"
+                          className="profile-pagination-arrow"
+                          disabled={ordersPage <= 1}
+                          onClick={() => handlePageChange(ordersPage - 1)}
+                          aria-label="Trang trước"
+                        >
+                          ←
+                        </button>
+                        {(() => {
+                          const maxVisible = 5;
+                          let start = Math.max(1, ordersPage - Math.floor(maxVisible / 2));
+                          let end = Math.min(ordersTotalPages, start + maxVisible - 1);
+                          if (end - start + 1 < maxVisible) {
+                            start = Math.max(1, end - maxVisible + 1);
+                          }
+                          const pages = [];
+                          for (let i = start; i <= end; i++) {
+                            pages.push(i);
+                          }
+                          return pages.map((p) => (
+                            <button
+                              type="button"
+                              key={p}
+                              className={`profile-pagination-page ${p === ordersPage ? 'active' : ''}`}
+                              onClick={() => handlePageChange(p)}
+                            >
+                              {p}
+                            </button>
+                          ));
+                        })()}
+                        <button
+                          type="button"
+                          className="profile-pagination-arrow"
+                          disabled={ordersPage >= ordersTotalPages}
+                          onClick={() => handlePageChange(ordersPage + 1)}
+                          aria-label="Trang sau"
+                        >
+                          →
+                        </button>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  )}
+                </>
               )}
             </div>
           )}

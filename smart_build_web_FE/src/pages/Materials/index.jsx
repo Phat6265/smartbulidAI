@@ -7,6 +7,7 @@ import { useAuth } from '../../hooks/useAuth';
 import useMaterialStore from '../../store/material.store';
 import { MATERIAL_CATEGORIES, SUBCATEGORY_NAMES, MATERIAL_TYPE_BADGES } from '../../utils/constants';
 import { formatCurrency } from '../../utils/formatCurrency';
+import { getMaterialImage } from '../../utils/materialImages.js';
 import Input from '../../components/common/Input';
 import Button from '../../components/common/Button';
 import LazyImage from '../../components/common/LazyImage';
@@ -273,15 +274,21 @@ const Materials = () => {
                       className="materials-card-link"
                     >
                       <div className="materials-card-image">
-                        {material.images?.[0] ? (
-                          <LazyImage 
-                            src={material.images[0]} 
-                            alt={material.name}
-                            effect="blur"
-                          />
-                        ) : (
-                          <div className="materials-card-placeholder">📦</div>
-                        )}
+                        {(() => {
+                          // Ưu tiên sử dụng ảnh từ assets cho danh mục Sắt
+                          const assetImage = getMaterialImage(material);
+                          const imageUrl = assetImage || material.images?.[0];
+                          
+                          return imageUrl ? (
+                            <LazyImage 
+                              src={imageUrl} 
+                              alt={material.name}
+                              effect="blur"
+                            />
+                          ) : (
+                            <div className="materials-card-placeholder">📦</div>
+                          );
+                        })()}
                       </div>
                     </Link>
                     <div className="materials-card-content">

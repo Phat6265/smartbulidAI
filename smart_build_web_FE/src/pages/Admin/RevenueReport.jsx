@@ -20,15 +20,18 @@ const RevenueReport = () => {
       try {
         const [mRes, oRes, uRes] = await Promise.all([
           getMaterials(),
-          apiClient.get('/orders'),
+          apiClient.get('/orders?limit=1000'), // Fetch all orders for report
           apiClient.get('/users')
         ]);
 
         const mats = (mRes.data || []).map(m => ({ id: m._id || m.id, name: m.name }));
         setMaterials(mats);
 
-        const ordersArray = Array.isArray(oRes) ? oRes : (oRes.data || []);
-        setOrders(ordersArray);
+        // Handle paginated response from orders API
+        const ordersArray = Array.isArray(oRes) 
+          ? oRes 
+          : (oRes?.orders || oRes?.data || []);
+        setOrders(Array.isArray(ordersArray) ? ordersArray : []);
 
         const usersArray = Array.isArray(uRes) ? uRes : (uRes.data || []);
         setUsers(usersArray);
@@ -41,7 +44,7 @@ const RevenueReport = () => {
     fetchData();
   }, []);
 
-  const filteredOrders = orders.filter(o => {
+  const filteredOrders = (Array.isArray(orders) ? orders : []).filter(o => {
     if (!fromDate && !toDate) return true;
     const d = new Date(o.createdAt || Date.now());
     if (fromDate && d < new Date(fromDate)) return false;

@@ -327,8 +327,13 @@ const MaterialsAdmin = () => {
                     style={{ width: '100%', padding: '0.5rem', borderRadius: 6, border: '1px solid var(--color-border)' }}
                   >
                     <option value="">-- Chọn phân loại --</option>
-                    {form.category && MATERIAL_CATEGORIES.find(c => c.id === form.category)?.subcategories?.map(subId => (
-                      <option key={subId} value={subId}>{SUBCATEGORY_NAMES[subId] || subId}</option>
+                    {form.category && MATERIAL_CATEGORIES.find(c => c.id === form.category)?.subcategories?.flatMap(sub => {
+                      // sub ở đây là object { id, name, details }
+                      return sub.details && sub.details.length
+                        ? sub.details.map(detailId => ({ id: detailId, label: SUBCATEGORY_NAMES[detailId] || detailId }))
+                        : [{ id: sub.id, label: sub.name }];
+                    }).map(opt => (
+                      <option key={opt.id} value={opt.id}>{opt.label}</option>
                     ))}
                   </select>
                 </div>

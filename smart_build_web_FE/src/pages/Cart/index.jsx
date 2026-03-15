@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FiTrash2, FiMinus, FiPlus } from 'react-icons/fi';
 import useCartStore from '../../store/cart.store';
 import { formatCurrency } from '../../utils/formatCurrency';
+import { getMaterialImage } from '../../utils/materialImages.js';
 import { useAuth } from '../../hooks/useAuth';
 import Button from '../../components/common/Button';
 import LazyImage from '../../components/common/LazyImage';
@@ -56,11 +57,22 @@ const Cart = () => {
             {items.map((item) => (
               <div key={item.materialId} className="cart-item">
                 <div className="cart-item-image">
-                  {item.image ? (
-                    <LazyImage src={item.image} alt={item.name} effect="blur" />
-                  ) : (
-                    <div className="cart-item-placeholder">📦</div>
-                  )}
+                  {(() => {
+                    // Ưu tiên sử dụng ảnh từ assets cho danh mục Sắt
+                    const materialForImage = {
+                      name: item.name,
+                      category: item.category,
+                      subcategory: item.subcategory
+                    };
+                    const assetImage = getMaterialImage(materialForImage);
+                    const imageUrl = assetImage || item.image;
+                    
+                    return imageUrl ? (
+                      <LazyImage src={imageUrl} alt={item.name} effect="blur" />
+                    ) : (
+                      <div className="cart-item-placeholder">📦</div>
+                    );
+                  })()}
                 </div>
                 <div className="cart-item-info">
                   <h3 className="cart-item-name">{item.name}</h3>
@@ -110,7 +122,7 @@ const Cart = () => {
                 Thanh toán
               </Button>
               <Link to="/materials">
-                <Button variant="outline" size="large" fullWidth>
+                <Button variant="primary" size="large" fullWidth>
                   Tiếp tục mua sắm
                 </Button>
               </Link>

@@ -41,10 +41,12 @@ const ChangePassword = lazy(() => import('../pages/ChangePassword'));
 // ===== MODIFIED END (FORGOT PASSWORD FEATURE) =====
 const Cart = lazy(() => import('../pages/Cart'));
 const Checkout = lazy(() => import('../pages/Checkout'));
+const PaymentSuccess = lazy(() => import('../pages/PaymentSuccess'));
 const Profile = lazy(() => import('../pages/Profile'));
 // ===== MODIFIED START (CUSTOMER PROFILE FEATURE) =====
 const EditProfilePage = lazy(() => import('../pages/EditProfile'));
 // ===== MODIFIED END (CUSTOMER PROFILE FEATURE) =====
+const OrderDetail = lazy(() => import('../pages/OrderDetail'));
 const About = lazy(() => import('../pages/About'));
 const Contact = lazy(() => import('../pages/Contact'));
 const FAQ = lazy(() => import('../pages/FAQ'));
@@ -154,6 +156,10 @@ const AppRoutes = () => {
           }
         />
         <Route
+          path="/payment-success"
+          element={<PaymentSuccess />}
+        />
+        <Route
           path="/profile"
           element={
             <ProtectedRoute requireAuth>
@@ -171,6 +177,14 @@ const AppRoutes = () => {
           }
         />
         {/* ===== MODIFIED END (CUSTOMER PROFILE FEATURE) ===== */}
+        <Route
+          path="/orders/:id"
+          element={
+            <ProtectedRoute requireAuth>
+              <OrderDetail />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Admin Routes */}
         <Route

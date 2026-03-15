@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import useCartStore from '../../store/cart.store';
 import useOrderStore from '../../store/order.store';
+import { createVNPayPaymentUrl } from '../../services/payment.service.js';
 import { formatCurrency } from '../../utils/formatCurrency';
 import Input from '../../components/common/Input';
 import Button from '../../components/common/Button';
@@ -47,11 +48,11 @@ const Checkout = () => {
 
     try {
       const totalPrice = getTotalPrice();
-      const depositAmount = totalPrice * 0.1; // 10% deposit
-      const remainingAmount = totalPrice - depositAmount;
+      const depositAmount = totalPrice * 0.5; // 50% deposit
 
       const orderData = {
         customerId: user._id || user.id,
+        customerName: user.name || user.email,
         items: items.map(item => ({
           materialId: item.materialId,
           name: item.name,
@@ -61,29 +62,40 @@ const Checkout = () => {
         shippingAddress: formData.shippingAddress,
         phone: formData.phone,
         note: formData.note || '',
-        totalPrice,
-        depositAmount,
-        remainingAmount,
+        totalAmount: totalPrice,
+        depositAmount: depositAmount, // Lưu số tiền cọc
         status: 'pending_payment'
       };
 
       const order = await createOrder(orderData);
-      setOrderId(order._id || order.id);
-      setPaymentStep('payment');
+      const orderIdValue = order._id || order.id;
+      setOrderId(orderIdValue);
+      
+      // Create VNPay payment URL
+      try {
+        const paymentResponse = await createVNPayPaymentUrl({
+          orderId: orderIdValue,
+          amount: depositAmount,
+          language: 'vn'
+        });
+        
+        // Redirect to VNPay payment page
+        if (paymentResponse.paymentUrl) {
+          window.location.href = paymentResponse.paymentUrl;
+        } else {
+          throw new Error('Không thể tạo URL thanh toán');
+        }
+      } catch (paymentError) {
+        console.error('Payment error:', paymentError);
+        alert('Có lỗi xảy ra khi tạo thanh toán. Vui lòng thử lại.');
+      }
     } catch (error) {
       alert(error.message || 'Có lỗi xảy ra khi tạo đơn hàng');
     }
   };
 
-  const handlePaymentComplete = () => {
-    // In real app, this would verify payment via API
-    alert('Thanh toán đặt cọc thành công! Đơn hàng của bạn đang được xử lý.');
-    clearCart();
-    setPaymentStep('success');
-  };
-
   const totalPrice = getTotalPrice();
-  const depositAmount = totalPrice * 0.1;
+  const depositAmount = totalPrice * 0.5; // 50% deposit
   const remainingAmount = totalPrice - depositAmount;
 
   if (paymentStep === 'success') {
@@ -99,7 +111,7 @@ const Checkout = () => {
               <Button variant="primary" size="large" onClick={() => navigate('/profile')}>
                 Xem đơn hàng
               </Button>
-              <Button variant="outline" size="large" onClick={() => navigate('/materials')}>
+              <Button variant="primary" size="large" onClick={() => navigate('/materials')}>
                 Tiếp tục mua sắm
               </Button>
             </div>
@@ -109,65 +121,6 @@ const Checkout = () => {
     );
   }
 
-  if (paymentStep === 'payment') {
-    return (
-      <div className="checkout-page">
-        <div className="container">
-          <h1 className="checkout-title">Thanh toán đặt cọc</h1>
-          
-          <div className="checkout-payment">
-            <div className="payment-summary">
-              <h2>Tóm tắt đơn hàng</h2>
-              <div className="payment-summary-row">
-                <span>Tổng giá trị đơn hàng:</span>
-                <span>{formatCurrency(totalPrice)}</span>
-              </div>
-              <div className="payment-summary-row payment-highlight">
-                <span>Số tiền đặt cọc (10%):</span>
-                <span>{formatCurrency(depositAmount)}</span>
-              </div>
-              <div className="payment-summary-row">
-                <span>Số tiền còn lại (thanh toán khi nhận hàng):</span>
-                <span>{formatCurrency(remainingAmount)}</span>
-              </div>
-            </div>
-
-            <div className="payment-qr">
-              <h2>Quét mã QR để thanh toán</h2>
-              <div className="qr-code-container">
-                {/* Mock QR Code - In real app, this would be generated from payment gateway */}
-                <div className="qr-code-placeholder">
-                  <div className="qr-code-mock">
-                    <div className="qr-grid">
-                      {Array.from({ length: 25 }).map((_, i) => (
-                        <div key={i} className={`qr-cell ${Math.random() > 0.5 ? 'filled' : ''}`}></div>
-                      ))}
-                    </div>
-                  </div>
-                  <p>Quét mã QR bằng ứng dụng ngân hàng</p>
-                  <p className="qr-amount">{formatCurrency(depositAmount)}</p>
-                </div>
-              </div>
-              <div className="payment-banks">
-                <p>Hỗ trợ thanh toán qua:</p>
-                <div className="bank-logos">
-                  <span>Vietcombank</span>
-                  <span>BIDV</span>
-                  <span>VietinBank</span>
-                  <span>Techcombank</span>
-                  <span>Momo</span>
-                  <span>ZaloPay</span>
-                </div>
-              </div>
-              <Button variant="primary" size="large" fullWidth onClick={handlePaymentComplete}>
-                Tôi đã thanh toán
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="checkout-page">
@@ -240,8 +193,8 @@ const Checkout = () => {
                 <span>{formatCurrency(totalPrice)}</span>
               </div>
               <div className="checkout-deposit-note">
-                <p>💡 Bạn sẽ thanh toán 10% đặt cọc ({formatCurrency(depositAmount)}) ngay bây giờ</p>
-                <p>Số tiền còn lại sẽ thanh toán khi nhận hàng</p>
+                <p>💡 Bạn sẽ thanh toán 50% đặt cọc ({formatCurrency(depositAmount)}) ngay bây giờ</p>
+                <p>Số tiền còn lại ({formatCurrency(remainingAmount)}) sẽ thanh toán khi nhận hàng</p>
               </div>
             </div>
             <Button
