@@ -11,8 +11,14 @@ const userSchema = new mongoose.Schema(
     otpExpire: { type: Date, default: null },
     otpAttempts: { type: Number, default: 0 },
     otpLastSentAt: { type: Date, default: null },
-    isEmailVerified: { type: Boolean, default: false }
+    isEmailVerified: { type: Boolean, default: false },
     // ===== MODIFIED END (OTP AUTH FEATURE) =====
+    // ===== MODIFIED START (CUSTOMER PROFILE FEATURE) =====
+    phone: { type: String, default: '' },
+    address: { type: String, default: '' },
+    avatarUrl: { type: String, default: '' },
+    dateOfBirth: { type: Date, default: null }
+    // ===== MODIFIED END (CUSTOMER PROFILE FEATURE) =====
   },
   { timestamps: true }
 );

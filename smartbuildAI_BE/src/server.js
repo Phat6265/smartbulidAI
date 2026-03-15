@@ -15,6 +15,9 @@ const quotationRoutes = require('./routes/quotation.routes');
 const userRoutes = require('./routes/user.routes');
 const projectQuotationRoutes = require('./routes/projectQuotation.routes');
 const authRoutes = require('./routes/auth.routes');
+// ===== MODIFIED START (SYSTEM SETTINGS FEATURE) =====
+const systemSettingRoutes = require('./routes/systemSetting.routes');
+// ===== MODIFIED END (SYSTEM SETTINGS FEATURE) =====
 const { notFound, errorHandler } = require('./middlewares/errorHandler.middleware');
 
 const app = express();
@@ -33,6 +36,9 @@ app.use('/api/quotations', quotationRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/projectQuotations', projectQuotationRoutes);
 app.use('/api/auth', authRoutes);
+// ===== MODIFIED START (SYSTEM SETTINGS FEATURE) =====
+app.use('/api/settings', systemSettingRoutes);
+// ===== MODIFIED END (SYSTEM SETTINGS FEATURE) =====
 
 // Health check
 app.get('/api/health', (req, res) => {

@@ -60,6 +60,13 @@
   max-width: 600px;
 }
 
+/* ===== MODIFIED START (FORGOT PASSWORD FEATURE) ===== */
+.profile-change-password-link {
+  display: inline-block;
+  text-decoration: none;
+}
+/* ===== MODIFIED END (FORGOT PASSWORD FEATURE) ===== */
+
 .orders-list {
   display: flex;
   flex-direction: column;

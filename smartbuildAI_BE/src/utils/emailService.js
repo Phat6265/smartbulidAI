@@ -68,7 +68,42 @@ SmartBuild Team`;
   await transporter.sendMail(mailOptions);
 }
 
+// ===== MODIFIED START (FORGOT PASSWORD FEATURE) =====
+/**
+ * Send OTP email for password reset
+ * @param {string} to - Recipient email
+ * @param {string} otp - 6-digit OTP (plain)
+ * @returns {Promise<void>}
+ */
+async function sendResetPasswordOTPEmail(to, otp) {
+  if (!EMAIL_USER || !EMAIL_PASS) {
+    throw new Error('Email service is not configured correctly (missing credentials)');
+  }
+  const subject = 'SmartBuild - Reset mật khẩu';
+  const body = `Xin chào,
+
+Mã OTP đặt lại mật khẩu của bạn là:
+
+${otp}
+
+Mã có hiệu lực trong 5 phút.
+
+Nếu bạn không yêu cầu reset mật khẩu, vui lòng bỏ qua email này.
+
+SmartBuild Team`;
+
+  const mailOptions = {
+    from: FROM_ADDRESS,
+    to,
+    subject,
+    text: body
+  };
+  await transporter.sendMail(mailOptions);
+}
+// ===== MODIFIED END (FORGOT PASSWORD FEATURE) =====
+
 module.exports = {
-  sendOTPEmail
+  sendOTPEmail,
+  sendResetPasswordOTPEmail
 };
 // ===== MODIFIED END (OTP AUTH FEATURE) =====

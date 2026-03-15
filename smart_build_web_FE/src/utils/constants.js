@@ -369,7 +369,15 @@ export const ROUTES = {
   LOGIN: '/login',
   REGISTER: '/register',
   VERIFY_OTP: '/verify-otp', // ===== MODIFIED (OTP AUTH FEATURE) =====
+  // ===== MODIFIED START (FORGOT PASSWORD FEATURE) =====
+  FORGOT_PASSWORD: '/forgot-password',
+  RESET_PASSWORD: '/reset-password',
+  CHANGE_PASSWORD: '/change-password',
+  // ===== MODIFIED END (FORGOT PASSWORD FEATURE) =====
   PROFILE: '/profile',
+  // ===== MODIFIED START (CUSTOMER PROFILE FEATURE) =====
+  PROFILE_EDIT: '/profile/edit',
+  // ===== MODIFIED END (CUSTOMER PROFILE FEATURE) =====
   CART: '/cart',
   CHECKOUT: '/checkout',
   ORDERS: '/orders'

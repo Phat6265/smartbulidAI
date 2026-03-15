@@ -15,10 +15,9 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const [showForgotPassword, setShowForgotPassword] = useState(false);
-  const [forgotEmail, setForgotEmail] = useState('');
-  const [forgotLoading, setForgotLoading] = useState(false);
-  const [forgotMessage, setForgotMessage] = useState('');
+  // ===== MODIFIED START (FORGOT PASSWORD FEATURE) =====
+  // Inline "Quên mật khẩu" form đã chuyển sang trang riêng /forgot-password
+  // ===== MODIFIED END (FORGOT PASSWORD FEATURE) =====
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,30 +60,6 @@ const Login = () => {
     }
   };
 
-  const handleForgotPassword = async (e) => {
-    e.preventDefault();
-    if (!isValidEmail(forgotEmail)) {
-      setForgotMessage('Email không hợp lệ');
-      return;
-    }
-
-    setForgotLoading(true);
-    try {
-      // TODO: Gọi API gửi email đặt lại mật khẩu
-      console.log('Sending password reset email to:', forgotEmail);
-      setForgotMessage('Email đặt lại mật khẩu đã được gửi. Vui lòng kiểm tra email của bạn.');
-      setTimeout(() => {
-        setShowForgotPassword(false);
-        setForgotEmail('');
-        setForgotMessage('');
-      }, 3000);
-    } catch (error) {
-      setForgotMessage('Có lỗi xảy ra. Vui lòng thử lại.');
-    } finally {
-      setForgotLoading(false);
-    }
-  };
-
   return (
     <div className="login-page">
       <div className="login-container">
@@ -92,95 +67,40 @@ const Login = () => {
           <img src={logo} alt="SmartBuild Logo" />
         </div>
         <h1 className="login-title">Đăng nhập</h1>
-        
-        {!showForgotPassword ? (
-          <>
-            <form onSubmit={handleSubmit} className="login-form">
-              <Input
-                label="Email"
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                error={errors.email}
-                required
-                fullWidth
-              />
-              <Input
-                label="Mật khẩu"
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                error={errors.password}
-                required
-                fullWidth
-              />
-              {errors.submit && <p className="login-error">{errors.submit}</p>}
-              <Button type="submit" variant="primary" size="large" fullWidth loading={loading}>
-                Đăng nhập
-              </Button>
-            </form>
-            <button 
-              type="button"
-              className="login-forgot-btn"
-              onClick={() => setShowForgotPassword(true)}
-            >
-              Quên mật khẩu?
-            </button>
-            <p className="login-footer">
-              Chưa có tài khoản? <Link to="/register">Đăng ký ngay</Link>
-            </p>
-          </>
-        ) : (
-          <>
-            <form onSubmit={handleForgotPassword} className="login-form">
-              <p className="login-forgot-text">
-                Nhập email của bạn để nhận liên kết đặt lại mật khẩu
-              </p>
-              <Input
-                label="Email"
-                type="email"
-                value={forgotEmail}
-                onChange={(e) => {
-                  setForgotEmail(e.target.value);
-                  setForgotMessage('');
-                }}
-                required
-                fullWidth
-              />
-              {forgotMessage && (
-                <p className={forgotMessage.includes('lỗi') ? 'login-error' : 'login-success'}>
-                  {forgotMessage}
-                </p>
-              )}
-              <div className="login-forgot-buttons">
-                <Button 
-                  type="button"
-                  variant="outline-brown"
-                  size="large"
-                  fullWidth
-                  onClick={() => {
-                    setShowForgotPassword(false);
-                    setForgotEmail('');
-                    setForgotMessage('');
-                  }}
-                >
-                  Quay lại
-                </Button>
-                <Button 
-                  type="submit"
-                  variant="primary"
-                  size="large"
-                  fullWidth
-                  loading={forgotLoading}
-                >
-                  Gửi Email
-                </Button>
-              </div>
-            </form>
-          </>
-        )}
+        <form onSubmit={handleSubmit} className="login-form">
+          <Input
+            label="Email"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            error={errors.email}
+            required
+            fullWidth
+          />
+          <Input
+            label="Mật khẩu"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            error={errors.password}
+            required
+            fullWidth
+          />
+          {errors.submit && <p className="login-error">{errors.submit}</p>}
+          <Button type="submit" variant="primary" size="large" fullWidth loading={loading}>
+            Đăng nhập
+          </Button>
+        </form>
+        {/* ===== MODIFIED START (FORGOT PASSWORD FEATURE) ===== */}
+        <Link to={ROUTES.FORGOT_PASSWORD} className="login-forgot-btn">
+          Quên mật khẩu?
+        </Link>
+        {/* ===== MODIFIED END (FORGOT PASSWORD FEATURE) ===== */}
+        <p className="login-footer">
+          Chưa có tài khoản? <Link to="/register">Đăng ký ngay</Link>
+        </p>
       </div>
     </div>
   );
