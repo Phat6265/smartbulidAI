@@ -1,5 +1,5 @@
 // Cart Page
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiTrash2, FiMinus, FiPlus } from 'react-icons/fi';
 import useCartStore from '../../store/cart.store';
@@ -8,12 +8,29 @@ import { getMaterialImage } from '../../utils/materialImages.js';
 import { useAuth } from '../../hooks/useAuth';
 import Button from '../../components/common/Button';
 import LazyImage from '../../components/common/LazyImage';
+import Modal from '../../components/common/Modal';
+import Input from '../../components/common/Input';
+import useQuotationStore from '../../store/quotation.store';
 import './Cart.css';
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
-  const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCartStore();
+  const { isAuthenticated, user } = useAuth();
+  const { items, removeItem, updateQuantity, getTotalPrice } = useCartStore();
+  const { createQuotation } = useQuotationStore();
+
+  const [isQuotationModalOpen, setIsQuotationModalOpen] = useState(false);
+  const [quotationLocation, setQuotationLocation] = useState('');
+  const [creatingQuotation, setCreatingQuotation] = useState(false);
+
+  const quotationItems = useMemo(() => {
+    return items.map((item) => ({
+      materialId: item.materialId,
+      name: item.name,
+      quantity: item.quantity,
+      unit: item.unit || ''
+    }));
+  }, [items]);
 
   const handleCheckout = () => {
     if (!isAuthenticated) {
@@ -25,6 +42,47 @@ const Cart = () => {
       return;
     }
     navigate('/checkout');
+  };
+
+  const openQuotationModal = () => {
+    if (!isAuthenticated) {
+      navigate('/login?redirect=/cart');
+      return;
+    }
+    if (items.length === 0) {
+      alert('Giỏ hàng của bạn đang trống');
+      return;
+    }
+    setIsQuotationModalOpen(true);
+  };
+
+  const handleCreateQuotation = async () => {
+    if (!quotationLocation.trim()) {
+      alert('Vui lòng nhập địa điểm công trình');
+      return;
+    }
+    if (!user?._id && !user?.id) {
+      alert('Không tìm thấy thông tin người dùng. Vui lòng đăng nhập lại.');
+      return;
+    }
+
+    setCreatingQuotation(true);
+    try {
+      await createQuotation({
+        customerId: user._id || user.id,
+        customerName: user.name || user.email,
+        location: quotationLocation.trim(),
+        items: quotationItems
+      });
+      alert('Đã gửi yêu cầu báo giá thành công!');
+      setIsQuotationModalOpen(false);
+      setQuotationLocation('');
+      navigate('/quotation');
+    } catch (err) {
+      alert(err?.message || 'Có lỗi xảy ra khi gửi yêu cầu báo giá');
+    } finally {
+      setCreatingQuotation(false);
+    }
   };
 
   if (items.length === 0) {
@@ -121,6 +179,9 @@ const Cart = () => {
               <Button variant="primary" size="large" fullWidth onClick={handleCheckout}>
                 Thanh toán
               </Button>
+              <Button variant="outline-brown" size="large" fullWidth onClick={openQuotationModal}>
+                Yêu cầu báo giá
+              </Button>
               <Link to="/materials">
                 <Button variant="primary" size="large" fullWidth>
                   Tiếp tục mua sắm
@@ -130,6 +191,45 @@ const Cart = () => {
           </div>
         </div>
       </div>
+
+      <Modal
+        isOpen={isQuotationModalOpen}
+        onClose={() => (creatingQuotation ? null : setIsQuotationModalOpen(false))}
+        title="Gửi yêu cầu báo giá"
+        size="medium"
+      >
+        <div style={{ display: 'grid', gap: 12 }}>
+          <p style={{ margin: 0, color: 'var(--color-text-secondary)' }}>
+            Hệ thống sẽ gửi danh sách vật liệu trong giỏ hàng cho nhân viên để báo giá.
+          </p>
+          <Input
+            label="Địa điểm công trình *"
+            value={quotationLocation}
+            onChange={(e) => setQuotationLocation(e.target.value)}
+            placeholder="Ví dụ: Quận 7, TP.HCM"
+            fullWidth
+          />
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, marginTop: 8 }}>
+            <Button
+              variant="outline-brown"
+              type="button"
+              onClick={() => setIsQuotationModalOpen(false)}
+              disabled={creatingQuotation}
+            >
+              Hủy
+            </Button>
+            <Button
+              variant="primary"
+              type="button"
+              onClick={handleCreateQuotation}
+              loading={creatingQuotation}
+            >
+              Gửi yêu cầu
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };

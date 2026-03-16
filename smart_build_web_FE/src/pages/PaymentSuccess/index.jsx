@@ -1,16 +1,13 @@
 // Payment Success Page
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
 import useCartStore from '../../store/cart.store';
 import Button from '../../components/common/Button';
-import { formatCurrency } from '../../utils/formatCurrency';
 import './PaymentSuccess.css';
 
 const PaymentSuccess = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { user } = useAuth();
   const clearCart = useCartStore((state) => state.clearCart);
   
   const [paymentStatus, setPaymentStatus] = useState(null);
@@ -20,7 +17,6 @@ const PaymentSuccess = () => {
   useEffect(() => {
     const success = searchParams.get('success');
     const orderIdParam = searchParams.get('orderId');
-    const code = searchParams.get('code');
     const messageParam = searchParams.get('message');
 
     if (orderIdParam) {

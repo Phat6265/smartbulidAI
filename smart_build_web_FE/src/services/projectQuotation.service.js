@@ -23,7 +23,6 @@ export const getProjectQuotation = async (projectData) => {
     
     // Calculate based on area and completion level
     const area = projectData.area || 80;
-    const multiplier = area / template.baseArea;
     const completionMultiplier = projectData.completionLevel === 'hoan-thien' ? 1.5 : 
                                  projectData.completionLevel === 'ban-hoan-thien' ? 1.2 : 1.0;
 

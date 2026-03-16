@@ -24,7 +24,7 @@ const AdminEditUserPage = lazy(() => import('../pages/Admin/AdminEditUser'));
 // ===== MODIFIED END (ADMIN USER CRUD FEATURE) =====
 const AdminOrders = lazy(() => import('../pages/Admin/OrdersAdmin'));
 const AdminQuotations = lazy(() => import('../pages/Admin/QuotationsAdmin'));
-const AdminSettings = lazy(() => import('../pages/Admin/Settings'));
+const AdminInventory = lazy(() => import('../pages/Admin/InventoryAdmin'));
 // ===== MODIFIED START (SYSTEM SETTINGS FEATURE) =====
 const AdminSystemSettingsPage = lazy(() => import('../pages/Admin/SystemSettings'));
 // ===== MODIFIED END (SYSTEM SETTINGS FEATURE) =====
@@ -53,6 +53,7 @@ const FAQ = lazy(() => import('../pages/FAQ'));
 const Privacy = lazy(() => import('../pages/Privacy'));
 const Terms = lazy(() => import('../pages/Terms'));
 const Shipping = lazy(() => import('../pages/Shipping'));
+const Staff = lazy(() => import('../pages/Staff'));
 
 // Loading component with motion
 const LoadingFallback = () => (
@@ -198,6 +199,7 @@ const AppRoutes = () => {
           <Route index element={<AdminDashboard />} />
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="materials" element={<AdminMaterials />} />
+          <Route path="inventory" element={<AdminInventory />} />
           <Route path="orders" element={<AdminOrders />} />
           <Route path="quotations" element={<AdminQuotations />} />
           <Route path="revenue-report" element={<AdminRevenueReport />} />
@@ -210,6 +212,21 @@ const AppRoutes = () => {
           {/* ===== MODIFIED START (SYSTEM SETTINGS FEATURE) ===== */}
           <Route path="settings" element={<AdminSystemSettingsPage />} />
           {/* ===== MODIFIED END (SYSTEM SETTINGS FEATURE) ===== */}
+        </Route>
+
+        {/* Staff Routes */}
+        <Route
+          path="/staff/*"
+          element={
+            <ProtectedRoute requireRoles={['staff', 'admin']} requireAuth>
+              <Staff />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="orders" element={<AdminOrders />} />
+          <Route path="quotations" element={<AdminQuotations />} />
+          <Route path="inventory" element={<AdminInventory />} />
+          <Route path="*" element={<Navigate to="/staff/orders" replace />} />
         </Route>
 
         {/* Default redirect */}

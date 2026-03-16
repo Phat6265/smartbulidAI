@@ -1,11 +1,14 @@
 // Project Quotation Page
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { PROJECT_TYPES, COMPLETION_LEVELS } from '../../utils/constants';
 import useProjectQuotationStore from '../../store/projectQuotation.store';
 import { formatCurrency } from '../../utils/formatCurrency';
 import Input from '../../components/common/Input';
 import Button from '../../components/common/Button';
 import Table from '../../components/common/Table';
+import Modal from '../../components/common/Modal';
+import { useAuth } from '../../hooks/useAuth';
+import useQuotationStore from '../../store/quotation.store';
 import nhaCap4Img from '../../assets/img/nha-cap-4.jpg';
 import nha1TangImg from '../../assets/img/nha-1-tang.jpg';
 import nha2TangImg from '../../assets/img/nha-2-tang.jpg';
@@ -21,6 +24,7 @@ const PROJECT_IMAGES = {
 };
 
 const ProjectQuotation = () => {
+  const { user, isAuthenticated } = useAuth();
   const [step, setStep] = useState(1);
   const [selectedProject, setSelectedProject] = useState('');
   const [projectData, setProjectData] = useState({
@@ -33,6 +37,16 @@ const ProjectQuotation = () => {
     completionLevel: 'tho'
   });
   const { projectQuotation, loading, error, getProjectQuotation } = useProjectQuotationStore();
+  const { createQuotation } = useQuotationStore();
+
+  const [isSendModalOpen, setIsSendModalOpen] = useState(false);
+  const [location, setLocation] = useState('');
+  const [sending, setSending] = useState(false);
+
+  const projectTypeName = useMemo(() => {
+    const p = PROJECT_TYPES.find((x) => x.id === selectedProject);
+    return p?.name || selectedProject;
+  }, [selectedProject]);
 
   // Get field labels based on selected project type
   const getFieldLabels = () => {
@@ -115,6 +129,63 @@ const ProjectQuotation = () => {
     } catch (err) {
       console.error('Error calculating project quotation:', err);
       alert(err?.message || 'Có lỗi xảy ra khi tính toán báo giá. Vui lòng kiểm tra backend MERN đang chạy.');
+    }
+  };
+
+  const openSendModal = () => {
+    if (!isAuthenticated) {
+      alert('Vui lòng đăng nhập để gửi yêu cầu báo giá');
+      return;
+    }
+    if (!projectQuotation?.materials?.length) {
+      alert('Chưa có dữ liệu báo giá để gửi');
+      return;
+    }
+    setIsSendModalOpen(true);
+  };
+
+  const handleSendRequest = async () => {
+    if (!location.trim()) {
+      alert('Vui lòng nhập địa điểm công trình');
+      return;
+    }
+    if (!user?._id && !user?.id) {
+      alert('Không tìm thấy thông tin người dùng. Vui lòng đăng nhập lại.');
+      return;
+    }
+    setSending(true);
+    try {
+      const items = (projectQuotation.materials || []).map((m) => ({
+        materialId: m.materialId || '',
+        name: m.name,
+        quantity: m.quantity,
+        unit: m.unit || ''
+      }));
+
+      await createQuotation({
+        customerId: user._id || user.id,
+        customerName: user.name || user.email,
+        location: location.trim(),
+        items,
+        totalPrice: projectQuotation.totalPrice,
+        source: 'project',
+        project: {
+          projectType: selectedProject,
+          projectTypeName,
+          input: {
+            ...projectData,
+            area: parseFloat(projectData.area)
+          }
+        }
+      });
+
+      alert('Đã gửi yêu cầu báo giá công trình thành công!');
+      setIsSendModalOpen(false);
+      setLocation('');
+    } catch (err) {
+      alert(err?.message || 'Có lỗi xảy ra khi gửi yêu cầu');
+    } finally {
+      setSending(false);
     }
   };
 
@@ -306,11 +377,46 @@ const ProjectQuotation = () => {
               <Button variant="outline-brown" onClick={() => setStep(1)}>
                 Tính lại
               </Button>
-              <Button variant="primary">Gửi yêu cầu báo giá</Button>
+              <Button variant="primary" onClick={openSendModal}>
+                Gửi yêu cầu báo giá
+              </Button>
             </div>
           </div>
         )}
       </div>
+
+      <Modal
+        isOpen={isSendModalOpen}
+        onClose={() => (sending ? null : setIsSendModalOpen(false))}
+        title="Gửi yêu cầu báo giá công trình"
+        size="medium"
+      >
+        <div style={{ display: 'grid', gap: 12 }}>
+          <p style={{ margin: 0, color: 'var(--color-text-secondary)' }}>
+            Yêu cầu sẽ được gửi kèm bảng vật liệu và tổng chi phí dự kiến.
+          </p>
+          <Input
+            label="Địa điểm công trình *"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            placeholder="Ví dụ: Thủ Đức, TP.HCM"
+            fullWidth
+          />
+          <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, marginTop: 8 }}>
+            <Button
+              variant="outline-brown"
+              type="button"
+              onClick={() => setIsSendModalOpen(false)}
+              disabled={sending}
+            >
+              Hủy
+            </Button>
+            <Button variant="primary" type="button" onClick={handleSendRequest} loading={sending}>
+              Gửi yêu cầu
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };

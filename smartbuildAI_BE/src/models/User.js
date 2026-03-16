@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true, index: true },
     passwordHash: { type: String, required: true },
-    role: { type: String, enum: ['customer', 'admin'], default: 'customer' },
+    role: { type: String, enum: ['customer', 'staff', 'admin'], default: 'customer' },
     // ===== MODIFIED START (OTP AUTH FEATURE) =====
     otpHash: { type: String, default: null },
     otpExpire: { type: Date, default: null },
