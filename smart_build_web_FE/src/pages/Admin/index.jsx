@@ -13,6 +13,7 @@ const Admin = () => {
               <ul>
                 <li><Link to="/admin/dashboard">Dashboard</Link></li>
                 <li><Link to="/admin/materials">Vật liệu</Link></li>
+                <li><Link to="/admin/inventory">Tồn kho</Link></li>
                 <li><Link to="/admin/orders">Đơn hàng</Link></li>
                 <li><Link to="/admin/quotations">Báo giá</Link></li>
                 <li><Link to="/admin/revenue-report">Báo cáo doanh thu</Link></li>

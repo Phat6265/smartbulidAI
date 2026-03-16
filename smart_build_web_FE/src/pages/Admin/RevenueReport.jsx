@@ -65,7 +65,7 @@ const RevenueReport = () => {
     filteredOrders.forEach(o => {
       (o.items || []).forEach(item => {
         const id = item.materialId || item.id || item._id;
-        const name = item.name || (materials.find(m => m.id == id)?.name) || `#${id}`;
+        const name = item.name || (materials.find(m => String(m.id || m._id) === String(id))?.name) || `#${id}`;
         const price = parseFloat(item.price || item.unitPrice || 0);
         const qty = parseFloat(item.quantity || 1);
         const amount = price * qty;

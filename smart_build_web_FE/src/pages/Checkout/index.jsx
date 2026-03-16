@@ -13,7 +13,7 @@ import './Checkout.css';
 const Checkout = () => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
-  const { items, getTotalPrice, clearCart } = useCartStore();
+  const { items, getTotalPrice } = useCartStore();
   const { createOrder, loading } = useOrderStore();
   
   const [formData, setFormData] = useState({
@@ -21,7 +21,7 @@ const Checkout = () => {
     phone: '',
     note: ''
   });
-  const [paymentStep, setPaymentStep] = useState('form'); // 'form', 'payment', 'success'
+  const [paymentStep] = useState('form'); // reserved for future payment UX
   const [orderId, setOrderId] = useState(null);
 
   useEffect(() => {

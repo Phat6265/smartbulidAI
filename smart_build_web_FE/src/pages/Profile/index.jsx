@@ -16,9 +16,11 @@ const Profile = () => {
   const navigate = useNavigate();
   const { confirm } = useNotification();
   const { user, isAuthenticated, logout } = useAuth();
-  const { orders, loading, fetchUserOrders } = useOrderStore();
+  const { orders, loading, fetchUserOrders, ordersPage, ordersLimit, ordersTotal, ordersTotalPages } = useOrderStore();
   const { profile, loading: profileLoading, fetchProfile, deleteAccount, updateAvatar, loading: userStoreLoading } = useUserStore();
   const [activeTab, setActiveTab] = useState('info');
+  const [statusFilter, setStatusFilter] = useState('all');
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -28,10 +30,11 @@ const Profile = () => {
     if (activeTab === 'info') {
       fetchProfile().catch(console.error);
     }
-    if (activeTab === 'orders' && user?._id) {
-      fetchUserOrders(user._id).catch(console.error);
+    if (activeTab === 'orders' && (user?._id || user?.id)) {
+      const userId = user._id || user.id;
+      fetchUserOrders(userId, currentPage, ordersLimit || 10, statusFilter).catch(console.error);
     }
-  }, [isAuthenticated, activeTab, user?._id, navigate, fetchProfile, fetchUserOrders]);
+  }, [isAuthenticated, activeTab, user?._id, user?.id, currentPage, statusFilter, ordersLimit, navigate, fetchProfile, fetchUserOrders]);
 
   const handleDeleteAccount = async () => {
     const ok = await confirm({
@@ -63,7 +66,7 @@ const Profile = () => {
 
   const handleStatusFilterChange = (status) => {
     setStatusFilter(status);
-    setCurrentPage(1); // Reset về trang 1 khi đổi filter
+    handlePageChange(1); // Reset về trang 1 khi đổi filter
   };
 
   if (!isAuthenticated) {
@@ -89,8 +92,8 @@ const Profile = () => {
             className={`profile-tab ${activeTab === 'orders' ? 'active' : ''}`}
             onClick={() => {
               setActiveTab('orders');
-              setCurrentPage(1);
               setStatusFilter('all'); // Reset filter khi chuyển tab
+              handlePageChange(1);
             }}
           >
             Đơn hàng của tôi
@@ -148,7 +151,8 @@ const Profile = () => {
                   </small>
                 </div>
               ) : (
-                <div className="orders-list">
+                <>
+                  <div className="orders-list">
                   {orders.map((order) => (
                     <div key={order._id || order.id} className="order-card">
                       <div className="order-header">
@@ -177,32 +181,23 @@ const Profile = () => {
                         </Button>
                         {order.status === 'delivered' && (
                           <Button
-                            className="order-detail-button"
-                            variant="outline"
+                            variant="primary"
                             size="small"
-                            onClick={() => navigate(`/orders/${order._id || order.id}`)}
+                            onClick={async () => {
+                              const { confirmDelivery } = useOrderStore.getState();
+                              await confirmDelivery(order._id || order.id);
+                              const userId = user._id || user.id;
+                              if (userId) {
+                                await fetchUserOrders(userId, currentPage, 10, statusFilter);
+                              }
+                            }}
                           >
-                            Xem chi tiết
+                            Xác nhận đã nhận hàng
                           </Button>
-                          {order.status === 'delivered' && (
-                            <Button
-                              variant="primary"
-                              size="small"
-                              onClick={async () => {
-                                const { confirmDelivery } = useOrderStore.getState();
-                                await confirmDelivery(order._id || order.id);
-                                const userId = user._id || user.id;
-                                if (userId) {
-                                  await fetchUserOrders(userId, currentPage, 10, statusFilter);
-                                }
-                              }}
-                            >
-                              Xác nhận đã nhận hàng
-                            </Button>
-                          )}
-                        </div>
+                        )}
                       </div>
-                    ))}
+                    </div>
+                  ))}
                   </div>
                   
                   {/* Pagination */}

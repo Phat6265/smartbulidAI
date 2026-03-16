@@ -17,6 +17,11 @@ const quotationSchema = new mongoose.Schema(
     items: { type: [quotationItemSchema], required: true },
     location: { type: String },
     totalPrice: { type: Number, required: true },
+    source: { type: String, enum: ['materials', 'project'], default: 'materials' },
+    project: {
+      type: mongoose.Schema.Types.Mixed,
+      default: null
+    },
     status: {
       type: String,
       enum: ['pending', 'approved', 'rejected', 'quoted', 'accepted'],

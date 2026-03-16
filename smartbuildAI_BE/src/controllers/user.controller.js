@@ -116,7 +116,9 @@ exports.updateUser = asyncHandler(async (req, res) => {
   const { name, role, phone, address, dateOfBirth } = req.body;
   const update = {};
   if (name !== undefined) update.name = String(name).trim() || '';
-  if (role !== undefined) update.role = role === 'admin' ? 'admin' : 'customer';
+  if (role !== undefined) {
+    update.role = role === 'admin' ? 'admin' : role === 'staff' ? 'staff' : 'customer';
+  }
   if (phone !== undefined) update.phone = String(phone).trim();
   if (address !== undefined) update.address = String(address).trim();
   if (dateOfBirth !== undefined) {
