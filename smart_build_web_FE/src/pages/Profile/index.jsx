@@ -16,11 +16,18 @@ const Profile = () => {
   const navigate = useNavigate();
   const { confirm } = useNotification();
   const { user, isAuthenticated, logout } = useAuth();
-  const { orders, loading, fetchUserOrders, ordersPage, ordersLimit, ordersTotal, ordersTotalPages } = useOrderStore();
+  const {
+    orders,
+    loading,
+    fetchUserOrders,
+    ordersPage,
+    ordersTotal,
+    ordersTotalPages
+  } = useOrderStore();
   const { profile, loading: profileLoading, fetchProfile, deleteAccount, updateAvatar, loading: userStoreLoading } = useUserStore();
   const [activeTab, setActiveTab] = useState('info');
-  const [statusFilter, setStatusFilter] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
+  const [statusFilter, setStatusFilter] = useState('all');
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -30,11 +37,10 @@ const Profile = () => {
     if (activeTab === 'info') {
       fetchProfile().catch(console.error);
     }
-    if (activeTab === 'orders' && (user?._id || user?.id)) {
-      const userId = user._id || user.id;
-      fetchUserOrders(userId, currentPage, ordersLimit || 10, statusFilter).catch(console.error);
+    if (activeTab === 'orders' && user?._id) {
+      fetchUserOrders(user._id, currentPage, 10, statusFilter).catch(console.error);
     }
-  }, [isAuthenticated, activeTab, user?._id, user?.id, currentPage, statusFilter, ordersLimit, navigate, fetchProfile, fetchUserOrders]);
+  }, [isAuthenticated, activeTab, user?._id, currentPage, statusFilter, navigate, fetchProfile, fetchUserOrders]);
 
   const handleDeleteAccount = async () => {
     const ok = await confirm({
@@ -151,8 +157,8 @@ const Profile = () => {
                   </small>
                 </div>
               ) : (
-                <>
-                  <div className="orders-list">
+                <React.Fragment>
+                <div className="orders-list">
                   {orders.map((order) => (
                     <div key={order._id || order.id} className="order-card">
                       <div className="order-header">
@@ -180,25 +186,35 @@ const Profile = () => {
                           Xem chi tiết
                         </Button>
                         {order.status === 'delivered' && (
-                          <Button
-                            variant="primary"
-                            size="small"
-                            onClick={async () => {
-                              const { confirmDelivery } = useOrderStore.getState();
-                              await confirmDelivery(order._id || order.id);
-                              const userId = user._id || user.id;
-                              if (userId) {
-                                await fetchUserOrders(userId, currentPage, 10, statusFilter);
-                              }
-                            }}
-                          >
-                            Xác nhận đã nhận hàng
-                          </Button>
+                          <React.Fragment>
+                            <Button
+                              className="order-detail-button"
+                              variant="outline"
+                              size="small"
+                              onClick={() => navigate(`/orders/${order._id || order.id}`)}
+                            >
+                              Xem chi tiết
+                            </Button>
+                            <Button
+                              variant="primary"
+                              size="small"
+                              onClick={async () => {
+                                const { confirmDelivery } = useOrderStore.getState();
+                                await confirmDelivery(order._id || order.id);
+                                const userId = user._id || user.id;
+                                if (userId) {
+                                  await fetchUserOrders(userId, currentPage, 10, statusFilter);
+                                }
+                              }}
+                            >
+                              Xác nhận đã nhận hàng
+                            </Button>
+                          </React.Fragment>
                         )}
                       </div>
                     </div>
                   ))}
-                  </div>
+                </div>
                   
                   {/* Pagination */}
                   {ordersTotalPages > 1 && (
@@ -250,7 +266,7 @@ const Profile = () => {
                       </div>
                     </div>
                   )}
-                </>
+                </React.Fragment>
               )}
             </div>
           )}
