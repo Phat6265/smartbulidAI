@@ -11,7 +11,9 @@ const useMaterialStore = create((set, get) => ({
     detail: '',
     minPrice: '',
     maxPrice: '',
-    search: ''
+    search: '',
+    sort: '',
+    brand: ''
   },
   loading: false,
   error: null,
@@ -26,7 +28,9 @@ const useMaterialStore = create((set, get) => ({
       detail: '',
       minPrice: '',
       maxPrice: '',
-      search: ''
+      search: '',
+      sort: '',
+      brand: ''
     }
   }),
 

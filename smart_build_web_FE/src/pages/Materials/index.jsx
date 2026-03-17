@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { useDebounce } from '../../hooks/useDebounce';
-import { useResponsive } from '../../hooks/useResponsive';
 import { useAuth } from '../../hooks/useAuth';
 import useMaterialStore from '../../store/material.store';
 import { MATERIAL_CATEGORIES, SUBCATEGORY_NAMES, MATERIAL_TYPE_BADGES } from '../../utils/constants';
@@ -30,26 +29,53 @@ const Materials = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
-  const { materials, filters, loading, error, fetchMaterials, setFilters } = useMaterialStore();
+  const { materials, filters, loading, error, fetchMaterials, setFilters, clearFilters } = useMaterialStore();
   const [searchTerm, setSearchTerm] = useState(filters.search || '');
   const debouncedSearch = useDebounce(searchTerm, 500);
-  const { isMobile, isTablet } = useResponsive();
+  const [minPrice, setMinPrice] = useState(filters.minPrice || '');
+  const [maxPrice, setMaxPrice] = useState(filters.maxPrice || '');
+  const [sort, setSort] = useState(filters.sort || '');
+  const [brand, setBrand] = useState(filters.brand || '');
+  const debouncedMinPrice = useDebounce(minPrice, 500);
+  const debouncedMaxPrice = useDebounce(maxPrice, 500);
   const [expandedCategories, setExpandedCategories] = useState({});
   const [expandedSubcategories, setExpandedSubcategories] = useState({});
+
+  const selectedCategory = MATERIAL_CATEGORIES.find(cat => cat.id === (filters.category || ''));
+  const brandSubcategory = selectedCategory?.subcategories?.find(sub => sub.id === 'thuong-hieu');
+  const brandOptions = (brandSubcategory?.details || []).map((detailId) => ({
+    id: detailId,
+    label: SUBCATEGORY_NAMES[detailId] || detailId
+  }));
+
+  useEffect(() => {
+    if (brand && brandOptions.length === 0) {
+      setBrand('');
+    }
+  }, [brand, brandOptions.length]);
 
   useEffect(() => {
     const category = searchParams.get('category') || '';
     const subcategory = searchParams.get('subcategory') || '';
     const detail = searchParams.get('detail') || '';
-    setFilters({ category, subcategory, detail, search: debouncedSearch });
-  }, [debouncedSearch, searchParams, setFilters]);
+    setFilters({
+      category,
+      subcategory,
+      detail,
+      search: debouncedSearch,
+      minPrice: debouncedMinPrice,
+      maxPrice: debouncedMaxPrice,
+      sort,
+      brand
+    });
+  }, [debouncedSearch, debouncedMinPrice, debouncedMaxPrice, sort, brand, searchParams, setFilters]);
 
   useEffect(() => {
     fetchMaterials().catch((error) => {
       console.error('Error fetching materials:', error);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters.category, filters.subcategory, filters.detail, filters.search]);
+  }, [filters.category, filters.subcategory, filters.detail, filters.search, filters.minPrice, filters.maxPrice, filters.sort]);
 
   // Scroll về đầu trang khi category/subcategory/detail thay đổi
   useEffect(() => {
@@ -72,6 +98,7 @@ const Materials = () => {
   const handleCategoryChange = (categoryId) => {
     setSearchParams({ category: categoryId, subcategory: '', detail: '' });
     setFilters({ category: categoryId, subcategory: '', detail: '' });
+    setBrand('');
     // Auto-expand when category is selected (only if not already expanded)
     if (categoryId && !expandedCategories[categoryId]) {
       setExpandedCategories(prev => ({ ...prev, [categoryId]: true }));
@@ -121,11 +148,19 @@ const Materials = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const selectedCategory = MATERIAL_CATEGORIES.find(cat => cat.id === filters.category);
-  const selectedSubcategory = selectedCategory?.subcategories?.find(sub => sub.id === filters.subcategory);
-
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
+  };
+
+  const handleClearAll = () => {
+    setSearchParams({ category: '', subcategory: '', detail: '' });
+    setSearchTerm('');
+    setMinPrice('');
+    setMaxPrice('');
+    setSort('');
+    setBrand('');
+    clearFilters();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -234,14 +269,70 @@ const Materials = () => {
 
           {/* Main Content */}
           <main className="materials-main">
-            <div className="materials-search">
-              <Input
-                type="text"
-                placeholder="Tìm kiếm vật liệu..."
-                value={searchTerm}
-                onChange={handleSearchChange}
-                fullWidth
-              />
+            <div className="materials-toolbar">
+              <div className="materials-toolbar-row materials-toolbar-row--top">
+                <div className="materials-search">
+                  <Input
+                    type="text"
+                    placeholder="Tìm theo tên, loại, thông số, đơn vị..."
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                    fullWidth
+                  />
+                </div>
+              </div>
+
+              <div className="materials-toolbar-row materials-toolbar-row--bottom">
+                <div className="materials-price-range">
+                  <Input
+                    type="number"
+                    placeholder="Giá từ"
+                    value={minPrice}
+                    onChange={(e) => setMinPrice(e.target.value)}
+                    min="0"
+                  />
+                  <Input
+                    type="number"
+                    placeholder="Giá đến"
+                    value={maxPrice}
+                    onChange={(e) => setMaxPrice(e.target.value)}
+                    min="0"
+                  />
+                </div>
+
+                <select
+                  className="materials-brand"
+                  value={brand}
+                  onChange={(e) => setBrand(e.target.value)}
+                  disabled={brandOptions.length === 0}
+                >
+                  <option value="">{brandOptions.length ? 'Thương hiệu' : 'Không có thương hiệu'}</option>
+                  {brandOptions.map((opt) => (
+                    <option key={opt.id} value={opt.label}>
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
+
+                <select
+                  className="materials-sort"
+                  value={sort}
+                  onChange={(e) => setSort(e.target.value)}
+                >
+                  <option value="">Sắp xếp</option>
+                  <option value="price_asc">Giá tăng dần</option>
+                  <option value="price_desc">Giá giảm dần</option>
+                  <option value="name_asc">Tên A → Z</option>
+                  <option value="name_desc">Tên Z → A</option>
+                </select>
+
+                <Button variant="outline-brown" size="small" onClick={handleClearAll}>
+                  Xóa lọc
+                </Button>
+              </div>
+              <div className="materials-toolbar-meta">
+                Hiển thị {materials.length} vật liệu
+              </div>
             </div>
 
             {loading ? (

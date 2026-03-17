@@ -8,6 +8,7 @@ const LazyImage = ({
   src,
   alt,
   className = '',
+  wrapperClassName = '',
   effect = 'blur',
   placeholder = null,
   ...props
@@ -17,6 +18,7 @@ const LazyImage = ({
       src={src}
       alt={alt}
       className={`lazy-image ${className}`}
+      wrapperClassName={`lazy-image-wrapper ${wrapperClassName}`.trim()}
       effect={effect}
       placeholder={placeholder}
       {...props}
