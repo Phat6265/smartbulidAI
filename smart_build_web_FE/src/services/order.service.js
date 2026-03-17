@@ -86,11 +86,12 @@ export const getOrderById = async (orderId) => {
  * @param {string} status - 'pending_payment', 'paid_deposit', 'shipped', 'delivered', 'completed', 'cancelled'
  * @returns {Promise}
  */
-export const updateOrderStatus = async (orderId, status) => {
+export const updateOrderStatus = async (orderId, status, extra = {}) => {
   try {
     const order = await getOrderById(orderId);
     return await apiClient.put(`/orders/${orderId}`, {
       ...order,
+      ...extra,
       status
     });
   } catch (error) {

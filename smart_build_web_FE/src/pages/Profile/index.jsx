@@ -16,9 +16,18 @@ const Profile = () => {
   const navigate = useNavigate();
   const { confirm } = useNotification();
   const { user, isAuthenticated, logout } = useAuth();
-  const { orders, loading, fetchUserOrders } = useOrderStore();
+  const {
+    orders,
+    loading,
+    fetchUserOrders,
+    ordersPage,
+    ordersTotal,
+    ordersTotalPages
+  } = useOrderStore();
   const { profile, loading: profileLoading, fetchProfile, deleteAccount, updateAvatar, loading: userStoreLoading } = useUserStore();
   const [activeTab, setActiveTab] = useState('info');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [statusFilter, setStatusFilter] = useState('all');
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -29,9 +38,9 @@ const Profile = () => {
       fetchProfile().catch(console.error);
     }
     if (activeTab === 'orders' && user?._id) {
-      fetchUserOrders(user._id).catch(console.error);
+      fetchUserOrders(user._id, currentPage, 10, statusFilter).catch(console.error);
     }
-  }, [isAuthenticated, activeTab, user?._id, navigate, fetchProfile, fetchUserOrders]);
+  }, [isAuthenticated, activeTab, user?._id, currentPage, statusFilter, navigate, fetchProfile, fetchUserOrders]);
 
   const handleDeleteAccount = async () => {
     const ok = await confirm({
@@ -148,6 +157,7 @@ const Profile = () => {
                   </small>
                 </div>
               ) : (
+                <React.Fragment>
                 <div className="orders-list">
                   {orders.map((order) => (
                     <div key={order._id || order.id} className="order-card">
@@ -176,15 +186,15 @@ const Profile = () => {
                           Xem chi tiết
                         </Button>
                         {order.status === 'delivered' && (
-                          <Button
-                            className="order-detail-button"
-                            variant="outline"
-                            size="small"
-                            onClick={() => navigate(`/orders/${order._id || order.id}`)}
-                          >
-                            Xem chi tiết
-                          </Button>
-                          {order.status === 'delivered' && (
+                          <React.Fragment>
+                            <Button
+                              className="order-detail-button"
+                              variant="outline"
+                              size="small"
+                              onClick={() => navigate(`/orders/${order._id || order.id}`)}
+                            >
+                              Xem chi tiết
+                            </Button>
                             <Button
                               variant="primary"
                               size="small"
@@ -199,11 +209,12 @@ const Profile = () => {
                             >
                               Xác nhận đã nhận hàng
                             </Button>
-                          )}
-                        </div>
+                          </React.Fragment>
+                        )}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
+                </div>
                   
                   {/* Pagination */}
                   {ordersTotalPages > 1 && (
@@ -255,7 +266,7 @@ const Profile = () => {
                       </div>
                     </div>
                   )}
-                </>
+                </React.Fragment>
               )}
             </div>
           )}
