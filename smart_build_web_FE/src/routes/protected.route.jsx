@@ -4,12 +4,20 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { ROUTES } from '../utils/constants';
 
-const ProtectedRoute = ({ children, requireAdmin = false, requireAuth = false }) => {
-  const { isAuthenticated, isAdmin } = useAuth();
+const ProtectedRoute = ({ children, requireAdmin = false, requireAuth = false, requireRoles = null }) => {
+  const { isAuthenticated, isAdmin, user } = useAuth();
 
   // If route requires authentication and user is not authenticated
   if (requireAuth && !isAuthenticated) {
     return <Navigate to={ROUTES.LOGIN} replace />;
+  }
+
+  // If route requires specific roles
+  if (Array.isArray(requireRoles) && requireRoles.length) {
+    const role = user?.role;
+    if (!role || !requireRoles.includes(role)) {
+      return <Navigate to={ROUTES.HOME} replace />;
+    }
   }
 
   // If route requires admin and user is not admin

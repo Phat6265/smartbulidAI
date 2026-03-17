@@ -72,7 +72,7 @@ const Profile = () => {
 
   const handleStatusFilterChange = (status) => {
     setStatusFilter(status);
-    setCurrentPage(1); // Reset về trang 1 khi đổi filter
+    handlePageChange(1); // Reset về trang 1 khi đổi filter
   };
 
   if (!isAuthenticated) {
@@ -98,8 +98,8 @@ const Profile = () => {
             className={`profile-tab ${activeTab === 'orders' ? 'active' : ''}`}
             onClick={() => {
               setActiveTab('orders');
-              setCurrentPage(1);
               setStatusFilter('all'); // Reset filter khi chuyển tab
+              handlePageChange(1);
             }}
           >
             Đơn hàng của tôi

@@ -10,7 +10,6 @@ import { objectsToCSV, downloadCSV } from '../../utils/csv';
 const Dashboard = () => {
   const [counts, setCounts] = useState({ materials: 0, orders: 0, users: 0, quotations: 0 });
   const [loading, setLoading] = useState(true);
-  const [revenue, setRevenue] = useState({ total: 0, byMonth: {} });
   const [orders, setOrders] = useState([]);
   const [fromDate, setFromDate] = useState('');
   const [toDate, setToDate] = useState('');
@@ -36,22 +35,8 @@ const Dashboard = () => {
           quotations: (quotationsRes.data || []).length
         });
 
-        // store orders and compute revenue summary from orders
+        // store orders for revenue report section
         setOrders(Array.isArray(ordersArray) ? ordersArray : []);
-        let total = 0;
-        const byMonth = {};
-        console.log('Dashboard: Processing orders:', ordersArray.length);
-        ordersArray.forEach(o => {
-          // Order model uses totalAmount field
-          const amount = parseFloat(o.totalAmount || o.total || o.totalPrice || 0) || 0;
-          console.log('Order:', o._id || o.id, 'totalAmount:', o.totalAmount, 'total:', o.total, 'totalPrice:', o.totalPrice, 'parsed:', amount);
-          total += amount;
-          const date = o.createdAt ? new Date(o.createdAt) : new Date();
-          const key = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}`;
-          byMonth[key] = (byMonth[key] || 0) + amount;
-        });
-        console.log('Dashboard: Total revenue:', total, 'By month:', byMonth);
-        setRevenue({ total, byMonth });
       } catch (err) {
         console.error('Failed to fetch dashboard counts', err);
       } finally {

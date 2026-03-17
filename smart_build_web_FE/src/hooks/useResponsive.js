@@ -1,5 +1,4 @@
 // useResponsive Hook - Responsive utilities
-import { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 /**

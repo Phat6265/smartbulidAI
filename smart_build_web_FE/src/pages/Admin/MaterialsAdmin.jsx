@@ -59,6 +59,7 @@ const MaterialsAdmin = () => {
 
   useEffect(() => {
     fetchMaterials();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const openCreate = () => {

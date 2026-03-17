@@ -9,7 +9,7 @@ import { AI_SERVICE_URL } from '../utils/constants';
  */
 export const recognizeMaterial = async (image) => {
   try {
-    const formData = new FormData();
+    let formData = new FormData();
     
     // If image is File, append it. If FormData, use it directly
     if (image instanceof File) {

@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { useDebounce } from '../../hooks/useDebounce';
-import { useResponsive } from '../../hooks/useResponsive';
 import { useAuth } from '../../hooks/useAuth';
 import useMaterialStore from '../../store/material.store';
 import { MATERIAL_CATEGORIES, SUBCATEGORY_NAMES, MATERIAL_TYPE_BADGES } from '../../utils/constants';
@@ -34,7 +33,6 @@ const Materials = () => {
   const { materials, filters, loading, error, fetchMaterials, setFilters } = useMaterialStore();
   const [searchTerm, setSearchTerm] = useState(filters.search || '');
   const debouncedSearch = useDebounce(searchTerm, 500);
-  const { isMobile, isTablet } = useResponsive();
   const [expandedCategories, setExpandedCategories] = useState({});
   const [expandedSubcategories, setExpandedSubcategories] = useState({});
 
@@ -121,9 +119,6 @@ const Materials = () => {
     // Scroll về đầu trang khi chọn detail
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  const selectedCategory = MATERIAL_CATEGORIES.find(cat => cat.id === filters.category);
-  const selectedSubcategory = selectedCategory?.subcategories?.find(sub => sub.id === filters.subcategory);
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
