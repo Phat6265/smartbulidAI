@@ -14,7 +14,8 @@ const materialSchema = new mongoose.Schema(
     description: { type: String },
     imagePath: { type: String },
     materialType: { type: String }, // for badges (PVC, PPR, ...)
-    status: { type: String, default: 'active' }
+    status: { type: String, default: 'active' },
+    stockQuantity: { type: Number, default: 0, min: 0 }
   },
   { timestamps: true }
 );

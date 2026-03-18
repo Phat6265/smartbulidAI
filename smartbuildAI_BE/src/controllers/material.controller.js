@@ -44,3 +44,21 @@ exports.deleteMaterial = asyncHandler(async (req, res) => {
   res.status(204).end();
 });
 
+// PUT /api/materials/:id/stock
+exports.updateStock = asyncHandler(async (req, res) => {
+  const raw = req.body?.stockQuantity;
+  const stockQuantity = Number(raw);
+  if (!Number.isFinite(stockQuantity) || stockQuantity < 0) {
+    return res.status(400).json({ message: 'stockQuantity không hợp lệ' });
+  }
+  const updated = await Material.findByIdAndUpdate(
+    req.params.id,
+    { stockQuantity },
+    { new: true }
+  ).lean();
+  if (!updated) {
+    return res.status(404).json({ message: 'Material not found' });
+  }
+  res.json(updated);
+});
+

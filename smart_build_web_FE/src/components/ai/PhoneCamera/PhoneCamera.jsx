@@ -1,6 +1,6 @@
 // Phone Camera Component - Locket-style UI
 import React, { useRef, useState, useEffect } from 'react';
-import { FiCamera, FiUpload, FiRotateCw, FiX, FiRefreshCw } from 'react-icons/fi';
+import { FiUpload, FiRotateCw, FiX, FiRefreshCw } from 'react-icons/fi';
 import { isValidImageFile } from '../../../utils/validators';
 import './PhoneCamera.css';
 
@@ -120,6 +120,7 @@ const PhoneCamera = ({ onImageSelect, onImageRemove, selectedImage, disabled = f
     return () => {
       stopCamera();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Restart camera when image is removed
@@ -129,6 +130,7 @@ const PhoneCamera = ({ onImageSelect, onImageRemove, selectedImage, disabled = f
     } else {
       stopCamera();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedImage, capturedImage, disabled]);
 
   const displayImage = capturedImage || (selectedImage instanceof File ? URL.createObjectURL(selectedImage) : selectedImage);

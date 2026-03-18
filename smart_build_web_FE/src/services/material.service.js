@@ -120,3 +120,17 @@ export const deleteMaterial = async (id) => {
   }
 };
 
+/**
+ * Update material stock quantity (Staff/Admin)
+ * @param {string} id - Material ID
+ * @param {number} stockQuantity
+ * @returns {Promise}
+ */
+export const updateMaterialStock = async (id, stockQuantity) => {
+  try {
+    return await apiClient.put(`/materials/${id}/stock`, { stockQuantity });
+  } catch (error) {
+    throw error;
+  }
+};
+
