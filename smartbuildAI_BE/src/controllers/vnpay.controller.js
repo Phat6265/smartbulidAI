@@ -149,7 +149,11 @@ exports.vnpayReturn = asyncHandler(async (req, res) => {
     if (order) {
       if (responseCode === '00') {
         // Payment successful
+        const deposit = order.depositAmount != null ? order.depositAmount : order.totalAmount * 0.5;
         order.status = 'paid_deposit';
+        order.depositAmount = deposit;
+        order.paidAmount = deposit;
+        order.remainingAmount = Math.max((order.totalAmount || 0) - deposit, 0);
         order.vnp_ResponseCode = responseCode;
         order.vnp_TransactionNo = transactionNo;
         order.paymentDate = new Date();

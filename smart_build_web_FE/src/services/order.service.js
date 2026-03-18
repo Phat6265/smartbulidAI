@@ -100,6 +100,19 @@ export const updateOrderStatus = async (orderId, status, extra = {}) => {
 };
 
 /**
+ * After deposit: check stock and move order to shipped/cancelled
+ * @param {string} orderId
+ * @returns {Promise}
+ */
+export const processAfterDeposit = async (orderId) => {
+  try {
+    return await apiClient.post(`/orders/${orderId}/process-after-deposit`);
+  } catch (error) {
+    throw error;
+  }
+};
+
+/**
  * Confirm delivery and pay remaining amount
  * @param {string} orderId
  * @returns {Promise}
