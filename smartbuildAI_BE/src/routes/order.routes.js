@@ -25,5 +25,13 @@ router.get('/:id', authMiddleware, orderController.getOrderById);
 // Cập nhật đơn hàng (bao gồm trạng thái giao hàng)
 router.put('/:id', authMiddleware, requireRoles(['staff', 'admin']), orderController.updateOrder);
 
+// Sau khi đặt cọc: kiểm tra hàng và tự chuyển trạng thái
+router.post(
+  '/:id/process-after-deposit',
+  authMiddleware,
+  requireRoles(['staff', 'admin']),
+  orderController.processAfterDeposit
+);
+
 module.exports = router;
 

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import apiClient from '../../services/apiClient';
-import { updateOrderStatus } from '../../services/order.service';
+import { updateOrderStatus, processAfterDeposit } from '../../services/order.service';
 import Button from '../../components/common/Button';
 import './Admin.css';
 import { objectsToCSV, downloadCSV } from '../../utils/csv';
 import { useNotification } from '../../components/common/NotificationCenter';
-import { FiEye, FiCheckCircle, FiTruck, FiXCircle } from 'react-icons/fi';
+import { FiEye, FiCheckCircle, FiTruck, FiXCircle, FiRefreshCcw, FiCornerUpLeft, FiCheck } from 'react-icons/fi';
 
 const statusLabel = (status) => {
   switch (status) {
@@ -17,10 +17,14 @@ const statusLabel = (status) => {
       return 'Đang giao hàng';
     case 'delivered':
       return 'Đã giao hàng';
+    case 'returned':
+      return 'Hoàn cọc';
     case 'completed':
       return 'Hoàn thành';
     case 'cancelled':
       return 'Đã hủy';
+    case 'refunded':
+      return 'Đã hoàn tiền';
     default:
       return status || '-';
   }
@@ -277,10 +281,15 @@ const OrdersAdmin = () => {
                 selectedOrder.totalPrice ||
                 0;
               const deposit = selectedOrder.depositAmount || 0;
-              const remaining =
+              const remainingBase =
                 selectedOrder.remainingAmount != null
                   ? selectedOrder.remainingAmount
                   : Math.max(total - deposit, 0);
+              const isRefunded = selectedOrder.status === 'refunded';
+              const isCompleted = selectedOrder.status === 'completed';
+              const refundAmount = selectedOrder.refundAmount || 0;
+              const remaining = (isRefunded || isCompleted) ? 0 : remainingBase;
+              const netRevenue = Math.max(deposit - refundAmount, 0);
               return (
                 <>
                   <div className="order-payment-summary">
@@ -294,6 +303,18 @@ const OrdersAdmin = () => {
                           <th style={{ textAlign: 'left' }}>Đã đặt cọc</th>
                           <td>{deposit.toLocaleString()} đ</td>
                         </tr>
+                        {isRefunded && (
+                          <>
+                            <tr>
+                              <th style={{ textAlign: 'left' }}>Đã hoàn tiền</th>
+                              <td>{refundAmount.toLocaleString()} đ</td>
+                            </tr>
+                            <tr>
+                              <th style={{ textAlign: 'left' }}>Thực thu</th>
+                              <td>{netRevenue.toLocaleString()} đ</td>
+                            </tr>
+                          </>
+                        )}
                         <tr>
                           <th style={{ textAlign: 'left' }}>Còn lại phải thanh toán</th>
                           <td>{remaining.toLocaleString()} đ</td>
@@ -307,32 +328,131 @@ const OrdersAdmin = () => {
 
             {/* overlay nhập tiền đặt cọc được render riêng phía dưới */}
 
-            <div style={{ display: 'flex', gap: 8, justifyContent: 'space-between', marginTop: 16 }}>
-              <div style={{ display: 'flex', gap: 8 }}>
-                <Button
-                  variant="outline-brown"
-                  onClick={() => {
-                    const total =
-                      selectedOrder.totalAmount ||
-                      selectedOrder.total ||
-                      selectedOrder.totalPrice ||
-                      0;
-                    const currentDeposit = selectedOrder.depositAmount || 0;
-                    const defaultDeposit = currentDeposit || Math.round(total / 2);
-                    setDepositInput(defaultDeposit.toString());
-                    setShowDepositPanel(true);
-                  }}
-                >
-                  <FiCheckCircle style={{ marginRight: 4 }} /> Đã đặt cọc
-                </Button>
-                <Button variant="outline-brown" onClick={() => changeStatus(selectedOrder._id || selectedOrder.id, 'delivered')}>
-                  <FiTruck style={{ marginRight: 4 }} /> Đã giao
-                </Button>
-                <Button variant="outline-danger" onClick={() => changeStatus(selectedOrder._id || selectedOrder.id, 'cancelled')}>
-                  <FiXCircle style={{ marginRight: 4 }} /> Hủy
-                </Button>
-              </div>
-              <Button variant="outline-brown" type="button" onClick={() => setSelectedOrder(null)}>Đóng</Button>
+            <div style={{ display: 'flex', gap: 8, justifyContent: 'space-between', marginTop: 16, alignItems: 'center' }}>
+              {(() => {
+                const s = selectedOrder.status;
+
+                // Chỉ hiển thị đúng nút theo trạng thái (giống sàn TMĐT), tránh hiện nút thừa rồi bị mờ/che chữ
+                const actions = [];
+
+                if (s === 'pending_payment') {
+                  actions.push('deposit', 'cancel');
+                } else if (s === 'paid_deposit') {
+                  actions.push('cancel'); // chờ xử lý kho để chuyển shipped/cancelled
+                } else if (s === 'shipped') {
+                  actions.push('delivered', 'returned');
+                } else if (s === 'delivered') {
+                  actions.push('completed', 'returned');
+                } else if (s === 'returned') {
+                  actions.push('refunded');
+                }
+
+                return (
+                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', minWidth: 0 }}>
+                    {actions.includes('deposit') && (
+                      <Button
+                        variant="outline-brown"
+                        onClick={() => {
+                          const total =
+                            selectedOrder.totalAmount ||
+                            selectedOrder.total ||
+                            selectedOrder.totalPrice ||
+                            0;
+                          const currentDeposit = selectedOrder.depositAmount || 0;
+                          const defaultDeposit = currentDeposit || Math.round(total / 2);
+                          setDepositInput(defaultDeposit.toString());
+                          setShowDepositPanel(true);
+                        }}
+                      >
+                        <FiCheckCircle style={{ marginRight: 4 }} /> Đã đặt cọc
+                      </Button>
+                    )}
+
+                    {actions.includes('delivered') && (
+                      <Button
+                        variant="outline-brown"
+                        onClick={() => changeStatus(selectedOrder._id || selectedOrder.id, 'delivered')}
+                      >
+                        <FiTruck style={{ marginRight: 4 }} /> Đã giao
+                      </Button>
+                    )}
+
+                    {actions.includes('completed') && (
+                      <Button
+                        variant="outline-brown"
+                        onClick={async () => {
+                          const total = selectedOrder.totalAmount || 0;
+                          const remaining =
+                            selectedOrder.remainingAmount != null
+                              ? selectedOrder.remainingAmount
+                              : Math.max(total - (selectedOrder.paidAmount || 0), 0);
+                          const ok = await confirm({
+                            title: 'Xác nhận hoàn thành đơn hàng',
+                            message: `Xác nhận đã thu đủ số tiền còn lại ${remaining.toLocaleString()} đ để hoàn thành đơn?`
+                          });
+                          if (!ok) return;
+                          await changeStatus(
+                            selectedOrder._id || selectedOrder.id,
+                            'completed',
+                            { paidAmount: total, remainingAmount: 0 }
+                          );
+                        }}
+                      >
+                        <FiCheck style={{ marginRight: 4 }} /> Hoàn thành
+                      </Button>
+                    )}
+
+                    {actions.includes('returned') && (
+                      <Button
+                        variant="outline-brown"
+                        onClick={() => changeStatus(selectedOrder._id || selectedOrder.id, 'returned')}
+                      >
+                        <FiCornerUpLeft style={{ marginRight: 4 }} /> Hoàn cọc
+                      </Button>
+                    )}
+
+                    {actions.includes('refunded') && (
+                      <Button
+                        variant="outline-brown"
+                        onClick={async () => {
+                          const total = selectedOrder.totalAmount || 0;
+                          const defaultRefund = selectedOrder.depositAmount || 0;
+                          const input = window.prompt(
+                            `Nhập số tiền hoàn (tổng đơn ${total.toLocaleString()} đ):`,
+                            String(defaultRefund)
+                          );
+                          if (input == null) return;
+                          const refundAmount = Number(String(input).replace(/[^0-9.-]/g, ''));
+                          if (Number.isNaN(refundAmount) || refundAmount < 0 || refundAmount > total) {
+                            notifyError('Số tiền hoàn không hợp lệ');
+                            return;
+                          }
+                          await changeStatus(
+                            selectedOrder._id || selectedOrder.id,
+                            'refunded',
+                            { refundAmount, refundReason: 'Khách không nhận hàng' }
+                          );
+                        }}
+                      >
+                        <FiRefreshCcw style={{ marginRight: 4 }} /> Hoàn tiền
+                      </Button>
+                    )}
+
+                    {actions.includes('cancel') && (
+                      <Button
+                        variant="outline-danger"
+                        onClick={() => changeStatus(selectedOrder._id || selectedOrder.id, 'cancelled')}
+                      >
+                        <FiXCircle style={{ marginRight: 4 }} /> Hủy
+                      </Button>
+                    )}
+                  </div>
+                );
+              })()}
+
+              <Button variant="outline-brown" type="button" onClick={() => setSelectedOrder(null)}>
+                Đóng
+              </Button>
             </div>
           </div>
 
@@ -386,9 +506,31 @@ const OrdersAdmin = () => {
                         const remainingAmount = totalOrder - value;
                         await changeStatus(
                           selectedOrder._id || selectedOrder.id,
-                          'shipped',
-                          { depositAmount: value, remainingAmount }
+                          'paid_deposit',
+                          { depositAmount: value, paidAmount: value, remainingAmount }
                         );
+                        // Sau khi đặt cọc: kiểm tra hàng để chuyển shipped/cancelled
+                        try {
+                          const processed = await processAfterDeposit(selectedOrder._id || selectedOrder.id);
+                          // Cập nhật UI ngay lập tức theo trạng thái mới
+                          if (processed?.status) {
+                            setOrders((prev) =>
+                              prev.map((o) =>
+                                (o._id || o.id) === (selectedOrder._id || selectedOrder.id)
+                                  ? { ...o, status: processed.status }
+                                  : o
+                              )
+                            );
+                            setSelectedOrder((prev) =>
+                              prev && (prev._id || prev.id) === (selectedOrder._id || selectedOrder.id)
+                                ? { ...prev, status: processed.status }
+                                : prev
+                            );
+                          }
+                        } catch (err) {
+                          // Nếu lỗi kiểm tra hàng thì giữ nguyên trạng thái đã đặt cọc
+                          console.error(err);
+                        }
                         setShowDepositPanel(false);
                       }}
                     >
